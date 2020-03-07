@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  
+  <title>jquery-随笔 [ Rabbit ]</title>
+  
+    <!-- stylesheets list from config.yml -->
+    
+      <link rel="stylesheet" href="/css/iLiKE.css">
+    
+  
+  
+  
+  <script src="//cdn1.lncld.net/static/js/3.1.1/av-min.js"></script>
+    <script id="leancloud">
+      AV.init({
+          appId: "6E5zTbTljdUbVW2WkXPsXGJk-gzGzoHsz",
+          appKey: "0vsyDKfNpeSECAI70J794ugv"
+      });
+    </script>
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+<body>
+    <div class="header">
+        <div class="container">
+    <div class="menu">
+      <div class="menu-left">
+        <a href="/">
+          <img src="/favicon.ico"></img>
+        </a>
+      </div>
+      <div class="menu-right">
+        
+          
+          
+          
+          
+          
+          
+          <a href="/">Home</a>
+        
+          
+          
+          
+          
+          
+          
+          <a href="/archives">Archives</a>
+        
+          
+          
+          
+          
+          
+          
+          <a href="/about">About</a>
+        
+      </div>
+    </div>
+</div>
+    </div>
+    <div class="container">
+        <h1 class="post-title">jquery-随笔</h1>
+<article class="post markdown-style">
+  <p>#jquery-笔记（仅作者观看）</p>
+<h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><h3 id="写法"><a href="#写法" class="headerlink" title="写法"></a>写法</h3><ul>
+<li><code>$(this).hide()</code>-隐藏当前元素</li>
+<li><code>$(&quot;p&quot;).hide()</code>-隐藏所有的<code>&lt;p&gt;</code>元素</li>
+</ul>
+<h3 id="文档就绪事件"><a href="#文档就绪事件" class="headerlink" title="文档就绪事件"></a>文档就绪事件</h3><ul>
+<li>为防止文档在完全加载之前运行jquery代码，把jquery函数放在下面函数中<code>$(function(){})</code><br>(失败例子：试图加载一个不存在的元素；获得未完全加载的图像的大小)</li>
+</ul>
+<h2 id="选择器"><a href="#选择器" class="headerlink" title="选择器"></a>选择器</h2><h5 id="选择器的用途：允许对html元素组或单个元素进行操作。"><a href="#选择器的用途：允许对html元素组或单个元素进行操作。" class="headerlink" title="选择器的用途：允许对html元素组或单个元素进行操作。"></a>选择器的用途：允许对html元素组或单个元素进行操作。</h5><h3 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h3><ul>
+<li><code>$(&quot;p&quot;)</code></li>
+<li><code>$(&quot;#id&quot;)</code></li>
+<li><code>$(&quot;.class&quot;)</code></li>
+<li><code>$(&quot;*&quot;)</code>-获取所有的元素</li>
+<li><code>$(this)</code>-获取当前元素</li>
+<li><code>$(&quot;[href]&quot;)</code>-获取带有href属性的元素</li>
+<li><code>$(&quot;a[href=&#39;_blank&#39;]&quot;)</code>-获取所有target属性值等于“_blank”的<code>&lt;a&gt;</code>元素</li>
+<li><code>$(:button)</code>-获取所有<code>type=&quot;button&quot;</code>的<code>&lt;input&gt;</code>元素和<code>&lt;button&gt;</code>元素</li>
+<li><code>$(&quot;tr:odd&quot;)</code>-选取奇数位置的<code>&lt;tr&gt;</code>元素</li>
+</ul>
+<h2 id="事件"><a href="#事件" class="headerlink" title="事件"></a>事件</h2><p> 什么叫事件？页面对不同访问者的响应叫做事件；</p>
+<h4 id="鼠标事件"><a href="#鼠标事件" class="headerlink" title="鼠标事件"></a>鼠标事件</h4><ul>
+<li><code>click()</code>–<code>$(&quot;p&quot;).click(function(){......})</code>–</li>
+<li><code>dbclick()</code></li>
+<li><code>mouseenter()</code>–当鼠标指针进入 <p> 元素时，设置背景色为黄色<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(&quot;p&quot;).mouseenter(function()&#123;</span><br><span class="line">	$(&quot;p&quot;).css(&quot;background-color&quot;,&quot;yellow&quot;);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></li>
+<li><code>mouseleave()</code></li>
+<li><code>mousedown()</code></li>
+<li><code>mouseup()</code></li>
+</ul>
+<h4 id="键盘事件"><a href="#键盘事件" class="headerlink" title="键盘事件"></a>键盘事件</h4><ul>
+<li><code>keydown()</code>– 键按下的过程</li>
+<li><code>keypress()</code>– 键被按下</li>
+<li><code>keyup()</code>– 键被松开</li>
+</ul>
+<h4 id="表单事件"><a href="#表单事件" class="headerlink" title="表单事件"></a>表单事件</h4><ul>
+<li><p><code>submit()</code>– 提交表单(该事件只适用于 <code>&lt;form&gt;</code> 元素)</p>
+</li>
+<li><p><code>change()</code>– 表单改变时</p>
+</li>
+<li><p><code>focus()</code>– 获得焦点时</p>
+</li>
+<li><p><code>blur()</code>–失去焦点时</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">$(&quot;input&quot;).change(function()&#123;</span><br><span class="line">    alert(&quot;文本已被修改&quot;);</span><br><span class="line">&#125;);</span><br><span class="line">$(&quot;input&quot;).change(function()&#123;</span><br><span class="line">    alert(&quot;文本已被修改&quot;);</span><br><span class="line">&#125;);</span><br><span class="line">$(&quot;input&quot;).focus(function()&#123;</span><br><span class="line">    $(&quot;span&quot;).css(&quot;display&quot;,&quot;inline&quot;).fadeOut(2000);</span><br><span class="line">&#125;);</span><br><span class="line">$(&quot;input&quot;).blur(function()&#123;</span><br><span class="line">    alert(&quot;输入框失去了焦点&quot;);</span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure>
+<h4 id="文档-窗口事件"><a href="#文档-窗口事件" class="headerlink" title="文档/窗口事件"></a>文档/窗口事件</h4></li>
+<li><p><code>load()</code></p>
+</li>
+<li><p><code>scroll</code></p>
+</li>
+</ul>
+
+</article>
+
+    <div class="pagenator post-pagenator">
+    
+    
+        <a class="extend prev post-prev" href="/2018/05/10/%E8%B6%85%E7%82%AB%E7%9A%84%E6%8C%89%E9%92%AE/">prev</a>
+    
+
+    
+    <p>last update time 2018-05-10</p>
+    
+    
+        <a class="extend next post-next" href="/2018/05/09/oracle-%E5%AF%BC%E5%85%A5/">next</a>
+    
+    </div>
+
+    </div>
+    <div class="footer">
+        <div class="container">
+    <div class="social">
+	<ul class="social-list">
+		
+			
+				
+				
+				<li>
+					<a href="mailto:1178752402@qq.com" title="email" target="_blank">
+					<i class="fa fa-email"></i>
+					</a>
+				</li>
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+				
+				<li>
+					<a href="https://github.com/CaiChenghan" title="github" target="_self">
+					<i class="fa fa-github"></i>
+					</a>
+				</li>
+			
+		
+			
+		
+			
+		
+			
+		
+			
+				
+				<li>
+					<a href="https://www.jianshu.com/u/565c8e790605" title="jianshu" target="_self">
+					<i class="fa fa-jianshu"></i>
+					</a>
+				</li>
+			
+		
+			
+		
+			
+		
+			
+		
+	</ul>
+</div>
+    <div class="copyright">
+        <span>
+            
+            
+            
+                © Rabbit 2017 - 2020
+            
+        </span>
+    </div>
+    <div class="power">
+        <span>
+            Powered by <a href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> & <a href="https://github.com/CaiChenghan/iLiKE" target="_blank" rel="noopener">iLiKE Theme</a>
+        </span>
+    </div>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+    <!--page counter part-->
+<script>
+function addCount (Counter) {
+    url=$('.article-date').attr('href').trim();
+    title = $('.article-title').text().trim();
+    var query = new AV.Query(Counter);
+    //use url as unique idnetfication
+    query.equalTo("url",url);
+    query.find({
+        success: function(results) {
+            if (results.length>0) {
+                var counter=results[0];
+                counter.fetchWhenSave(true); //get recent result
+                counter.increment("time");
+                counter.save();
+            } else {
+                var newcounter=new Counter();
+                newcounter.set("title",title);
+                newcounter.set("url",url);
+                newcounter.set("time",1);
+                newcounter.save(null,{
+                    success: function(newcounter) {
+                        //alert('New object created');
+                    }, error: function(newcounter,error) {
+                        alert('Failed to create');
+                    }
+                })
+            }
+        },
+        error: function(error) {
+            //find null is not a error
+            alert('Error:'+error.code+" "+error.message);
+        }
+    });
+}
+$(function() {
+    var Counter=AV.Object.extend("Counter");
+    //only increse visit counting when intering a page
+    if ($('.article-title').length == 1) {
+       addCount(Counter);
+    }
+    var query=new AV.Query(Counter);
+    query.descending("time");
+    // the sum of popular posts
+    query.limit(10); 
+    query.find({
+        success: function(results) {
+                for(var i=0;i<results.length;i++) {
+                    var counter=results[i];
+                    title=counter.get("title");
+                    url=counter.get("url");
+                    time=counter.get("time");
+                    // add to the popularlist widget
+                    showcontent=title+" ("+time+")";
+                    //notice the "" in href
+                    $('.popularlist').append('<li><a href="'+url+'">'+showcontent+'</a></li>');
+                }
+            },
+        error: function(error) {
+            alert("Error:"+error.code+" "+error.message);
+        }
+    });
+});
+</script>
+</div>
+    </div>
+</body>
+</html>

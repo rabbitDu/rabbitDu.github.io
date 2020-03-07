@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  
+  <title>Echarts toolbox dataView [ Rabbit ]</title>
+  
+    <!-- stylesheets list from config.yml -->
+    
+      <link rel="stylesheet" href="/css/iLiKE.css">
+    
+  
+  
+  
+  <script src="//cdn1.lncld.net/static/js/3.1.1/av-min.js"></script>
+    <script id="leancloud">
+      AV.init({
+          appId: "6E5zTbTljdUbVW2WkXPsXGJk-gzGzoHsz",
+          appKey: "0vsyDKfNpeSECAI70J794ugv"
+      });
+    </script>
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+<body>
+    <div class="header">
+        <div class="container">
+    <div class="menu">
+      <div class="menu-left">
+        <a href="/">
+          <img src="/favicon.ico"></img>
+        </a>
+      </div>
+      <div class="menu-right">
+        
+          
+          
+          
+          
+          
+          
+          <a href="/">Home</a>
+        
+          
+          
+          
+          
+          
+          
+          <a href="/archives">Archives</a>
+        
+          
+          
+          
+          
+          
+          
+          <a href="/about">About</a>
+        
+      </div>
+    </div>
+</div>
+    </div>
+    <div class="container">
+        <h1 class="post-title">Echarts toolbox dataView</h1>
+<article class="post markdown-style">
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"> toolbox: &#123;</span><br><span class="line">   feature: &#123;</span><br><span class="line">          dataView: &#123;</span><br><span class="line">            show: true,</span><br><span class="line">            title: &#39;数据视图&#39;,</span><br><span class="line">            &#x2F;&#x2F;readOnly: true, &#x2F;&#x2F;设置只读，会隐藏刷新按钮。</span><br><span class="line">            lang: [&#39;数据视图&#39;, &#39;关闭&#39;, &#39;导出Excel&#39;],</span><br><span class="line">            contentToOption: function (opts) &#123;</span><br><span class="line">              debugger</span><br><span class="line">              $(&quot;#tableExcel_Day&quot;).table2excel(&#123;</span><br><span class="line">                exclude: &quot;.noExl&quot;, &#x2F;&#x2F;过滤位置的 css 类名</span><br><span class="line">                filename: &#39;每日价格走势图&#39; + &quot;.xls&quot;, &#x2F;&#x2F;文件名称</span><br><span class="line">                name: &quot;Excel Document Name.xls&quot;,</span><br><span class="line">                exclude_img: true,</span><br><span class="line">                exclude_links: true,</span><br><span class="line">                exclude_inputs: true</span><br><span class="line">              &#125;);</span><br><span class="line"></span><br><span class="line">            &#125;,</span><br><span class="line">            optionToContent: function (opt) &#123;</span><br><span class="line">              debugger</span><br><span class="line">              &#x2F;&#x2F; console.log(opt);</span><br><span class="line">              var axisData &#x3D; opt.xAxis[0].data; &#x2F;&#x2F;坐标数据</span><br><span class="line">              var series &#x3D; opt.series; &#x2F;&#x2F;折线图数据</span><br><span class="line">              var tdHeads &#x3D; &#39;&lt;td  style&#x3D;&quot;padding: 0 10px&quot;&gt;时间&lt;&#x2F;td&gt;&#39;; &#x2F;&#x2F;表头第一列</span><br><span class="line">              var tdBodys &#x3D; &#39;&#39;; &#x2F;&#x2F;表数据</span><br><span class="line">              &#x2F;&#x2F;组装表头</span><br><span class="line">              var nameData &#x3D; new Array(&#39;田头价格&#39;, &#39;批发价格&#39;, &#39;零售价格&#39;, &#39;交易量&#39;);</span><br><span class="line">              for (var i &#x3D; 0; i &lt; nameData.length; i++) &#123;</span><br><span class="line">                tdHeads +&#x3D; &#39;&lt;td style&#x3D;&quot;padding: 0 10px&quot;&gt;&#39; + nameData[i] + &#39;&lt;&#x2F;td&gt;&#39;;</span><br><span class="line">              &#125;</span><br><span class="line">              var table &#x3D; &#39;&lt;table id&#x3D;&quot;tableExcel_Day&quot; border&#x3D;&quot;1&quot; class&#x3D;&quot;table-bordered table-striped&quot; style&#x3D;&quot;width:100%;text-align:center&quot; &gt;&lt;tbody&gt;&lt;tr&gt;&#39; + tdHeads + &#39; &lt;&#x2F;tr&gt;&#39;;</span><br><span class="line">              &#x2F;&#x2F;组装表数据</span><br><span class="line">              for (var i &#x3D; 0, l &#x3D; axisData.length; i &lt; l; i++) &#123;</span><br><span class="line">                for (var j &#x3D; 0; j &lt; series.length ; j++) &#123;</span><br><span class="line">                  var temp &#x3D; series[j].data[i];</span><br><span class="line">                  if (temp !&#x3D; null &amp;&amp; temp !&#x3D; undefined) &#123;</span><br><span class="line">                    tdBodys +&#x3D; &#39;&lt;td&gt;&#39; + temp + &#39;&lt;&#x2F;td&gt;&#39;;</span><br><span class="line">                  &#125; else &#123;</span><br><span class="line">                    tdBodys +&#x3D; &#39;&lt;td&gt;&lt;&#x2F;td&gt;&#39;;</span><br><span class="line">                  &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                table +&#x3D; &#39;&lt;tr&gt;&lt;td style&#x3D;&quot;padding: 0 10px&quot;&gt;&#39; + axisData[i] + &#39;&lt;&#x2F;td&gt;&#39; + tdBodys + &#39;&lt;&#x2F;tr&gt;&#39;;</span><br><span class="line">                tdBodys &#x3D; &#39;&#39;;</span><br><span class="line">              &#125;</span><br><span class="line">              table +&#x3D; &#39;&lt;&#x2F;tbody&gt;&lt;&#x2F;table&gt;&#39;;</span><br><span class="line">              &#x2F;&#x2F; console.log(table);</span><br><span class="line">              return table;</span><br><span class="line">            &#125;</span><br><span class="line">          &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</article>
+
+    <div class="pagenator post-pagenator">
+    
+    
+        <a class="extend prev post-prev" href="/2019/08/27/echarts-%E5%AF%BC%E5%87%BA-excel/">prev</a>
+    
+
+    
+    <p>last update time 2019-08-27</p>
+    
+    
+        <a class="extend next post-next" href="/2019/07/25/extjs-%E5%85%A5%E9%97%A8/">next</a>
+    
+    </div>
+
+    </div>
+    <div class="footer">
+        <div class="container">
+    <div class="social">
+	<ul class="social-list">
+		
+			
+				
+				
+				<li>
+					<a href="mailto:1178752402@qq.com" title="email" target="_blank">
+					<i class="fa fa-email"></i>
+					</a>
+				</li>
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+				
+				<li>
+					<a href="https://github.com/CaiChenghan" title="github" target="_self">
+					<i class="fa fa-github"></i>
+					</a>
+				</li>
+			
+		
+			
+		
+			
+		
+			
+		
+			
+				
+				<li>
+					<a href="https://www.jianshu.com/u/565c8e790605" title="jianshu" target="_self">
+					<i class="fa fa-jianshu"></i>
+					</a>
+				</li>
+			
+		
+			
+		
+			
+		
+			
+		
+	</ul>
+</div>
+    <div class="copyright">
+        <span>
+            
+            
+            
+                © Rabbit 2017 - 2020
+            
+        </span>
+    </div>
+    <div class="power">
+        <span>
+            Powered by <a href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> & <a href="https://github.com/CaiChenghan/iLiKE" target="_blank" rel="noopener">iLiKE Theme</a>
+        </span>
+    </div>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+    <!--page counter part-->
+<script>
+function addCount (Counter) {
+    url=$('.article-date').attr('href').trim();
+    title = $('.article-title').text().trim();
+    var query = new AV.Query(Counter);
+    //use url as unique idnetfication
+    query.equalTo("url",url);
+    query.find({
+        success: function(results) {
+            if (results.length>0) {
+                var counter=results[0];
+                counter.fetchWhenSave(true); //get recent result
+                counter.increment("time");
+                counter.save();
+            } else {
+                var newcounter=new Counter();
+                newcounter.set("title",title);
+                newcounter.set("url",url);
+                newcounter.set("time",1);
+                newcounter.save(null,{
+                    success: function(newcounter) {
+                        //alert('New object created');
+                    }, error: function(newcounter,error) {
+                        alert('Failed to create');
+                    }
+                })
+            }
+        },
+        error: function(error) {
+            //find null is not a error
+            alert('Error:'+error.code+" "+error.message);
+        }
+    });
+}
+$(function() {
+    var Counter=AV.Object.extend("Counter");
+    //only increse visit counting when intering a page
+    if ($('.article-title').length == 1) {
+       addCount(Counter);
+    }
+    var query=new AV.Query(Counter);
+    query.descending("time");
+    // the sum of popular posts
+    query.limit(10); 
+    query.find({
+        success: function(results) {
+                for(var i=0;i<results.length;i++) {
+                    var counter=results[i];
+                    title=counter.get("title");
+                    url=counter.get("url");
+                    time=counter.get("time");
+                    // add to the popularlist widget
+                    showcontent=title+" ("+time+")";
+                    //notice the "" in href
+                    $('.popularlist').append('<li><a href="'+url+'">'+showcontent+'</a></li>');
+                }
+            },
+        error: function(error) {
+            alert("Error:"+error.code+" "+error.message);
+        }
+    });
+});
+</script>
+</div>
+    </div>
+</body>
+</html>

@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   
-  <title>Archives: 2020 [ Rabbit ]</title>
+  <title>MiHo-主题安装和配置详情 [ Rabbit ]</title>
   
     <!-- stylesheets list from config.yml -->
     
@@ -63,178 +63,36 @@
 </div>
     </div>
     <div class="container">
-        <div class="article">
-      
+        <h1 class="post-title">MiHo-主题安装和配置详情</h1>
+<article class="post markdown-style">
+  <p><a href="https://hexo.io/themes/" target="_blank" rel="noopener">主题官网</a>/<a href="https://blog.minhow.com/2017/08/01/blog/installation-configuration/" target="_blank" rel="noopener">原文</a></p>
+<h2 id="一-主题简介"><a href="#一-主题简介" class="headerlink" title="一.主题简介"></a>一.主题简介</h2><p>  MiHo 是一款单栏响应式的Hexo主题；基于 Hexo 3.0+ 制作，兼容移动端浏览；主题的代码托管在GitHub上，<br>欢迎Star和Fork；如遇到问题或发表建议，可以提Issues，也可以在博客中留言给我。</p>
+<h2 id="二-安装"><a href="#二-安装" class="headerlink" title="二.安装"></a>二.安装</h2><h3 id="2-1安装主题"><a href="#2-1安装主题" class="headerlink" title="2.1安装主题"></a>2.1安装主题</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https:&#x2F;&#x2F;github.com&#x2F;WongMinHo&#x2F;hexo-theme-miho.git themes&#x2F;miho</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-2-更新"><a href="#2-2-更新" class="headerlink" title="2.2 更新"></a>2.2 更新</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd themes/miho</span><br><span class="line">git pull</span><br></pre></td></tr></table></figure>
+<h3 id="2-3-依赖安装"><a href="#2-3-依赖安装" class="headerlink" title="2.3 依赖安装"></a>2.3 依赖安装</h3><h4 id="Json-content"><a href="#Json-content" class="headerlink" title="Json-content"></a>Json-content</h4><p>生成站点文章静态数据，用于站内搜索。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-generator-json-content --save</span><br></pre></td></tr></table></figure>
+<h2 id="三-站点配置"><a href="#三-站点配置" class="headerlink" title="三.站点配置"></a>三.站点配置</h2><p>站点配置文件在<code>blog</code>根目录下<code>_config.yml</code>.</p>
+<h3 id="3-1-启用主题"><a href="#3-1-启用主题" class="headerlink" title="3.1 启用主题"></a>3.1 启用主题</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">theme: miho</span><br></pre></td></tr></table></figure>
+<h2 id="四-主题配置"><a href="#四-主题配置" class="headerlink" title="四.主题配置"></a>四.主题配置</h2><p>编辑主题配置文件，<code>themes/miho/_config.yml</code></p>
+<h2 id="五-启用"><a href="#五-启用" class="headerlink" title="五.启用"></a>五.启用</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean </span><br><span class="line">hexo g</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+
+</article>
+
+    <div class="pagenator post-pagenator">
     
-      <div class="year-list">
-        <h3>2020</h3>
-        <ul>
-          
-            <li >
-              <time>2020-03-07</time>
-              <a href="/2020/03/07/vue自学/">
-                vue自学
-              </a>
-            </li>
-          
-            <li >
-              <time>2020-02-26</time>
-              <a href="/2020/02/26/nfc/">
-                nfc
-              </a>
-            </li>
-          
-            <li >
-              <time>2020-02-24</time>
-              <a href="/2020/02/24/通讯录组件/">
-                通讯录组件
-              </a>
-            </li>
-          
-            <li >
-              <time>2020-02-24</time>
-              <a href="/2020/02/24/hello-world/">
-                Hello World
-              </a>
-            </li>
-          
-        </ul>
-      </div>
     
-      <div class="year-list">
-        <h3>2019</h3>
-        <ul>
-          
-            <li >
-              <time>2019-08-27</time>
-              <a href="/2019/08/27/echarts-导出-excel/">
-                echarts 导出 excel 
-              </a>
-            </li>
-          
-            <li >
-              <time>2019-08-27</time>
-              <a href="/2019/08/27/Echarts-toolbox-dataView/">
-                Echarts toolbox dataView
-              </a>
-            </li>
-          
-            <li >
-              <time>2019-07-25</time>
-              <a href="/2019/07/25/extjs-入门/">
-                extjs 入门
-              </a>
-            </li>
-          
-            <li >
-              <time>2019-07-25</time>
-              <a href="/2019/07/25/使用Github-Hexo-七牛云实现个人博客搭建/">
-                使用Github+Hexo+七牛云实现个人博客搭建
-              </a>
-            </li>
-          
-            <li >
-              <time>2019-02-28</time>
-              <a href="/2019/02/28/vue/">
-                vue
-              </a>
-            </li>
-          
-            <li >
-              <time>2019-02-27</time>
-              <a href="/2019/02/27/theme/">
-                MiHo-主题安装和配置详情
-              </a>
-            </li>
-          
-            <li >
-              <time>2019-02-25</time>
-              <a href="/2019/02/25/webpack/">
-                webpack 入门
-              </a>
-            </li>
-          
-        </ul>
-      </div>
+        <a class="extend prev post-prev" href="/2019/02/28/vue/">prev</a>
     
-      <div class="year-list">
-        <h3>2018</h3>
-        <ul>
-          
-            <li >
-              <time>2018-05-15</time>
-              <a href="/2018/05/15/js的基础内容/">
-                js的基础内容
-              </a>
-            </li>
-          
-            <li >
-              <time>2018-05-10</time>
-              <a href="/2018/05/10/超炫的按钮/">
-                超炫的按钮
-              </a>
-            </li>
-          
-            <li >
-              <time>2018-05-09</time>
-              <a href="/2018/05/09/jquery-随笔/">
-                jquery-随笔
-              </a>
-            </li>
-          
-            <li >
-              <time>2018-05-09</time>
-              <a href="/2018/05/09/oracle-导入/">
-                oracle 导入
-              </a>
-            </li>
-          
-            <li >
-              <time>2018-05-07</time>
-              <a href="/2018/05/07/xml-学习笔记/">
-                xml 学习笔记
-              </a>
-            </li>
-          
-            <li >
-              <time>2018-04-28</time>
-              <a href="/2018/04/28/oracal-创建/">
-                oracal 创建
-              </a>
-            </li>
-          
-            <li >
-              <time>2018-04-16</time>
-              <a href="/2018/04/16/css-随笔/">
-                css3 选择器
-              </a>
-            </li>
-          
-            <li >
-              <time>2018-03-14</time>
-              <a href="/2018/03/14/centos-ip/">
-                CentOS IP 配置
-              </a>
-            </li>
-          
-        </ul>
-      </div>
+
     
-      <div class="year-list">
-        <h3>2017</h3>
-        <ul>
-          
-            <li >
-              <time>2017-12-25</time>
-              <a href="/2017/12/25/使用Nexus搭建本地仓库/">
-                使用Nexus搭建本地仓库
-              </a>
-            </li>
-          
-        </ul>
-      </div>
-     
-</div>
+    <p>last update time 2019-02-27</p>
+    
+    
+        <a class="extend next post-next" href="/2019/02/25/webpack/">next</a>
+    
+    </div>
+
     </div>
     <div class="footer">
         <div class="container">

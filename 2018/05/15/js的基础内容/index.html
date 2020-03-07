@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  
+  <title>js的基础内容 [ Rabbit ]</title>
+  
+    <!-- stylesheets list from config.yml -->
+    
+      <link rel="stylesheet" href="/css/iLiKE.css">
+    
+  
+  
+  
+  <script src="//cdn1.lncld.net/static/js/3.1.1/av-min.js"></script>
+    <script id="leancloud">
+      AV.init({
+          appId: "6E5zTbTljdUbVW2WkXPsXGJk-gzGzoHsz",
+          appKey: "0vsyDKfNpeSECAI70J794ugv"
+      });
+    </script>
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+<body>
+    <div class="header">
+        <div class="container">
+    <div class="menu">
+      <div class="menu-left">
+        <a href="/">
+          <img src="/favicon.ico"></img>
+        </a>
+      </div>
+      <div class="menu-right">
+        
+          
+          
+          
+          
+          
+          
+          <a href="/">Home</a>
+        
+          
+          
+          
+          
+          
+          
+          <a href="/archives">Archives</a>
+        
+          
+          
+          
+          
+          
+          
+          <a href="/about">About</a>
+        
+      </div>
+    </div>
+</div>
+    </div>
+    <div class="container">
+        <h1 class="post-title">js的基础内容</h1>
+<article class="post markdown-style">
+  <h3 id="一-简介"><a href="#一-简介" class="headerlink" title="一.简介"></a>一.简介</h3><h4 id="1-1-联系与区别"><a href="#1-1-联系与区别" class="headerlink" title="1.1 联系与区别"></a>1.1 联系与区别</h4><ul>
+<li><p>HTML 定义了网页的内容</p>
+</li>
+<li><p>CSS 描述了网页的布局</p>
+</li>
+<li><p>JavaScript 网页的行为</p>
+</li>
+</ul>
+<h4 id="1-2-用法"><a href="#1-2-用法" class="headerlink" title="1.2 用法"></a>1.2 用法</h4><ul>
+<li><p>HTML中的脚本必须位于<code>&lt;script&gt;&lt;/script&gt;</code>标签之间；</p>
+</li>
+<li><p>脚本可被放置在HTML页面的<code>&lt;body&gt;</code>和<code>&lt;head&gt;</code>部分中；</p>
+</li>
+</ul>
+<h3 id="二-输出"><a href="#二-输出" class="headerlink" title="二.输出"></a>二.输出</h3><h4 id="2-1显示数据"><a href="#2-1显示数据" class="headerlink" title="2.1显示数据"></a>2.1显示数据</h4><ul>
+<li><p><code>window.alert()</code> –弹出警告框</p>
+</li>
+<li><p><code>document.write()</code> –将内容写到HTML文档中</p>
+</li>
+<li><p><code>innerHTML</code>–写入到HTML元素中</p>
+</li>
+<li><p><code>console.log()</code> –写入到浏览器的控制台</p>
+<p>注意：如果在文档已经加载完后执行<code>docunment.write()</code>会覆盖整个文档内容</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">document.write(Date());</span><br><span class="line">window.alert(5 + 6);</span><br><span class="line">document.getElementById(&quot;demo&quot;).innerHTML&#x3D;&quot;xxxxx&quot;;</span><br><span class="line">console.log(c);</span><br></pre></td></tr></table></figure>
+
+<h3 id="三-语法"><a href="#三-语法" class="headerlink" title="三.语法"></a>三.语法</h3><h4 id="3-1-字面量"><a href="#3-1-字面量" class="headerlink" title="3.1 字面量"></a>3.1 字面量</h4><ul>
+<li>一般固定值称为字面量；(数字字面量、字符串字面量、表达式字面量、数组字面量、对象字面量、函数字面量)</li>
+</ul>
+<h4 id="3-2-变量"><a href="#3-2-变量" class="headerlink" title="3.2 变量"></a>3.2 变量</h4><ul>
+<li>变量用于存储数据值；</li>
+<li>js使用关键字<code>var</code> 来定义变量，使用等号来为变量赋值；</li>
+<li>变量必须以字母开头；</li>
+<li>未使用值来声明的变量。其值实际上是undefined;</li>
+<li><code>var carname=&quot;Volvo&quot;; var carname;</code>执行之后，变量carname的值依然是”Volve”;</li>
+</ul>
+<h4 id="3-2语法"><a href="#3-2语法" class="headerlink" title="3.2语法"></a>3.2语法</h4><ul>
+<li>语句用分号来分割；</li>
+<li>对字母大小写敏感；</li>
+<li>js会忽略多余的空格；</li>
+<li>使用    <code>\</code>换行；</li>
+</ul>
+<h4 id="3-3数据类型"><a href="#3-3数据类型" class="headerlink" title="3.3数据类型"></a>3.3数据类型</h4><p> <strong>1.数据类型</strong></p>
+<p>  在js中有5种不同的数据类型</p>
+<ul>
+<li>字符串（String）;–使用索引访问每个字符(carname[2]);字符串长度（carname.length）</li>
+<li>数字（Number）;</li>
+<li>布尔（Boolean）；</li>
+<li>对象（Object）；–访问对象属性（person.lastName;person[“lastName”]）</li>
+<li>函数（function）</li>
+</ul>
+<p>2种不包含任何之的数据类型</p>
+<ul>
+<li>空（Null）；</li>
+<li>未定义（Undefined）；</li>
+</ul>
+<p>3种对象类型</p>
+<ul>
+<li>对象（Object）；</li>
+<li>Date</li>
+<li>数组（Array）；</li>
+</ul>
+<p><strong>2.检测数据类型(typeof)</strong></p>
+<ul>
+<li><code>typeof [1,2.3]</code> //返回object</li>
+<li>`var person=null;typeof person``   //返回object</li>
+<li><code>var person=undefined;typeof person</code>  //返回undefined</li>
+</ul>
+<p>**3.类型转换</p>
+<ul>
+<li>转换为字符串 <code>(123).toString()</code>;<code>String(123)</code></li>
+<li>转换为数字 <code>Number(&quot;12.114&quot;)</code>;</li>
+</ul>
+<h4 id="3-4-作用域"><a href="#3-4-作用域" class="headerlink" title="3.4 作用域"></a>3.4 作用域</h4><ul>
+<li>函数体内定义：<code>var name=&quot;xxxx&quot;</code>为局部变量；<code>name=&quot;xxxx&quot;</code>-全局变量；(生命周期：函数执行完毕后销毁)</li>
+<li>函数体外定义：为全局变量；(生命周期：页面关闭后销毁)</li>
+</ul>
+<h4 id="3-5-循环"><a href="#3-5-循环" class="headerlink" title="3.5 循环"></a>3.5 循环</h4><ul>
+<li>for–循环代码块一定的数量</li>
+<li>for/in–循环遍历对象的属性–<code>for(x in person)</code></li>
+<li>while–当指定条件为true时循环代码块</li>
+<li>do/while–同上</li>
+</ul>
+<h3 id="四-函数"><a href="#四-函数" class="headerlink" title="四.函数"></a>四.函数</h3><h4 id="4-1-函数参数"><a href="#4-1-函数参数" class="headerlink" title="4.1 函数参数"></a>4.1 函数参数</h4><ul>
+<li>函数显式参数在函数定义时列出；</li>
+<li>函数隐式参数在函数调用时传递给函数真正的值；</li>
+<li>js函数定义时显式参数灭有指定数据类型。</li>
+<li>js函数对隐式参数没有进行类型检测</li>
+<li>js函数对隐式参数的个数没有进行检测；(若没有提供，则是undefined;)</li>
+</ul>
+<h4 id="4-2-Arguments对象"><a href="#4-2-Arguments对象" class="headerlink" title="4.2 Arguments对象"></a>4.2 Arguments对象</h4><p>argument对象包含了函数调用的参数数组</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">x &#x3D; sumAll(1, 123, 500, 115, 44, 88);</span><br><span class="line"> </span><br><span class="line">function sumAll() &#123;</span><br><span class="line">    var i, sum &#x3D; 0;</span><br><span class="line">    for (i &#x3D; 0; i &lt; arguments.length; i++) &#123;</span><br><span class="line">        sum +&#x3D; arguments[i];</span><br><span class="line">    &#125;</span><br><span class="line">    return sum;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="4-3-作为函数方法调用函数"><a href="#4-3-作为函数方法调用函数" class="headerlink" title="4.3 作为函数方法调用函数"></a>4.3 作为函数方法调用函数</h4><p> 两个预定义的函数方法：call()和apply();两个方法可用于调用函数，两个方法的第一个参数必须是对象本身<br>区别：call()是作为参数传入；apply()是作为一个数组传入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">function myFunction(a, b) &#123;</span><br><span class="line">    return a * b;</span><br><span class="line">&#125;</span><br><span class="line">myObject &#x3D; myFunction.call(myObject, 10, 2);  </span><br><span class="line"></span><br><span class="line">function myFunction(a, b) &#123;</span><br><span class="line">    return a * b;</span><br><span class="line">&#125;</span><br><span class="line">myArray &#x3D; [10, 2];</span><br><span class="line">myObject &#x3D; myFunction.apply(myObject, myArray);</span><br></pre></td></tr></table></figure>
+<h3 id="五-DOM"><a href="#五-DOM" class="headerlink" title="五.DOM"></a>五.DOM</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;改变HTML的内容</span><br><span class="line">document.getElementById(&quot;p1&quot;).innerHTML&#x3D;&quot;新文本!&quot;;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;改变HTML的属性</span><br><span class="line">document.getElementById(&quot;image&quot;).src&#x3D;&quot;landscape.jpg&quot;;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;改变HTML的样式</span><br><span class="line">document.getElementById(&quot;p2&quot;).style.color&#x3D;&quot;blue&quot;;</span><br><span class="line">document.getElementById(&quot;p2&quot;).style.fontFamily&#x3D;&quot;Arial&quot;;</span><br></pre></td></tr></table></figure>
+
+<h4 id="添加事件的三种方式"><a href="#添加事件的三种方式" class="headerlink" title="添加事件的三种方式"></a>添加事件的三种方式</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;第一种</span><br><span class="line">&lt;script&gt;</span><br><span class="line">document.getElementById(&quot;myBtn&quot;).onclick&#x3D;function()&#123;displayDate()&#125;;</span><br><span class="line">&lt;&#x2F;script&gt;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;第二种</span><br><span class="line">&#x2F;*</span><br><span class="line">可以向元素中添加多个事件句柄，不会覆盖</span><br><span class="line">*&#x2F;</span><br><span class="line">document.getElementById(&quot;myBtn&quot;).addEventListener(&quot;click&quot;, displayDate);</span><br><span class="line">element.removeEventListener(&quot;mousemove&quot;, myFunction);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;第三种</span><br><span class="line">&lt;input type&#x3D;&quot;text&quot; id&#x3D;&quot;fname&quot; onchange&#x3D;&quot;upperCase()&quot;&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="六-BOM-Browser-Object-Model-浏览器对象模型"><a href="#六-BOM-Browser-Object-Model-浏览器对象模型" class="headerlink" title="六.BOM(Browser Object Model )-浏览器对象模型"></a>六.BOM(Browser Object Model )-浏览器对象模型</h2><h4 id="Window"><a href="#Window" class="headerlink" title="-Window"></a>-Window</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;*</span><br><span class="line">  确定浏览器窗口的尺寸</span><br><span class="line">*&#x2F;</span><br><span class="line">window.innerHeight  &#x2F;&#x2F;浏览器窗口的内部高度(包括滚动条)</span><br><span class="line">window.innerWidth   &#x2F;&#x2F;浏览器窗口的内部宽度(包括滚动条)</span><br><span class="line"></span><br><span class="line">window.open()     &#x2F;&#x2F;打开新窗口</span><br><span class="line">window.close()    &#x2F;&#x2F;关闭当前窗口</span><br><span class="line">window.moveTo()   &#x2F;&#x2F;移动当前窗口</span><br><span class="line">window.resizeTo() &#x2F;&#x2F;调整当前窗口的尺寸</span><br></pre></td></tr></table></figure>
+<h4 id="Window-Screen"><a href="#Window-Screen" class="headerlink" title="-Window Screen"></a>-Window Screen</h4><p> <code>window.screen</code> 对象包含有关用户屏幕的信息</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">screen.availWidth  &#x2F;&#x2F;可用的屏幕宽度</span><br><span class="line">screen.availHeight &#x2F;&#x2F;可用的屏幕高度</span><br></pre></td></tr></table></figure>
+<h4 id="Window-Location"><a href="#Window-Location" class="headerlink" title="-Window Location"></a>-Window Location</h4><p> <code>window.location</code>对象用于获取当前页面的地址（URL），并把浏览器重定向到新的页面</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">window.locatin;  </span><br><span class="line">location.href; --返回整个URL</span><br><span class="line">location.hostname; --返回web主机的域名 </span><br><span class="line">location.pathname;--返回当前页面的路径和文件名</span><br><span class="line">location.port;  --返回web主机的端口</span><br><span class="line">location.protocol; --返回所使用的web协议</span><br></pre></td></tr></table></figure>
+<h4 id="Window-History"><a href="#Window-History" class="headerlink" title="-Window History"></a>-Window History</h4><p><code>window.history</code>对象包含浏览器的历史</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">history.back();</span><br><span class="line">history.forword();</span><br></pre></td></tr></table></figure>
+
+<h4 id="弹窗"><a href="#弹窗" class="headerlink" title="-弹窗"></a>-弹窗</h4><h5 id="1-警告框"><a href="#1-警告框" class="headerlink" title="1.警告框"></a>1.警告框</h5><p><code>window.alert(&quot;你好，我是一个警告框！&quot;);</code>   –window可省略</p>
+<h5 id="2-确认框"><a href="#2-确认框" class="headerlink" title="2.确认框"></a>2.确认框</h5><p><code>window.confirm(&quot;按下按钮&quot;)</code>  –window可省略</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">   var x;</span><br><span class="line">var r&#x3D;confirm(&quot;按下按钮!&quot;);</span><br><span class="line">if (r&#x3D;&#x3D;true)&#123;</span><br><span class="line">	x&#x3D;&quot;你按下了\&quot;确定\&quot;按钮!&quot;;</span><br><span class="line">&#125;</span><br><span class="line">else&#123;</span><br><span class="line">	x&#x3D;&quot;你按下了\&quot;取消\&quot;按钮!&quot;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="3-提示框"><a href="#3-提示框" class="headerlink" title="3.提示框"></a>3.提示框</h5><p><code>window.prompt(&quot;请输入你的名字&quot;，&quot;Harry Patter&quot;)</code>  –window可省略</p>
+<h4 id="计时事件"><a href="#计时事件" class="headerlink" title="-计时事件"></a>-计时事件</h4><p> js一个设定的时间间隔之后来执行代码，我们称之为计时事件</p>
+<h5 id="1-setInterval-与clearInterval"><a href="#1-setInterval-与clearInterval" class="headerlink" title="1.setInterval()与clearInterval()"></a>1.setInterval()与clearInterval()</h5><p> <code>setInterval()</code>-间隔指定的毫秒数<span style="color:red">不停</span>地执行指定的代码；<br><code>clearInterval()</code>-用于停止setInterval()方法执行的函数代码；<br> 实例：显示当前时间</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">var myVar&#x3D;setInterval(function()&#123;myTimer()&#125;,1000);</span><br><span class="line"> </span><br><span class="line">function myTimer()</span><br><span class="line">&#123;</span><br><span class="line">    var d&#x3D;new Date();</span><br><span class="line">    var t&#x3D;d.toLocaleTimeString();</span><br><span class="line">    document.getElementById(&quot;demo&quot;).innerHTML&#x3D;t;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function myStopFunction()&#123;</span><br><span class="line">    clearInterval(myVar);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>2.setTimeout()与clearTimeout()enen enene</p>
+<p><code>setTimeout()</code> - 在指定的毫秒数后执行指定代码。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var myVar;</span><br><span class="line">function myFunction()&#123;</span><br><span class="line">	myVar&#x3D;setTimeout(function()&#123;alert(&quot;Hello&quot;)&#125;,3000);</span><br><span class="line">&#125;</span><br><span class="line">function myStopFunction()&#123;</span><br><span class="line">	clearTimeout(myVar);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+</article>
+
+    <div class="pagenator post-pagenator">
+    
+    
+        <a class="extend prev post-prev" href="/2019/02/25/webpack/">prev</a>
+    
+
+    
+    <p>last update time 2019-02-28</p>
+    
+    
+        <a class="extend next post-next" href="/2018/05/10/%E8%B6%85%E7%82%AB%E7%9A%84%E6%8C%89%E9%92%AE/">next</a>
+    
+    </div>
+
+    </div>
+    <div class="footer">
+        <div class="container">
+    <div class="social">
+	<ul class="social-list">
+		
+			
+				
+				
+				<li>
+					<a href="mailto:1178752402@qq.com" title="email" target="_blank">
+					<i class="fa fa-email"></i>
+					</a>
+				</li>
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+				
+				<li>
+					<a href="https://github.com/CaiChenghan" title="github" target="_self">
+					<i class="fa fa-github"></i>
+					</a>
+				</li>
+			
+		
+			
+		
+			
+		
+			
+		
+			
+				
+				<li>
+					<a href="https://www.jianshu.com/u/565c8e790605" title="jianshu" target="_self">
+					<i class="fa fa-jianshu"></i>
+					</a>
+				</li>
+			
+		
+			
+		
+			
+		
+			
+		
+	</ul>
+</div>
+    <div class="copyright">
+        <span>
+            
+            
+            
+                © Rabbit 2017 - 2020
+            
+        </span>
+    </div>
+    <div class="power">
+        <span>
+            Powered by <a href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> & <a href="https://github.com/CaiChenghan/iLiKE" target="_blank" rel="noopener">iLiKE Theme</a>
+        </span>
+    </div>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+    <!--page counter part-->
+<script>
+function addCount (Counter) {
+    url=$('.article-date').attr('href').trim();
+    title = $('.article-title').text().trim();
+    var query = new AV.Query(Counter);
+    //use url as unique idnetfication
+    query.equalTo("url",url);
+    query.find({
+        success: function(results) {
+            if (results.length>0) {
+                var counter=results[0];
+                counter.fetchWhenSave(true); //get recent result
+                counter.increment("time");
+                counter.save();
+            } else {
+                var newcounter=new Counter();
+                newcounter.set("title",title);
+                newcounter.set("url",url);
+                newcounter.set("time",1);
+                newcounter.save(null,{
+                    success: function(newcounter) {
+                        //alert('New object created');
+                    }, error: function(newcounter,error) {
+                        alert('Failed to create');
+                    }
+                })
+            }
+        },
+        error: function(error) {
+            //find null is not a error
+            alert('Error:'+error.code+" "+error.message);
+        }
+    });
+}
+$(function() {
+    var Counter=AV.Object.extend("Counter");
+    //only increse visit counting when intering a page
+    if ($('.article-title').length == 1) {
+       addCount(Counter);
+    }
+    var query=new AV.Query(Counter);
+    query.descending("time");
+    // the sum of popular posts
+    query.limit(10); 
+    query.find({
+        success: function(results) {
+                for(var i=0;i<results.length;i++) {
+                    var counter=results[i];
+                    title=counter.get("title");
+                    url=counter.get("url");
+                    time=counter.get("time");
+                    // add to the popularlist widget
+                    showcontent=title+" ("+time+")";
+                    //notice the "" in href
+                    $('.popularlist').append('<li><a href="'+url+'">'+showcontent+'</a></li>');
+                }
+            },
+        error: function(error) {
+            alert("Error:"+error.code+" "+error.message);
+        }
+    });
+});
+</script>
+</div>
+    </div>
+</body>
+</html>

@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   
-  <title>Archives: 2020 [ Rabbit ]</title>
+  <title>vue [ Rabbit ]</title>
   
     <!-- stylesheets list from config.yml -->
     
@@ -63,178 +63,53 @@
 </div>
     </div>
     <div class="container">
-        <div class="article">
-      
+        <h1 class="post-title">vue</h1>
+<article class="post markdown-style">
+  <h3 id="一、vue起步"><a href="#一、vue起步" class="headerlink" title="一、vue起步"></a>一、vue起步</h3><h4 id="1-1-引入"><a href="#1-1-引入" class="headerlink" title="1.1 引入"></a>1.1 引入</h4><ol>
+<li><code>script</code> 引入</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src&#x3D;&quot;..&#x2F;js&#x2F;vue.js&quot;&gt;</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li><p>CDN</p>
+</li>
+<li><p>NPM</p>
+</li>
+</ol>
+<p>i.项目根目录下运行<code>npm install vue</code></p>
+<p>ii.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src&#x3D;&quot;.&#x2F;node_modules&#x2F;vue&#x2F;dist&#x2F;vue.js&quot;&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="1-2-创建实例化对象"><a href="#1-2-创建实例化对象" class="headerlink" title="1.2 创建实例化对象"></a>1.2 创建实例化对象</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//如果template中定义了内容，优先加载template；如果没有，加载#app的模板。</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//数据发生改变时，视图发生改变，简言之，数据驱动视图</span></span><br><span class="line"><span class="keyword">var</span> data=&#123;</span><br><span class="line">	<span class="comment">//数据属性</span></span><br><span class="line">	<span class="comment">//既可以是一个对象也可以是一个函数</span></span><br><span class="line">	msg:<span class="string">'黄瓜'</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> vm=<span class="keyword">new</span> Vue(&#123;</span><br><span class="line">	el:<span class="string">'#app'</span>,</span><br><span class="line">	data:data</span><br><span class="line">	template：<span class="string">`&lt;div&gt;&#123;&#123;msg&#125;&#125;&lt;/div&gt;`</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>除了数据属性，vue实例还暴露了一些有用的实例属性和方法。他们都有前缀<code>$</code></p>
+</blockquote>
+<h3 id="二、模板语法"><a href="#二、模板语法" class="headerlink" title="二、模板语法"></a>二、模板语法</h3><ol>
+<li>双大括号插值</li>
+<li><code>v-text</code>——元素的innerText属性；</li>
+<li><code>v-html</code>——元素的innerHtml；</li>
+<li><code>v-bind</code>——绑定属性；（:）</li>
+<li><code>v-if</code>——判断是否插入这个元素，相当于元素的销毁和创建；</li>
+<li><code>v-for</code>——循环输出；</li>
+<li><code>v-on</code>——绑定事件；（@）</li>
+<li><code>v-show</code>——隐藏元素，会给元素的style加上<code>display:none</code>;</li>
+<li><code>v-model</code>——双向数据绑定；</li>
+</ol>
+
+</article>
+
+    <div class="pagenator post-pagenator">
     
-      <div class="year-list">
-        <h3>2020</h3>
-        <ul>
-          
-            <li >
-              <time>2020-03-07</time>
-              <a href="/2020/03/07/vue自学/">
-                vue自学
-              </a>
-            </li>
-          
-            <li >
-              <time>2020-02-26</time>
-              <a href="/2020/02/26/nfc/">
-                nfc
-              </a>
-            </li>
-          
-            <li >
-              <time>2020-02-24</time>
-              <a href="/2020/02/24/通讯录组件/">
-                通讯录组件
-              </a>
-            </li>
-          
-            <li >
-              <time>2020-02-24</time>
-              <a href="/2020/02/24/hello-world/">
-                Hello World
-              </a>
-            </li>
-          
-        </ul>
-      </div>
     
-      <div class="year-list">
-        <h3>2019</h3>
-        <ul>
-          
-            <li >
-              <time>2019-08-27</time>
-              <a href="/2019/08/27/echarts-导出-excel/">
-                echarts 导出 excel 
-              </a>
-            </li>
-          
-            <li >
-              <time>2019-08-27</time>
-              <a href="/2019/08/27/Echarts-toolbox-dataView/">
-                Echarts toolbox dataView
-              </a>
-            </li>
-          
-            <li >
-              <time>2019-07-25</time>
-              <a href="/2019/07/25/extjs-入门/">
-                extjs 入门
-              </a>
-            </li>
-          
-            <li >
-              <time>2019-07-25</time>
-              <a href="/2019/07/25/使用Github-Hexo-七牛云实现个人博客搭建/">
-                使用Github+Hexo+七牛云实现个人博客搭建
-              </a>
-            </li>
-          
-            <li >
-              <time>2019-02-28</time>
-              <a href="/2019/02/28/vue/">
-                vue
-              </a>
-            </li>
-          
-            <li >
-              <time>2019-02-27</time>
-              <a href="/2019/02/27/theme/">
-                MiHo-主题安装和配置详情
-              </a>
-            </li>
-          
-            <li >
-              <time>2019-02-25</time>
-              <a href="/2019/02/25/webpack/">
-                webpack 入门
-              </a>
-            </li>
-          
-        </ul>
-      </div>
+        <a class="extend prev post-prev" href="/2019/07/25/%E4%BD%BF%E7%94%A8Github-Hexo-%E4%B8%83%E7%89%9B%E4%BA%91%E5%AE%9E%E7%8E%B0%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">prev</a>
     
-      <div class="year-list">
-        <h3>2018</h3>
-        <ul>
-          
-            <li >
-              <time>2018-05-15</time>
-              <a href="/2018/05/15/js的基础内容/">
-                js的基础内容
-              </a>
-            </li>
-          
-            <li >
-              <time>2018-05-10</time>
-              <a href="/2018/05/10/超炫的按钮/">
-                超炫的按钮
-              </a>
-            </li>
-          
-            <li >
-              <time>2018-05-09</time>
-              <a href="/2018/05/09/jquery-随笔/">
-                jquery-随笔
-              </a>
-            </li>
-          
-            <li >
-              <time>2018-05-09</time>
-              <a href="/2018/05/09/oracle-导入/">
-                oracle 导入
-              </a>
-            </li>
-          
-            <li >
-              <time>2018-05-07</time>
-              <a href="/2018/05/07/xml-学习笔记/">
-                xml 学习笔记
-              </a>
-            </li>
-          
-            <li >
-              <time>2018-04-28</time>
-              <a href="/2018/04/28/oracal-创建/">
-                oracal 创建
-              </a>
-            </li>
-          
-            <li >
-              <time>2018-04-16</time>
-              <a href="/2018/04/16/css-随笔/">
-                css3 选择器
-              </a>
-            </li>
-          
-            <li >
-              <time>2018-03-14</time>
-              <a href="/2018/03/14/centos-ip/">
-                CentOS IP 配置
-              </a>
-            </li>
-          
-        </ul>
-      </div>
+
     
-      <div class="year-list">
-        <h3>2017</h3>
-        <ul>
-          
-            <li >
-              <time>2017-12-25</time>
-              <a href="/2017/12/25/使用Nexus搭建本地仓库/">
-                使用Nexus搭建本地仓库
-              </a>
-            </li>
-          
-        </ul>
-      </div>
-     
-</div>
+    <p>last update time 2019-02-28</p>
+    
+    
+        <a class="extend next post-next" href="/2019/02/27/theme/">next</a>
+    
+    </div>
+
     </div>
     <div class="footer">
         <div class="container">
