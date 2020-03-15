@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  
+  <title>let、var、const以及块级作用域 [ Rabbit ]</title>
+  
+    <!-- stylesheets list from config.yml -->
+    
+      <link rel="stylesheet" href="/css/iLiKE.css">
+    
+  
+  
+  
+  <script src="//cdn1.lncld.net/static/js/3.1.1/av-min.js"></script>
+    <script id="leancloud">
+      AV.init({
+          appId: "6E5zTbTljdUbVW2WkXPsXGJk-gzGzoHsz",
+          appKey: "0vsyDKfNpeSECAI70J794ugv"
+      });
+    </script>
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+<body>
+    <div class="header">
+        <div class="container">
+    <div class="menu">
+      <div class="menu-left">
+        <a href="/">
+          <img src="/favicon.ico"></img>
+        </a>
+      </div>
+      <div class="menu-right">
+        
+          
+          
+          
+          
+          
+          
+          <a href="/">Home</a>
+        
+          
+          
+          
+          
+          
+          
+          <a href="/archives">Archives</a>
+        
+          
+          
+          
+          
+          
+          
+          <a href="/about">About</a>
+        
+      </div>
+    </div>
+</div>
+    </div>
+    <div class="container">
+        <h1 class="post-title">let、var、const以及块级作用域</h1>
+<article class="post markdown-style">
+  <h1 id="块级作用域"><a href="#块级作用域" class="headerlink" title="块级作用域"></a>块级作用域</h1><p>ES5 中作用域有：全局作用域、函数作用域。但是没有块作用域的概念。</p>
+<p>ES6 中新增了块级作用域。块作用域由 { } 包括，if语句和 for语句里面的{ }也属于块作用域。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type&#x3D;&quot;text&#x2F;javascript&quot;&gt;</span><br><span class="line">    &#123;</span><br><span class="line">        var a &#x3D; 1;</span><br><span class="line">        let b &#x3D; 2;</span><br><span class="line">        console.log(a); &#x2F;&#x2F; 1</span><br><span class="line">        console.log(b; &#x2F;&#x2F; 2</span><br><span class="line">    &#125;</span><br><span class="line">    console.log(a); &#x2F;&#x2F; 1</span><br><span class="line">    console.log(b); &#x2F;&#x2F; 报错</span><br><span class="line">    &#x2F;&#x2F; 可见，通过var定义的变量可以跨块作用域访问到。let定义的变量，外部访问就会报错</span><br><span class="line"></span><br><span class="line">    (function A() &#123;</span><br><span class="line">        var b &#x3D; 2;</span><br><span class="line">        console.log(b); &#x2F;&#x2F; 2</span><br><span class="line">    &#125;)();</span><br><span class="line">    &#x2F;&#x2F; console.log(b); &#x2F;&#x2F; 报错，</span><br><span class="line">    &#x2F;&#x2F; 可见，通过var定义的变量不能跨函数作用域访问到</span><br><span class="line"></span><br><span class="line">    if(true) &#123;</span><br><span class="line">        var c &#x3D; 3;</span><br><span class="line">    &#125;</span><br><span class="line">    console.log(c); &#x2F;&#x2F; 3</span><br><span class="line">    for(var i &#x3D; 0; i &lt; 4; i++) &#123;</span><br><span class="line">        var d &#x3D; 5;</span><br><span class="line">    &#125;;</span><br><span class="line">    console.log(i); &#x2F;&#x2F; 4   (循环结束i已经是4，所以此处i为4)</span><br><span class="line">    console.log(d); &#x2F;&#x2F; 5</span><br><span class="line">    &#x2F;&#x2F; if语句和for语句中用var定义的变量可以在外面访问到，</span><br><span class="line">    &#x2F;&#x2F; 可见，if语句和for语句属于块作用域，不属于函数作用域。</span><br><span class="line">&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+<h1 id="let、var、const-的区别"><a href="#let、var、const-的区别" class="headerlink" title="let、var、const 的区别"></a>let、var、const 的区别</h1><p>var 用来声明变量的，没有块的概念，可以跨块访问，但是不能跨函数访问；</p>
+<p>let 也是用来声明变量的；声明的变量只有在let命令所在的块内才有效</p>
+<p>const是用来声明一个常量的。即是一个只读变量，一旦声明，就必须立即初始化；</p>
+<h2 id="var、let-的不同点"><a href="#var、let-的不同点" class="headerlink" title="var、let 的不同点"></a>var、let 的不同点</h2><ol>
+<li><p>let所声明的变量只有在所在的代码块内才有效；var会变量提升；</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">for(let i&#x3D;0;i&lt;10;i++)&#123;</span><br><span class="line">    &#x2F;&#x2F;...</span><br><span class="line">&#125;</span><br><span class="line">console.log(i) &#x2F;&#x2F;ReferenceError:i is not defined</span><br><span class="line"></span><br><span class="line">for(var j&#x3D;0;j&lt;10;j++&gt;)&#123;</span><br><span class="line">    &#x2F;&#x2F;....</span><br><span class="line">&#125;</span><br><span class="line">console.log(i)  &#x2F;&#x2F;10</span><br></pre></td></tr></table></figure></li>
+<li><p>let所声明的变量一定要在声明后使用，否则会报错；var可以在声明之前使用，值为undefined;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;var 的情况</span><br><span class="line">console.log(foo);  &#x2F;&#x2F;输出undefined</span><br><span class="line">var foo&#x3D;2;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;let的情况</span><br><span class="line">console.log(bar);  &#x2F;&#x2F;报错 ReferenceError</span><br><span class="line">let bar&#x3D;2;</span><br></pre></td></tr></table></figure></li>
+<li><p>ES6有明确规定，如果区域块中存在let或const命令，则这个区域块对这些命令的声明的变量从一开始就形成了<strong>封闭作用域</strong>，即只要在声明之前使用，就会报错。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var temp&#x3D;123;</span><br><span class="line">if(true)&#123;</span><br><span class="line">    temp&#x3D;&#39;abc&#39;;  &#x2F;&#x2F;ReferenceError</span><br><span class="line">    let temp;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>个人理解的封闭作用域就是暂时跟外部的作用域没有关联（在区域块中存在let或const），类似于一个独立的作用域；所以我们在if的块级作用域中使用没有声明的temp，就会报错；</p>
+</li>
+<li><p>let不允许在相同的作用域内重复声明同一变量（因此，不能在函数内部重新声明参数），var没有限制。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;报错</span><br><span class="line">function()&#123;</span><br><span class="line">    let a&#x3D;10;</span><br><span class="line">    var a&#x3D;1;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;报错</span><br><span class="line">function()&#123;</span><br><span class="line">    let a&#x3D;10;</span><br><span class="line">    let a&#x3D;1;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function func(arg)&#123;</span><br><span class="line">    let arg; &#x2F;&#x2F;报错</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function func(arg)&#123;</span><br><span class="line">    &#123;</span><br><span class="line">        let arg; &#x2F;&#x2F;不报错，此时声明的变量已经跟上面的arg不在一个作用域下了</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="const"><a href="#const" class="headerlink" title="const"></a>const</h1><p>const 声明的是一个只读变量，一旦声明，常量的值就不可以改变。</p>
+</li>
+</ol>
+<p>const 实际上保证的并不是变量的值不得改动，而是变量指向的那个<strong>内存地址不得改动</strong>。</p>
+<ol>
+<li>对于简单数据类型（数值、字符串、布尔值），值就是保存在变量指向的内存地址中，因此等同于常量；</li>
+<li>对于复合类型的数据（主要针对对象和数组），变量指向的内存地址保存的只是一个指针。const只能保证这个指针是固定的。</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">const foo&#x3D;&#123;&#125;;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;为foo 添加一个属性，可以成功（内存地址没有改变）</span><br><span class="line">foo.prop&#x3D;123;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;将foo指向另一个对象，报错(此时内存地址改变了)</span><br><span class="line">foo&#x3D;&#123;&#125;;</span><br></pre></td></tr></table></figure>
+
+</article>
+
+    <div class="pagenator post-pagenator">
+    
+    
+
+    
+    <p>last update time 2020-03-15</p>
+    
+    
+        <a class="extend next post-next" href="/2020/03/07/vue%E8%87%AA%E5%AD%A6/">next</a>
+    
+    </div>
+
+    </div>
+    <div class="footer">
+        <div class="container">
+    <div class="social">
+	<ul class="social-list">
+		
+			
+				
+				
+				<li>
+					<a href="mailto:1178752402@qq.com" title="email" target="_blank">
+					<i class="fa fa-email"></i>
+					</a>
+				</li>
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+				
+				<li>
+					<a href="https://github.com/CaiChenghan" title="github" target="_self">
+					<i class="fa fa-github"></i>
+					</a>
+				</li>
+			
+		
+			
+		
+			
+		
+			
+		
+			
+				
+				<li>
+					<a href="https://www.jianshu.com/u/565c8e790605" title="jianshu" target="_self">
+					<i class="fa fa-jianshu"></i>
+					</a>
+				</li>
+			
+		
+			
+		
+			
+		
+			
+		
+	</ul>
+</div>
+    <div class="copyright">
+        <span>
+            
+            
+            
+                © Rabbit 2017 - 2020
+            
+        </span>
+    </div>
+    <div class="power">
+        <span>
+            Powered by <a href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> & <a href="https://github.com/CaiChenghan/iLiKE" target="_blank" rel="noopener">iLiKE Theme</a>
+        </span>
+    </div>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+    <!--page counter part-->
+<script>
+function addCount (Counter) {
+    url=$('.article-date').attr('href').trim();
+    title = $('.article-title').text().trim();
+    var query = new AV.Query(Counter);
+    //use url as unique idnetfication
+    query.equalTo("url",url);
+    query.find({
+        success: function(results) {
+            if (results.length>0) {
+                var counter=results[0];
+                counter.fetchWhenSave(true); //get recent result
+                counter.increment("time");
+                counter.save();
+            } else {
+                var newcounter=new Counter();
+                newcounter.set("title",title);
+                newcounter.set("url",url);
+                newcounter.set("time",1);
+                newcounter.save(null,{
+                    success: function(newcounter) {
+                        //alert('New object created');
+                    }, error: function(newcounter,error) {
+                        alert('Failed to create');
+                    }
+                })
+            }
+        },
+        error: function(error) {
+            //find null is not a error
+            alert('Error:'+error.code+" "+error.message);
+        }
+    });
+}
+$(function() {
+    var Counter=AV.Object.extend("Counter");
+    //only increse visit counting when intering a page
+    if ($('.article-title').length == 1) {
+       addCount(Counter);
+    }
+    var query=new AV.Query(Counter);
+    query.descending("time");
+    // the sum of popular posts
+    query.limit(10); 
+    query.find({
+        success: function(results) {
+                for(var i=0;i<results.length;i++) {
+                    var counter=results[i];
+                    title=counter.get("title");
+                    url=counter.get("url");
+                    time=counter.get("time");
+                    // add to the popularlist widget
+                    showcontent=title+" ("+time+")";
+                    //notice the "" in href
+                    $('.popularlist').append('<li><a href="'+url+'">'+showcontent+'</a></li>');
+                }
+            },
+        error: function(error) {
+            alert("Error:"+error.code+" "+error.message);
+        }
+    });
+});
+</script>
+</div>
+    </div>
+</body>
+</html>
