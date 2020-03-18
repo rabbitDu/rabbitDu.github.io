@@ -441,22 +441,25 @@ let [foo]=false;
 let [foo]=NaN;
 let [foo]=undefined;
 let [foo]=null;
-let [foo]={};</code></pre><h3 id="设置默认值"><a href="#设置默认值" class="headerlink" title="设置默认值"></a>设置默认值</h3><p>解构赋值允许指定默认值</p>
-<pre><code>let [foo = true]=[]; //foo=true
-let [x,y=&#39;b&#39;]=[a]; //x=a,y=b</code></pre></li>
+let [foo]={};</code></pre></li>
 </ol>
-<p>设置默认值时，应注意一下几种情况</p>
+<h3 id="设置默认值"><a href="#设置默认值" class="headerlink" title="设置默认值"></a>设置默认值</h3><p>解构赋值允许指定默认值</p>
+<pre><code>let [foo = true]=[]; //foo=true
+let [x,y=&#39;b&#39;]=[a]; //x=a,y=b</code></pre><p>设置默认值时，应注意一下几种情况</p>
 <blockquote>
 <p>ES6内部使用严格相等运算符（===）判断一个位置是否有值。所以一个数组成员不严格等于undefined,默认值就不会生效。</p>
 </blockquote>
 <ol>
-<li>右边对应元素严格等于undefined,否则不会生效<pre><code>let [x]=[undefined]; //x=undefined
+<li><p>右边对应元素严格等于undefined,否则不会生效</p>
+<pre><code>let [x]=[undefined]; //x=undefined
 let [x]=[null];  //x=null</code></pre></li>
-<li>默认值可以引用解构赋值的其他变量，但该变量必须已经声明<pre><code>let [x=1,y=x]=[];  //x=1,y=1
+<li><p>默认值可以引用解构赋值的其他变量，但该变量必须已经声明</p>
+<pre><code>let [x=1,y=x]=[];  //x=1,y=1
 let [x=1,y=x]=[2]; //x=2,y=2
 let [x=1,y=x]=[1,2] //x=1,y=2
 let [x=y,y=1]=[];  //ReferenceError  因为x用到y时，y还没有声明</code></pre></li>
-<li>默认值是一个表达式（还没有搞清楚）</li>
+<li><p>默认值是一个表达式（还没有搞清楚）</p>
+</li>
 </ol>
 
             </div>
