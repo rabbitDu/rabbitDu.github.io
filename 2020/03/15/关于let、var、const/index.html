@@ -461,34 +461,27 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <span class="token punctuation">}</span><span class="token punctuation">;</span>
 <span class="token comment" spellcheck="true">//报错</span>
 <span class="token keyword">function</span> <span class="token function">func</span><span class="token punctuation">(</span>args<span class="token punctuation">)</span><span class="token punctuation">{</span>
- <span class="token keyword">let</span> arg
+ <span class="token keyword">let</span> arg<span class="token punctuation">;</span>
 <span class="token punctuation">}</span>；
 <span class="token comment" spellcheck="true">//不报错，此时声明的变量已经跟上面的arg不在一个作用域下了</span>
 functuon <span class="token function">fun</span><span class="token punctuation">(</span>arg<span class="token punctuation">)</span><span class="token punctuation">{</span>
  <span class="token punctuation">{</span>
-     <span class="token keyword">let</span> arg
+     <span class="token keyword">let</span> arg<span class="token punctuation">;</span>
  <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+</li>
+</ol>
+<h1 id="const"><a href="#const" class="headerlink" title="const"></a>const</h1><p>const 声明的是一个只读变量，一旦声明，常量的值就不可以改变。</p>
+<p>const 实际上保证的并不是变量的值不得改动，而是变量指向的那个<strong>内存地址不得改动</strong>。</p>
+<ol>
+<li>对于简单数据类型（数值、字符串、布尔值），值就是保存在变量指向的内存地址中，因此等同于常量；</li>
+<li>对于复合类型的数据（主要针对对象和数组），变量指向的内存地址保存的只是一个指针。const只能保证这个指针是固定的。<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">const</span> foo<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
 </code></pre>
 </li>
 </ol>
-<pre><code>
-# const
-const 声明的是一个只读变量，一旦声明，常量的值就不可以改变。
-
-const 实际上保证的并不是变量的值不得改动，而是变量指向的那个**内存地址不得改动**。
-
-1. 对于简单数据类型（数值、字符串、布尔值），值就是保存在变量指向的内存地址中，因此等同于常量；
-2. 对于复合类型的数据（主要针对对象和数组），变量指向的内存地址保存的只是一个指针。const只能保证这个指针是固定的。
-``` javascript
-const foo={};
-
-//为foo 添加一个属性，可以成功（内存地址没有改变）
-foo.prop=123;
-
-//将foo指向另一个对象，报错(此时内存地址改变了)
-foo={};
-</code></pre>
+<p>//为foo 添加一个属性，可以成功（内存地址没有改变）<br>foo.prop=123;</p>
+<p>//将foo指向另一个对象，报错(此时内存地址改变了)<br>foo={};</p>
+<pre><code></code></pre>
             </div>
             <hr/>
 
