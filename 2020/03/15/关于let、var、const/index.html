@@ -459,6 +459,16 @@ console<span class="token punctuation">.</span><span class="token function">log<
  <span class="token keyword">let</span> a<span class="token operator">=</span><span class="token number">10</span><span class="token punctuation">;</span>
  <span class="token keyword">let</span> a<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//报错</span>
+<span class="token keyword">function</span> <span class="token function">func</span><span class="token punctuation">(</span>args<span class="token punctuation">)</span><span class="token punctuation">{</span>
+ <span class="token keyword">let</span> arg
+<span class="token punctuation">}</span>；
+<span class="token comment" spellcheck="true">//不报错，此时声明的变量已经跟上面的arg不在一个作用域下了</span>
+functuon <span class="token function">fun</span><span class="token punctuation">(</span>arg<span class="token punctuation">)</span><span class="token punctuation">{</span>
+ <span class="token punctuation">{</span>
+     <span class="token keyword">let</span> arg
+ <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 </code></pre>
 </li>
 </ol>
@@ -470,7 +480,7 @@ const 实际上保证的并不是变量的值不得改动，而是变量指向�
 
 1. 对于简单数据类型（数值、字符串、布尔值），值就是保存在变量指向的内存地址中，因此等同于常量；
 2. 对于复合类型的数据（主要针对对象和数组），变量指向的内存地址保存的只是一个指针。const只能保证这个指针是固定的。
-```javascript
+``` javascript
 const foo={};
 
 //为foo 添加一个属性，可以成功（内存地址没有改变）
