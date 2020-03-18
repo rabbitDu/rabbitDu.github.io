@@ -393,53 +393,76 @@
             <div id="articleContent">
                 <h1 id="块级作用域"><a href="#块级作用域" class="headerlink" title="块级作用域"></a>块级作用域</h1><p>ES5 中作用域有：全局作用域、函数作用域。但是没有块作用域的概念。</p>
 <p>ES6 中新增了块级作用域。块作用域由 { } 包括，if语句和 for语句里面的{ }也属于块作用域。</p>
-<pre><code>&lt;script type=&quot;text/javascript&quot;&gt;
-    {
-        var a = 1;
-        let b = 2;
-        console.log(a); // 1
-        console.log(b; // 2
-    }
-    console.log(a); // 1
-    console.log(b); // 报错
-    // 可见，通过var定义的变量可以跨块作用域访问到。let定义的变量，外部访问就会报错
+<pre class=" language-javascript"><code class="language-javascript"><span class="token operator">&lt;</span>script type<span class="token operator">=</span><span class="token string">"text/javascript"</span><span class="token operator">></span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">var</span> a <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token keyword">let</span> b <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 1</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>b<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 2</span>
+    <span class="token punctuation">}</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 1</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 报错</span>
+    <span class="token comment" spellcheck="true">// 可见，通过var定义的变量可以跨块作用域访问到。let定义的变量，外部访问就会报错</span>
 
-    (function A() {
-        var b = 2;
-        console.log(b); // 2
-    })();
-    // console.log(b); // 报错，
-    // 可见，通过var定义的变量不能跨函数作用域访问到
+    <span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token function">A</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">var</span> b <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 2</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">// console.log(b); // 报错，</span>
+    <span class="token comment" spellcheck="true">// 可见，通过var定义的变量不能跨函数作用域访问到</span>
 
-    if(true) {
-        var c = 3;
-    }
-    console.log(c); // 3
-    for(var i = 0; i &lt; 4; i++) {
-        var d = 5;
-    };
-    console.log(i); // 4   (循环结束i已经是4，所以此处i为4)
-    console.log(d); // 5
-    // if语句和for语句中用var定义的变量可以在外面访问到，
-    // 可见，if语句和for语句属于块作用域，不属于函数作用域。
-&lt;/script&gt;
-</code></pre><h1 id="let、var、const-的区别"><a href="#let、var、const-的区别" class="headerlink" title="let、var、const 的区别"></a>let、var、const 的区别</h1><p>var 用来声明变量的，没有块的概念，可以跨块访问，但是不能跨函数访问；</p>
+    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">var</span> c <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>c<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 3</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">var</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">4</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">var</span> d <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 4   (循环结束i已经是4，所以此处i为4)</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>d<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 5</span>
+    <span class="token comment" spellcheck="true">// if语句和for语句中用var定义的变量可以在外面访问到，</span>
+    <span class="token comment" spellcheck="true">// 可见，if语句和for语句属于块作用域，不属于函数作用域。</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
+</code></pre>
+<h1 id="let、var、const-的区别"><a href="#let、var、const-的区别" class="headerlink" title="let、var、const 的区别"></a>let、var、const 的区别</h1><p>var 用来声明变量的，没有块的概念，可以跨块访问，但是不能跨函数访问；</p>
 <p>let 也是用来声明变量的；声明的变量只有在let命令所在的块内才有效</p>
 <p>const是用来声明一个常量的。即是一个只读变量，一旦声明，就必须立即初始化；</p>
 <h2 id="var、let-的不同点"><a href="#var、let-的不同点" class="headerlink" title="var、let 的不同点"></a>var、let 的不同点</h2><ol>
-<li>let所声明的变量只有在所在的代码块内才有效；var会变量提升；<pre><code>for(let i=0;i&lt;10;i++){
- //...
-}
-console.log(i) //ReferenceError:i is not defined
-</code></pre></li>
+<li>let所声明的变量只有在所在的代码块内才有效；var会变量提升；</li>
 </ol>
-<p>for(var j=0;j&lt;10;j++&gt;){<br>    //….<br>}<br>console.log(i)  //10</p>
-<pre><code>2. let所声明的变量一定要在声明后使用，否则会报错；var可以在声明之前使用，值为undefined;</code></pre><p>//var 的情况<br>console.log(foo);  //输出undefined<br>var foo=2;</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">let</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span><span class="token number">10</span><span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">//...</span>
+<span class="token punctuation">}</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//ReferenceError:i is not defined</span>
+<span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">var</span> j<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>j<span class="token operator">&lt;</span><span class="token number">10</span><span class="token punctuation">;</span>j<span class="token operator">++</span><span class="token operator">></span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">//....</span>
+<span class="token punctuation">}</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">//10</span></code></pre>
+<ol start="2">
+<li>let所声明的变量一定要在声明后使用，否则会报错；var可以在声明之前使用，值为undefined;<pre class=" language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">//var 的情况</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>foo<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">//输出undefined</span>
+<span class="token keyword">var</span> foo<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">;</span>
+</code></pre>
+</li>
+</ol>
 <p>//let的情况<br>console.log(bar);  //报错 ReferenceError<br>let bar=2;</p>
-<pre><code>3. ES6有明确规定，如果区域块中存在let或const命令，则这个区域块对这些命令的声明的变量从一开始就形成了**封闭作用域**，即只要在声明之前使用，就会报错。</code></pre><p>var temp=123;<br>if(true){<br>    temp=’abc’;  //ReferenceError<br>    let temp;<br>}</p>
-<pre><code>个人理解的封闭作用域就是暂时跟外部的作用域没有关联（在区域块中存在let或const），类似于一个独立的作用域；所以我们在if的块级作用域中使用没有声明的temp，就会报错；
+<pre><code>3. ES6有明确规定，如果区域块中存在let或const命令，则这个区域块对这些命令的声明的变量从一开始就形成了**封闭作用域**，即只要在声明之前使用，就会报错。
 
-4. let不允许在相同的作用域内重复声明同一变量（因此，不能在函数内部重新声明参数），var没有限制。</code></pre><p>//报错<br>function(){<br>    let a=10;<br>    var a=1;<br>}</p>
+```javascript
+var temp=123;
+if(true){
+    temp=&#39;abc&#39;;  //ReferenceError
+    let temp;
+}</code></pre><p>个人理解的封闭作用域就是暂时跟外部的作用域没有关联（在区域块中存在let或const），类似于一个独立的作用域；所以我们在if的块级作用域中使用没有声明的temp，就会报错；</p>
+<ol start="4">
+<li>let不允许在相同的作用域内重复声明同一变量（因此，不能在函数内部重新声明参数），var没有限制。<pre class=" language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">//报错</span>
+<span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+ <span class="token keyword">let</span> a<span class="token operator">=</span><span class="token number">10</span><span class="token punctuation">;</span>
+ <span class="token keyword">var</span> a<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+</li>
+</ol>
 <p>//报错<br>function(){<br>    let a=10;<br>    let a=1;<br>}</p>
 <p>function func(arg){<br>    let arg; //报错<br>}</p>
 <p>function func(arg){<br>    {<br>        let arg; //不报错，此时声明的变量已经跟上面的arg不在一个作用域下了<br>    }<br>} </p>
@@ -450,10 +473,16 @@ const 实际上保证的并不是变量的值不得改动，而是变量指向�
 
 1. 对于简单数据类型（数值、字符串、布尔值），值就是保存在变量指向的内存地址中，因此等同于常量；
 2. 对于复合类型的数据（主要针对对象和数组），变量指向的内存地址保存的只是一个指针。const只能保证这个指针是固定的。
-</code></pre><p>const foo={};</p>
-<p>//为foo 添加一个属性，可以成功（内存地址没有改变）<br>foo.prop=123;</p>
-<p>//将foo指向另一个对象，报错(此时内存地址改变了)<br>foo={}; </p>
-<pre><code></code></pre>
+
+```javascript
+const foo={};
+
+//为foo 添加一个属性，可以成功（内存地址没有改变）
+foo.prop=123;
+
+//将foo指向另一个对象，报错(此时内存地址改变了)
+foo={}; 
+</code></pre>
             </div>
             <hr/>
 
