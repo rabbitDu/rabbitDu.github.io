@@ -416,15 +416,16 @@
 <p><strong>作用</strong></p>
 <p>这是一种将数据结构分解为更小的部分的过程，从而达到简化提取信息的目的。</p>
 <h1 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h1><h2 id="数组的解构赋值"><a href="#数组的解构赋值" class="headerlink" title="数组的解构赋值"></a>数组的解构赋值</h2><p>本质上：写法属于“模式匹配”，只要等号两边的模式相同，即可</p>
-<h3 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h3><pre><code>//以前为变量赋值
-let a=1;
-let b=2;
+<h3 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h3><pre class=" language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">//以前为变量赋值</span>
+<span class="token keyword">let</span> a<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> b<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">;</span>
 
-//ES6写法
-let [a,b,c]=[1,2,3];
-//嵌套解构
-let [foo,[[bar],baz]]=[1,[[2],3]];
-</code></pre><p>解构过程中，存在一下几种情况</p>
+<span class="token comment" spellcheck="true">//ES6写法</span>
+<span class="token keyword">let</span> <span class="token punctuation">[</span>a<span class="token punctuation">,</span>b<span class="token punctuation">,</span>c<span class="token punctuation">]</span><span class="token operator">=</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//嵌套解构</span>
+<span class="token keyword">let</span> <span class="token punctuation">[</span>foo<span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token punctuation">[</span>bar<span class="token punctuation">]</span><span class="token punctuation">,</span>baz<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+</code></pre>
+<p>解构过程中，存在一下几种情况</p>
 <ol>
 <li>解构成功（要求：左右的模式一模一样）；</li>
 <li>不完全解构（等号左边只匹配了等号右边数组的一部分）,通俗的讲就是右边的元素个数要大于左边的；<pre class=" language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">//x=1,y=2</span>
@@ -437,8 +438,9 @@ let [foo,[[bar],baz]]=[1,[[2],3]];
 </code></pre>
 </li>
 </ol>
-<p>//bar的值为1，foo的值为undefined<br>let [bar,foo]=[1];  </p>
-<pre><code>4. 报错（右边不是可遍历的解构,不具备Iterator接口）
+<pre><code>
+4. 报错（右边不是可遍历的解构,不具备Iterator接口）
+
 ```javascript
 //以下都会报错
 let [foo]=1;
