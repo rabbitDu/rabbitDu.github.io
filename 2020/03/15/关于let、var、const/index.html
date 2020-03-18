@@ -440,16 +440,15 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <span class="token keyword">let</span> bar<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">;</span></code></pre>
 </li>
 <li><p>ES6有明确规定，如果区域块中存在let或const命令，则这个区域块对这些命令的声明的变量从一开始就形成了<strong>封闭作用域</strong>，即只要在声明之前使用，就会报错。</p>
-</li>
-</ol>
 <pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">var</span> temp<span class="token operator">=</span><span class="token number">123</span><span class="token punctuation">;</span>
 <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-    temp<span class="token operator">=</span><span class="token string">'abc'</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">//ReferenceError</span>
-    <span class="token keyword">let</span> temp<span class="token punctuation">;</span>
+ temp<span class="token operator">=</span><span class="token string">'abc'</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">//ReferenceError</span>
+ <span class="token keyword">let</span> temp<span class="token punctuation">;</span>
 <span class="token punctuation">}</span></code></pre>
 <p>个人理解的封闭作用域就是暂时跟外部的作用域没有关联（在区域块中存在let或const），类似于一个独立的作用域；所以我们在if的块级作用域中使用没有声明的temp，就会报错；</p>
-<ol start="4">
-<li>let不允许在相同的作用域内重复声明同一变量（因此，不能在函数内部重新声明参数），var没有限制。<pre class=" language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">//报错</span>
+</li>
+<li><p>let不允许在相同的作用域内重复声明同一变量（因此，不能在函数内部重新声明参数），var没有限制。</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">//报错</span>
 <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
  <span class="token keyword">let</span> a<span class="token operator">=</span><span class="token number">10</span><span class="token punctuation">;</span>
  <span class="token keyword">var</span> a<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>
@@ -459,28 +458,27 @@ console<span class="token punctuation">.</span><span class="token function">log<
  <span class="token keyword">let</span> a<span class="token operator">=</span><span class="token number">10</span><span class="token punctuation">;</span>
  <span class="token keyword">let</span> a<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">function</span> <span class="token function">func</span><span class="token punctuation">(</span>arg<span class="token punctuation">)</span><span class="token punctuation">{</span>
+ <span class="token keyword">let</span> arg<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//报错</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">function</span> <span class="token function">func</span><span class="token punctuation">(</span>arg<span class="token punctuation">)</span><span class="token punctuation">{</span>
+ <span class="token punctuation">{</span>
+     <span class="token keyword">let</span> arg<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//不报错，此时声明的变量已经跟上面的arg不在一个作用域下了</span>
+ <span class="token punctuation">}</span>
+<span class="token punctuation">}</span> </code></pre>
+<h1 id="const"><a href="#const" class="headerlink" title="const"></a>const</h1><p>const 声明的是一个只读变量，一旦声明，常量的值就不可以改变。</p>
+</li>
+</ol>
+<p>const 实际上保证的并不是变量的值不得改动，而是变量指向的那个<strong>内存地址不得改动</strong>。</p>
+<ol>
+<li>对于简单数据类型（数值、字符串、布尔值），值就是保存在变量指向的内存地址中，因此等同于常量；</li>
+<li>对于复合类型的数据（主要针对对象和数组），变量指向的内存地址保存的只是一个指针。const只能保证这个指针是固定的。<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">const</span> foo<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
 </code></pre>
 </li>
 </ol>
-<p>function func(arg){<br>    let arg; //报错<br>};</p>
-<p>function func(arg){<br>    {<br>        let arg; //不报错，此时声明的变量已经跟上面的arg不在一个作用域下了<br>    }<br>} </p>
-<pre><code># const
-const 声明的是一个只读变量，一旦声明，常量的值就不可以改变。
-
-const 实际上保证的并不是变量的值不得改动，而是变量指向的那个**内存地址不得改动**。
-
-1. 对于简单数据类型（数值、字符串、布尔值），值就是保存在变量指向的内存地址中，因此等同于常量；
-2. 对于复合类型的数据（主要针对对象和数组），变量指向的内存地址保存的只是一个指针。const只能保证这个指针是固定的。
-
-```javascript
-const foo={};
-
-//为foo 添加一个属性，可以成功（内存地址没有改变）
-foo.prop=123;
-
-//将foo指向另一个对象，报错(此时内存地址改变了)
-foo={}; 
-</code></pre>
+<p>//为foo 添加一个属性，可以成功（内存地址没有改变）<br>foo.prop=123;</p>
+<p>//将foo指向另一个对象，报错(此时内存地址改变了)<br>foo={}; </p>
+<pre><code></code></pre>
             </div>
             <hr/>
 
