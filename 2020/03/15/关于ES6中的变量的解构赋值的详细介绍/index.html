@@ -460,26 +460,27 @@
 <p>ES6内部使用严格相等运算符（===）判断一个位置是否有值。所以一个数组成员不严格等于undefined,默认值就不会生效。</p>
 </blockquote>
 <ol>
-<li>右边对应元素严格等于undefined,否则不会生效<pre class=" language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">//x=undefined</span>
+<li><p>右边对应元素严格等于undefined,否则不会生效</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">//x=undefined</span>
 <span class="token keyword">let</span> <span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token operator">=</span><span class="token punctuation">[</span>undefined<span class="token punctuation">]</span><span class="token punctuation">;</span>
-</code></pre>
+<span class="token comment" spellcheck="true">//x=null</span>
+<span class="token keyword">let</span> <span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token operator">=</span><span class="token punctuation">[</span><span class="token keyword">null</span><span class="token punctuation">]</span><span class="token punctuation">;</span></code></pre>
+</li>
+<li><p>默认值可以引用解构赋值的其他变量，但该变量必须已经声明</p>
 </li>
 </ol>
-<p>//x=null<br>let [x]=[null];</p>
-<pre><code>
-2. 默认值可以引用解构赋值的其他变量，但该变量必须已经声明
-```javascript
-//x=1,y=1
-let [x=1,y=x]=[];  
+<pre class=" language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">//x=1,y=1</span>
+<span class="token keyword">let</span> <span class="token punctuation">[</span>x<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span>y<span class="token operator">=</span>x<span class="token punctuation">]</span><span class="token operator">=</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>  
 
-//x=2,y=2
-let [x=1,y=x]=[2]; 
+<span class="token comment" spellcheck="true">//x=2,y=2</span>
+<span class="token keyword">let</span> <span class="token punctuation">[</span>x<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span>y<span class="token operator">=</span>x<span class="token punctuation">]</span><span class="token operator">=</span><span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">;</span> 
 
-//x=1,y=2
-let [x=1,y=x]=[1,2] 
+<span class="token comment" spellcheck="true">//x=1,y=2</span>
+<span class="token keyword">let</span> <span class="token punctuation">[</span>x<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span>y<span class="token operator">=</span>x<span class="token punctuation">]</span><span class="token operator">=</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">]</span> 
 
-//ReferenceError  因为x用到y时，y还没有声明
-let [x=y,y=1]=[];  </code></pre><ol start="3">
+<span class="token comment" spellcheck="true">//ReferenceError  因为x用到y时，y还没有声明</span>
+<span class="token keyword">let</span> <span class="token punctuation">[</span>x<span class="token operator">=</span>y<span class="token punctuation">,</span>y<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>  </code></pre>
+<ol start="3">
 <li>默认值是一个表达式（还没有搞清楚）</li>
 </ol>
 
