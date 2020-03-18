@@ -29,7 +29,7 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
     
-<meta name="generator" content="Hexo 4.2.0"></head>
+<meta name="generator" content="Hexo 4.2.0"><link rel="stylesheet" href="/css/prism.css" type="text/css"></head>
 
 
 <body>
@@ -414,7 +414,9 @@
 <h4 id="鼠标事件"><a href="#鼠标事件" class="headerlink" title="鼠标事件"></a>鼠标事件</h4><ul>
 <li><code>click()</code>–<code>$(&quot;p&quot;).click(function(){......})</code>–</li>
 <li><code>dbclick()</code></li>
-<li><code>mouseenter()</code>–当鼠标指针进入 <p> 元素时，设置背景色为黄色<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(&quot;p&quot;).mouseenter(function()&#123;</span><br><span class="line">	$(&quot;p&quot;).css(&quot;background-color&quot;,&quot;yellow&quot;);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></li>
+<li><code>mouseenter()</code>–当鼠标指针进入 <p> 元素时，设置背景色为黄色<pre><code>$(&quot;p&quot;).mouseenter(function(){
+  $(&quot;p&quot;).css(&quot;background-color&quot;,&quot;yellow&quot;);
+})</code></pre></li>
 <li><code>mouseleave()</code></li>
 <li><code>mousedown()</code></li>
 <li><code>mouseup()</code></li>
@@ -432,8 +434,18 @@
 <li><p><code>focus()</code>– 获得焦点时</p>
 </li>
 <li><p><code>blur()</code>–失去焦点时</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">$(&quot;input&quot;).change(function()&#123;</span><br><span class="line">    alert(&quot;文本已被修改&quot;);</span><br><span class="line">&#125;);</span><br><span class="line">$(&quot;input&quot;).change(function()&#123;</span><br><span class="line">    alert(&quot;文本已被修改&quot;);</span><br><span class="line">&#125;);</span><br><span class="line">$(&quot;input&quot;).focus(function()&#123;</span><br><span class="line">    $(&quot;span&quot;).css(&quot;display&quot;,&quot;inline&quot;).fadeOut(2000);</span><br><span class="line">&#125;);</span><br><span class="line">$(&quot;input&quot;).blur(function()&#123;</span><br><span class="line">    alert(&quot;输入框失去了焦点&quot;);</span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure>
-<h4 id="文档-窗口事件"><a href="#文档-窗口事件" class="headerlink" title="文档/窗口事件"></a>文档/窗口事件</h4></li>
+<pre><code>$(&quot;input&quot;).change(function(){
+  alert(&quot;文本已被修改&quot;);
+});
+$(&quot;input&quot;).change(function(){
+  alert(&quot;文本已被修改&quot;);
+});
+$(&quot;input&quot;).focus(function(){
+  $(&quot;span&quot;).css(&quot;display&quot;,&quot;inline&quot;).fadeOut(2000);
+});
+$(&quot;input&quot;).blur(function(){
+  alert(&quot;输入框失去了焦点&quot;);
+});</code></pre><h4 id="文档-窗口事件"><a href="#文档-窗口事件" class="headerlink" title="文档/窗口事件"></a>文档/窗口事件</h4></li>
 <li><p><code>load()</code></p>
 </li>
 <li><p><code>scroll</code></p>
@@ -556,7 +568,12 @@
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            超炫的按钮代码css:12345678910111213141516171819202122232425262728293031323334353637&lt;style&gt;    .button-css&#123;        ma
+                            超炫的按钮代码css:&lt;style&gt;
+    .button-css{
+        margin:200px 500px;
+        width: 400px;
+        position: relative;
+
                         
                     </div>
                     <div class="publish-info">
@@ -594,7 +611,7 @@
                     <div class="summary block-with-text">
                         
                             oracle impdp/expdp 导入/导出导入dmp文件dmp文件由expdp命令导出，想要导入这种文件，需要在库中建立相同中的表空间和用户。
-建立表空间123456789create tablespace tbs_gaugemete
+建立表空间create tablespace tbs_gaugemeter --表空间名称
                         
                     </div>
                     <div class="publish-info">

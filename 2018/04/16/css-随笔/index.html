@@ -29,7 +29,7 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
     
-<meta name="generator" content="Hexo 4.2.0"></head>
+<meta name="generator" content="Hexo 4.2.0"><link rel="stylesheet" href="/css/prism.css" type="text/css"></head>
 
 
 <body>
@@ -394,20 +394,46 @@
                 <h1 id="css3-选择器"><a href="#css3-选择器" class="headerlink" title="css3 选择器"></a><center>css3 选择器</center></h1><h2 id="一-属性选择"><a href="#一-属性选择" class="headerlink" title="一.属性选择"></a>一.属性选择</h2><h4 id="1-E-attr-quot-val-quot"><a href="#1-E-attr-quot-val-quot" class="headerlink" title="1. E[attr^=&quot;val&quot;]"></a>1. <code>E[attr^=&quot;val&quot;]</code></h4><p>选择匹配元素E，且E元素定义了属性attr，匹配属性值以val<font color="#dd0000"><b>开头</b></font>的任何字符串。</p>
 <h4 id="2-E-attr-quot-val-quot"><a href="#2-E-attr-quot-val-quot" class="headerlink" title="2.E[attr$=&quot;val&quot;]"></a>2.<code>E[attr$=&quot;val&quot;]</code></h4><p>选择匹配元素E，且E元素定义了属性attr，匹配器属性值以val<font color="#dd0000"><b>结尾</b></font>的任何字符串。</p>
 <h4 id="3-E-attr-quot-val-quot"><a href="#3-E-attr-quot-val-quot" class="headerlink" title="3.E[attr*=&quot;val&quot;]"></a>3.<code>E[attr*=&quot;val&quot;]</code></h4><p>选择匹配元素E，且E元素定义了属性attr，匹配器属性值以val<font color="#dd0000"><b>包含</b></font>的任何字符串。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">eg:</span><br><span class="line"></span><br><span class="line">a[class^&#x3D;&quot;column&quot;]&#123;background:red;&#125;</span><br><span class="line"></span><br><span class="line">a[href$&#x3D;&quot;doc&quot;]&#123;background:green;&#125;</span><br><span class="line"></span><br><span class="line">a[title*&#x3D;&quot;box&quot;]&#123;background:blue</span><br></pre></td></tr></table></figure>
-<h2 id="二-结构性伪类选择器"><a href="#二-结构性伪类选择器" class="headerlink" title="二.结构性伪类选择器"></a>二.结构性伪类选择器</h2><h4 id="一-root-匹配元素E所在文档的根元素"><a href="#一-root-匹配元素E所在文档的根元素" class="headerlink" title="(一). :root (匹配元素E所在文档的根元素)"></a>(一). :root (匹配元素E所在文档的根元素)</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">:root &#123;</span><br><span class="line">  background:orange;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="二-not-否定选择器"><a href="#二-not-否定选择器" class="headerlink" title="(二). :not (否定选择器)"></a>(二). :not (否定选择器)</h4><p> 可以选择除某个元素之外的所有元素</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">input:not([type&#x3D;&quot;submit&quot;])&#123;</span><br><span class="line">  border:1px solid red;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">div:not([id&#x3D;&quot;footer&quot;])&#123;</span><br><span class="line">background: orange;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="三-empty-空"><a href="#三-empty-空" class="headerlink" title="(三). :empty(空)"></a>(三). :empty(空)</h4><p>用来选择没有任何内容的元素，这里没有内容指的是一点内容都没有，哪怕是一个空格。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">p:empty &#123;</span><br><span class="line">  border-color:#fff;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="四-target-目标选择器"><a href="#四-target-目标选择器" class="headerlink" title="(四). :target(目标选择器)"></a>(四). :target(目标选择器)</h4><ul>
+<pre><code>eg:
+
+a[class^=&quot;column&quot;]{background:red;}
+
+a[href$=&quot;doc&quot;]{background:green;}
+
+a[title*=&quot;box&quot;]{background:blue </code></pre><h2 id="二-结构性伪类选择器"><a href="#二-结构性伪类选择器" class="headerlink" title="二.结构性伪类选择器"></a>二.结构性伪类选择器</h2><h4 id="一-root-匹配元素E所在文档的根元素"><a href="#一-root-匹配元素E所在文档的根元素" class="headerlink" title="(一). :root (匹配元素E所在文档的根元素)"></a>(一). :root (匹配元素E所在文档的根元素)</h4><pre><code>:root {
+  background:orange;
+}</code></pre><h4 id="二-not-否定选择器"><a href="#二-not-否定选择器" class="headerlink" title="(二). :not (否定选择器)"></a>(二). :not (否定选择器)</h4><p> 可以选择除某个元素之外的所有元素</p>
+<pre><code>input:not([type=&quot;submit&quot;]){
+  border:1px solid red;
+}
+
+div:not([id=&quot;footer&quot;]){
+background: orange;
+}</code></pre><h4 id="三-empty-空"><a href="#三-empty-空" class="headerlink" title="(三). :empty(空)"></a>(三). :empty(空)</h4><p>用来选择没有任何内容的元素，这里没有内容指的是一点内容都没有，哪怕是一个空格。</p>
+<pre><code>p:empty {
+  border-color:#fff;
+}</code></pre><h4 id="四-target-目标选择器"><a href="#四-target-目标选择器" class="headerlink" title="(四). :target(目标选择器)"></a>(四). :target(目标选择器)</h4><ul>
 <li>用来匹配文档(页面)的<font color="#dd0000"><b>url</b></font>的某个标志符的目标元素。</li>
 </ul>
 <p>html代码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;h2&gt;&lt;a href&#x3D;&quot;#brand&quot;&gt;Brand&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;</span><br><span class="line">&lt;div class&#x3D;&quot;menuSection&quot; id&#x3D;&quot;brand&quot;&gt;</span><br><span class="line">  content for Brand</span><br><span class="line">&lt;&#x2F;div&gt;</span><br><span class="line">&lt;h2&gt;&lt;a href&#x3D;&quot;#jake&quot;&gt;Brand&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;</span><br><span class="line">&lt;div class&#x3D;&quot;menuSection&quot; id&#x3D;&quot;jake&quot;&gt;</span><br><span class="line"> content for jake</span><br><span class="line">&lt;&#x2F;div&gt;</span><br></pre></td></tr></table></figure>
-<p>CSS代码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#brand:target &#123;</span><br><span class="line">  background: orange;</span><br><span class="line">  color: #fff;</span><br><span class="line">&#125;</span><br><span class="line">#jake:target &#123;</span><br><span class="line">  background: blue;</span><br><span class="line">  color: #fff;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="五-选择子元素"><a href="#五-选择子元素" class="headerlink" title="(五). 选择子元素"></a>(五). 选择子元素</h4><h5 id="1-first-child、-last-child和-nth-child-n-、nth-last-child-n"><a href="#1-first-child、-last-child和-nth-child-n-、nth-last-child-n" class="headerlink" title="1:first-child、:last-child和 nth-child(n)、nth-last-child(n)"></a>1:first-child、:last-child和 nth-child(n)、nth-last-child(n)</h5><ul>
+<pre><code>&lt;h2&gt;&lt;a href=&quot;#brand&quot;&gt;Brand&lt;/a&gt;&lt;/h2&gt;
+&lt;div class=&quot;menuSection&quot; id=&quot;brand&quot;&gt;
+  content for Brand
+&lt;/div&gt;
+&lt;h2&gt;&lt;a href=&quot;#jake&quot;&gt;Brand&lt;/a&gt;&lt;/h2&gt;
+&lt;div class=&quot;menuSection&quot; id=&quot;jake&quot;&gt;
+ content for jake
+&lt;/div&gt;
+</code></pre><p>CSS代码：</p>
+<pre><code>#brand:target {
+  background: orange;
+  color: #fff;
+}
+#jake:target {
+  background: blue;
+  color: #fff;
+}
+</code></pre><h4 id="五-选择子元素"><a href="#五-选择子元素" class="headerlink" title="(五). 选择子元素"></a>(五). 选择子元素</h4><h5 id="1-first-child、-last-child和-nth-child-n-、nth-last-child-n"><a href="#1-first-child、-last-child和-nth-child-n-、nth-last-child-n" class="headerlink" title="1:first-child、:last-child和 nth-child(n)、nth-last-child(n)"></a>1:first-child、:last-child和 nth-child(n)、nth-last-child(n)</h5><ul>
 <li><p><code>:first-child</code> 选择父元素的第一个<font color="#dd0000">子元素</font>的元素E</p>
 </li>
 <li><p><code>:last-child</code> 选择父元素的最后一个<font color="#dd0000">子元素</font>的元素E</p>
@@ -421,41 +447,86 @@
 </ol>
 </li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"> li:first-child&#123;</span><br><span class="line">  color: red;</span><br><span class="line">&#125;</span><br><span class="line"> li:last-child&#123;</span><br><span class="line">  color: red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h5 id="2-first-of-type、-nth-of-type-n-和-last-of-type、-nth-last-of-type-n"><a href="#2-first-of-type、-nth-of-type-n-和-last-of-type、-nth-last-of-type-n" class="headerlink" title="2. :first-of-type、:nth-of-type(n)和 :last-of-type、:nth-last-of-type(n)"></a>2. :first-of-type、:nth-of-type(n)和 :last-of-type、:nth-last-of-type(n)</h5><ul>
+<pre><code> li:first-child{
+  color: red;
+}
+ li:last-child{
+  color: red;
+}</code></pre><h5 id="2-first-of-type、-nth-of-type-n-和-last-of-type、-nth-last-of-type-n"><a href="#2-first-of-type、-nth-of-type-n-和-last-of-type、-nth-last-of-type-n" class="headerlink" title="2. :first-of-type、:nth-of-type(n)和 :last-of-type、:nth-last-of-type(n)"></a>2. :first-of-type、:nth-of-type(n)和 :last-of-type、:nth-last-of-type(n)</h5><ul>
 <li><code>:first-of-type</code> 主要用来定位一个父元素下的<font color="blue">某个类型的</font><font color="red"><b>第一个子元素</b></font>。</li>
 <li><code>:last-of-type</code> 主要用来定位一个父元素下的<font color="blue">某个类型的</font><font color="red"><b>最后一个子元素</b></font>。</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">.wrapper &gt; p:first-of-type &#123;</span><br><span class="line">  background: orange;</span><br><span class="line">&#125;</span><br><span class="line">.wrapper &gt; p:nth-of-type(2n)&#123;</span><br><span class="line">  background: orange;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h5 id="3-only-child、only-of-type"><a href="#3-only-child、only-of-type" class="headerlink" title="3. :only-child、only-of-type"></a>3. :only-child、only-of-type</h5><ul>
+<pre><code>.wrapper &gt; p:first-of-type {
+  background: orange;
+}
+.wrapper &gt; p:nth-of-type(2n){
+  background: orange;
+}</code></pre><h5 id="3-only-child、only-of-type"><a href="#3-only-child、only-of-type" class="headerlink" title="3. :only-child、only-of-type"></a>3. :only-child、only-of-type</h5><ul>
 <li><code>:only-child</code> 匹配的元素的父元素中仅有一个子元素，而且是一个<font color="blue">唯一</font>的<font color="red">子元素</font>。</li>
 <li><code>only-of-type</code> 表示一个元素他有<font color="blue">很多个子元素</font>，而其中只有一种类型的子元素是唯一的</li>
 </ul>
 <p>html代码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class&#x3D;&quot;wrapper&quot;&gt;</span><br><span class="line">  &#x2F;&#x2F;被标记</span><br><span class="line">&lt;p&gt;我是一个段落&lt;&#x2F;p&gt;</span><br><span class="line">&lt;&#x2F;div&gt;</span><br><span class="line"></span><br><span class="line">&lt;div class&#x3D;&quot;wrapper&quot;&gt;</span><br><span class="line"> &lt;div&gt;我是一个Div元素&lt;&#x2F;div&gt;</span><br><span class="line"> &lt;p&gt;我是一个段落&lt;&#x2F;p&gt; &#x2F;&#x2F;被标记</span><br><span class="line"> &lt;div&gt;我是一个Div元素&lt;&#x2F;div&gt;</span><br><span class="line">&lt;&#x2F;div&gt;</span><br></pre></td></tr></table></figure>
-<p>css代码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">.wrapper &#123;</span><br><span class="line">  border: 1px solid #ccc;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.wrapper p:only-of-type&#123;</span><br><span class="line">  background: orange;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="六-设置元素样式"><a href="#六-设置元素样式" class="headerlink" title="(六)  设置元素样式"></a>(六)  设置元素样式</h4><h5 id="1-enabled和-disabled"><a href="#1-enabled和-disabled" class="headerlink" title="1 :enabled和:disabled"></a>1 :enabled和:disabled</h5><ul>
+<pre><code>&lt;div class=&quot;wrapper&quot;&gt;
+  //被标记
+&lt;p&gt;我是一个段落&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;wrapper&quot;&gt;
+ &lt;div&gt;我是一个Div元素&lt;/div&gt;
+ &lt;p&gt;我是一个段落&lt;/p&gt; //被标记
+ &lt;div&gt;我是一个Div元素&lt;/div&gt;
+&lt;/div&gt;</code></pre><p>css代码：</p>
+<pre><code>.wrapper {
+  border: 1px solid #ccc;
+
+}
+
+.wrapper p:only-of-type{
+  background: orange;
+}</code></pre><h4 id="六-设置元素样式"><a href="#六-设置元素样式" class="headerlink" title="(六)  设置元素样式"></a>(六)  设置元素样式</h4><h5 id="1-enabled和-disabled"><a href="#1-enabled和-disabled" class="headerlink" title="1 :enabled和:disabled"></a>1 :enabled和:disabled</h5><ul>
 <li>通常用在输入框、密码框、复选框、按钮中；</li>
 <li>使用它设置样式</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">input[type&#x3D;&quot;text&quot;]:enabled &#123;</span><br><span class="line">  border: 1px solid #f36;</span><br><span class="line">  box-shadow: 0 0 5px #f36;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">input[type&#x3D;&quot;text&quot;]:disabled&#123;</span><br><span class="line">  box-shadow: none;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code>input[type=&quot;text&quot;]:enabled {
+  border: 1px solid #f36;
+  box-shadow: 0 0 5px #f36;
+}
 
-<h5 id="2-checked"><a href="#2-checked" class="headerlink" title="2 :checked"></a>2 :checked</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class&#x3D;&quot;box&quot;&gt;</span><br><span class="line"> &lt;input type&#x3D;&quot;checkbox&quot; checked&#x3D;&quot;checked&quot; id&#x3D;&quot;usename&quot; &#x2F;&gt;&lt;span&gt;√&lt;&#x2F;span&gt;</span><br><span class="line">&lt;&#x2F;div&gt;</span><br><span class="line"></span><br><span class="line">input[type&#x3D;&quot;checkbox&quot;]:checked + span &#123;</span><br><span class="line">  opacity: 1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+input[type=&quot;text&quot;]:disabled{
+  box-shadow: none;
+}</code></pre><h5 id="2-checked"><a href="#2-checked" class="headerlink" title="2 :checked"></a>2 :checked</h5><pre><code>&lt;div class=&quot;box&quot;&gt;
+ &lt;input type=&quot;checkbox&quot; checked=&quot;checked&quot; id=&quot;usename&quot; /&gt;&lt;span&gt;√&lt;/span&gt;
+&lt;/div&gt;
 
-<h5 id="3-read-only-只读状态"><a href="#3-read-only-只读状态" class="headerlink" title="3 :read-only(只读状态)"></a>3 :read-only(只读状态)</h5><ul>
+input[type=&quot;checkbox&quot;]:checked + span {
+  opacity: 1;
+}</code></pre><h5 id="3-read-only-只读状态"><a href="#3-read-only-只读状态" class="headerlink" title="3 :read-only(只读状态)"></a>3 :read-only(只读状态)</h5><ul>
 <li>用来指定处于只读状态元素的样式。简单点理解就是，元素中设置了“readonly=’readonly’”</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"> &lt;div&gt;</span><br><span class="line">    &lt;label for&#x3D;&quot;comment&quot;&gt;评论：&lt;&#x2F;label&gt;</span><br><span class="line">    &lt;textarea name&#x3D;&quot;comment&quot; readonly&#x3D;&quot;readonly&quot;&gt;&lt;&#x2F;textarea&gt;</span><br><span class="line">  &lt;&#x2F;div&gt;</span><br><span class="line"></span><br><span class="line">textarea :read-only &#123;</span><br><span class="line">  border: 1px solid #ccc;</span><br><span class="line">  resize: none;</span><br><span class="line">  background: #eee;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h5 id="4-read-write-非只读状态"><a href="#4-read-write-非只读状态" class="headerlink" title="4 :read-write(非只读状态)"></a>4 :read-write(非只读状态)</h5><ul>
+<pre><code> &lt;div&gt;
+    &lt;label for=&quot;comment&quot;&gt;评论：&lt;/label&gt;
+    &lt;textarea name=&quot;comment&quot; readonly=&quot;readonly&quot;&gt;&lt;/textarea&gt;
+  &lt;/div&gt;
+
+textarea :read-only {
+  border: 1px solid #ccc;
+  resize: none;
+  background: #eee;
+}</code></pre><h5 id="4-read-write-非只读状态"><a href="#4-read-write-非只读状态" class="headerlink" title="4 :read-write(非只读状态)"></a>4 :read-write(非只读状态)</h5><ul>
 <li>主要用来指定当元素处于非只读状态时的样式。</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"> &lt;input type&#x3D;&quot;text&quot; name&#x3D;&quot;name&quot; id&#x3D;&quot;name&quot; placeholder&#x3D;&quot;大漠&quot; &#x2F;&gt;</span><br><span class="line"></span><br><span class="line">input[type&#x3D;&quot;text&quot;]:read-write&#123;</span><br><span class="line">  border:2px solid red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h5 id="5-selection"><a href="#5-selection" class="headerlink" title="5 ::selection"></a>5 ::selection</h5><ul>
+<pre><code> &lt;input type=&quot;text&quot; name=&quot;name&quot; id=&quot;name&quot; placeholder=&quot;大漠&quot; /&gt;
+
+input[type=&quot;text&quot;]:read-write{
+  border:2px solid red;
+}
+</code></pre><h5 id="5-selection"><a href="#5-selection" class="headerlink" title="5 ::selection"></a>5 ::selection</h5><ul>
 <li>用来修改用鼠标选中文本之后的样式</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">::selection &#123;</span><br><span class="line">  background: red;</span><br><span class="line">  color: green;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h5 id="6-before和-after"><a href="#6-before和-after" class="headerlink" title="6  ::before和::after"></a>6  ::before和::after</h5><ul>
+<pre><code>::selection {
+  background: red;
+  color: green;
+}</code></pre><h5 id="6-before和-after"><a href="#6-before和-after" class="headerlink" title="6  ::before和::after"></a>6  ::before和::after</h5><ul>
 <li><code>::before</code>和<code>::after</code>这两个主要用来给元素的前面或后面插入内容</li>
 <li>这两个常和”content”配合使用，使用的场景最多的就是清除浮动。</li>
 <li>伪元素的应用<ul>
@@ -467,8 +538,15 @@
 </ul>
 </li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">.effect:after&#123;</span><br><span class="line">    content:&quot;333&quot;;</span><br><span class="line">&#125; </span><br><span class="line">&#x2F;&#x2F;清除浮动</span><br><span class="line">.clear:after &#123;</span><br><span class="line">    content: &#39;&#39;;</span><br><span class="line">    display: block;</span><br><span class="line">    clear: both;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="三-布局样式"><a href="#三-布局样式" class="headerlink" title="三.布局样式"></a>三.布局样式</h2><h4 id="1-columns"><a href="#1-columns" class="headerlink" title="1.columns"></a>1.columns</h4><ul>
+<pre><code>.effect:after{
+    content:&quot;333&quot;;
+} 
+//清除浮动
+.clear:after {
+    content: &#39;&#39;;
+    display: block;
+    clear: both;
+}</code></pre><h2 id="三-布局样式"><a href="#三-布局样式" class="headerlink" title="三.布局样式"></a>三.布局样式</h2><h4 id="1-columns"><a href="#1-columns" class="headerlink" title="1.columns"></a>1.columns</h4><ul>
 <li><p><code>columns</code></p>
 </li>
 <li><p><code>column-width</code>–列宽度</p>
@@ -480,34 +558,13 @@
 <li><p><code>column-rule</code>–列表边框</p>
 </li>
 <li><p><code>column-span</code>–跨列</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">column-width:200px;</span><br><span class="line">column-count: 3;</span><br><span class="line">column-gap: 2em;</span><br><span class="line">column-rule: 2px dotted green(参数：边框宽度，边框类型，边框颜色);</span><br><span class="line">p:nth-child(1)&#123;</span><br><span class="line"> column-span:all;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</li>
+<pre><code>column-width:200px;
+column-count: 3;
+column-gap: 2em;
+column-rule: 2px dotted green(参数：边框宽度，边框类型，边框颜色);
+p:nth-child(1){
+column-span:all;
+}</code></pre></li>
 </ul>
 
             </div>

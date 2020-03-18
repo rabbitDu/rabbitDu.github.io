@@ -29,7 +29,7 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
     
-<meta name="generator" content="Hexo 4.2.0"></head>
+<meta name="generator" content="Hexo 4.2.0"><link rel="stylesheet" href="/css/prism.css" type="text/css"></head>
 
 
 <body>
@@ -391,7 +391,66 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line">exportXlsx: function () &#123;</span><br><span class="line">   var data &#x3D; [&#123;</span><br><span class="line">     &quot;时间&quot;: &quot;00：00&quot;,</span><br><span class="line">     &quot;计划曲线&quot;: &quot;100&quot;,</span><br><span class="line">     &quot;实际出力&quot;: &quot;101.812&quot;</span><br><span class="line">   &#125;, &#123;</span><br><span class="line">     &quot;时间&quot;: &quot;00：01&quot;,</span><br><span class="line">     &quot;计划曲线&quot;: &quot;100&quot;,</span><br><span class="line">     &quot;实际出力&quot;: &quot;101.812&quot;</span><br><span class="line">   &#125;, &#123;</span><br><span class="line">     &quot;时间&quot;: &quot;00：02&quot;,</span><br><span class="line">     &quot;计划曲线&quot;: &quot;100&quot;,</span><br><span class="line">     &quot;实际出力&quot;: &quot;101.812&quot;</span><br><span class="line">   &#125;, &#123;</span><br><span class="line">     &quot;时间&quot;: &quot;00：03&quot;,</span><br><span class="line">     &quot;计划曲线&quot;: &quot;100&quot;,</span><br><span class="line">     &quot;实际出力&quot;: &quot;101.812&quot;</span><br><span class="line">   &#125;, &#123;</span><br><span class="line">     &quot;时间&quot;: &quot;00：04&quot;,</span><br><span class="line">     &quot;计划曲线&quot;: &quot;100&quot;,</span><br><span class="line">     &quot;实际出力&quot;: &quot;101.812&quot;</span><br><span class="line">   &#125;, &#123;</span><br><span class="line">     &quot;时间&quot;: &quot;00：05&quot;,</span><br><span class="line">     &quot;计划曲线&quot;: &quot;100&quot;,</span><br><span class="line">     &quot;实际出力&quot;: &quot;101.812&quot;</span><br><span class="line">   &#125;];</span><br><span class="line">   var wopts &#x3D; &#123;bookType: &#39;xlsx&#39;, bookSST: false, type: &#39;binary&#39;&#125;;</span><br><span class="line">   this.downloadExl(data, wopts);</span><br><span class="line"> &#125;,</span><br><span class="line"> downloadExl: function (data, wopts) &#123;</span><br><span class="line">   var wb &#x3D; &#123;SheetNames: [&#39;Sheet1&#39;], Sheets: &#123;&#125;, Props: &#123;&#125;&#125;;</span><br><span class="line">   wb.Sheets[&#39;Sheet1&#39;] &#x3D; XLSX.utils.json_to_sheet(data);&#x2F;&#x2F;通过json_to_sheet转成单页(Sheet)数据</span><br><span class="line">   this.saveAs(newBlob([this.s2ab(XLSX.write(wb, wopts))], &#123;type: &quot;application&#x2F;octet-stream&quot;&#125;), &quot;这里是下载的文件名&quot; + &#39;.&#39; + (wopts.bookType &#x3D;&#x3D; &quot;biff2&quot; ? &quot;xls&quot; : wopts.bookType));</span><br><span class="line"> &#125;,</span><br><span class="line"> s2ab: function (s) &#123;</span><br><span class="line">   if (typeofArrayBuffer !&#x3D;&#x3D; &#39;undefined&#39;) &#123;</span><br><span class="line">     var buf &#x3D; newArrayBuffer(s.length);</span><br><span class="line">     var view &#x3D; newUint8Array(buf);</span><br><span class="line">     for (var i &#x3D; 0; i !&#x3D; s.length; ++i) &#123;</span><br><span class="line">       view[i] &#x3D; s.charCodeAt(i) &amp; 0xFF</span><br><span class="line">     &#125;</span><br><span class="line">     returnbuf;</span><br><span class="line">   &#125; else &#123;</span><br><span class="line">     var buf &#x3D; newArray(s.length);</span><br><span class="line">     for (var i &#x3D; 0; i !&#x3D; s.length; ++i) &#123;</span><br><span class="line">       buf[i] &#x3D; s.charCodeAt(i) &amp; 0xFF</span><br><span class="line">     &#125;</span><br><span class="line">     returnbuf;</span><br><span class="line">   &#125;</span><br><span class="line"> &#125;,</span><br><span class="line"> saveAs: function (obj, fileName) &#123;&#x2F;&#x2F;当然可以自定义简单的下载文件实现方式</span><br><span class="line">   var tmpa &#x3D; document.createElement(&quot;a&quot;);</span><br><span class="line">   tmpa.download &#x3D; fileName || &quot;下载&quot;;</span><br><span class="line">   tmpa.href &#x3D; URL.createObjectURL(obj);&#x2F;&#x2F;绑定a标签</span><br><span class="line">   tmpa.click();&#x2F;&#x2F;模拟点击实现下载</span><br><span class="line">   setTimeout(function () &#123;&#x2F;&#x2F;延时释放</span><br><span class="line">     URL.revokeObjectURL(obj);&#x2F;&#x2F;用URL.revokeObjectURL()来释放这个objectURL</span><br><span class="line">   &#125;, 100);</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+                <pre><code> exportXlsx: function () {
+    var data = [{
+      &quot;时间&quot;: &quot;00：00&quot;,
+      &quot;计划曲线&quot;: &quot;100&quot;,
+      &quot;实际出力&quot;: &quot;101.812&quot;
+    }, {
+      &quot;时间&quot;: &quot;00：01&quot;,
+      &quot;计划曲线&quot;: &quot;100&quot;,
+      &quot;实际出力&quot;: &quot;101.812&quot;
+    }, {
+      &quot;时间&quot;: &quot;00：02&quot;,
+      &quot;计划曲线&quot;: &quot;100&quot;,
+      &quot;实际出力&quot;: &quot;101.812&quot;
+    }, {
+      &quot;时间&quot;: &quot;00：03&quot;,
+      &quot;计划曲线&quot;: &quot;100&quot;,
+      &quot;实际出力&quot;: &quot;101.812&quot;
+    }, {
+      &quot;时间&quot;: &quot;00：04&quot;,
+      &quot;计划曲线&quot;: &quot;100&quot;,
+      &quot;实际出力&quot;: &quot;101.812&quot;
+    }, {
+      &quot;时间&quot;: &quot;00：05&quot;,
+      &quot;计划曲线&quot;: &quot;100&quot;,
+      &quot;实际出力&quot;: &quot;101.812&quot;
+    }];
+    var wopts = {bookType: &#39;xlsx&#39;, bookSST: false, type: &#39;binary&#39;};
+    this.downloadExl(data, wopts);
+  },
+  downloadExl: function (data, wopts) {
+    var wb = {SheetNames: [&#39;Sheet1&#39;], Sheets: {}, Props: {}};
+    wb.Sheets[&#39;Sheet1&#39;] = XLSX.utils.json_to_sheet(data);//通过json_to_sheet转成单页(Sheet)数据
+    this.saveAs(newBlob([this.s2ab(XLSX.write(wb, wopts))], {type: &quot;application/octet-stream&quot;}), &quot;这里是下载的文件名&quot; + &#39;.&#39; + (wopts.bookType == &quot;biff2&quot; ? &quot;xls&quot; : wopts.bookType));
+  },
+  s2ab: function (s) {
+    if (typeofArrayBuffer !== &#39;undefined&#39;) {
+      var buf = newArrayBuffer(s.length);
+      var view = newUint8Array(buf);
+      for (var i = 0; i != s.length; ++i) {
+        view[i] = s.charCodeAt(i) &amp; 0xFF
+      }
+      returnbuf;
+    } else {
+      var buf = newArray(s.length);
+      for (var i = 0; i != s.length; ++i) {
+        buf[i] = s.charCodeAt(i) &amp; 0xFF
+      }
+      returnbuf;
+    }
+  },
+  saveAs: function (obj, fileName) {//当然可以自定义简单的下载文件实现方式
+    var tmpa = document.createElement(&quot;a&quot;);
+    tmpa.download = fileName || &quot;下载&quot;;
+    tmpa.href = URL.createObjectURL(obj);//绑定a标签
+    tmpa.click();//模拟点击实现下载
+    setTimeout(function () {//延时释放
+      URL.revokeObjectURL(obj);//用URL.revokeObjectURL()来释放这个objectURL
+    }, 100);
+  }
+</code></pre>
             </div>
             <hr/>
 
@@ -545,7 +604,12 @@
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253 toolbox: &#123;   feat
+                             toolbox: {
+   feature: {
+          dataView: {
+            show: true,
+            title: &#39;数据视图&#39;,
+            /
                         
                     </div>
                     <div class="publish-info">
