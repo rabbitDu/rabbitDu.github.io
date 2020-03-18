@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  
+  <title>关于ES6中的变量的解构赋值的介绍 [ Rabbit ]</title>
+  
+    <!-- stylesheets list from config.yml -->
+    
+      <link rel="stylesheet" href="/css/iLiKE.css">
+    
+  
+  
+  
+  <script src="//cdn1.lncld.net/static/js/3.1.1/av-min.js"></script>
+    <script id="leancloud">
+      AV.init({
+          appId: "6E5zTbTljdUbVW2WkXPsXGJk-gzGzoHsz",
+          appKey: "0vsyDKfNpeSECAI70J794ugv"
+      });
+    </script>
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+<body>
+    <div class="header">
+        <div class="container">
+    <div class="menu">
+      <div class="menu-left">
+        <a href="/">
+          <img src="/favicon.ico"></img>
+        </a>
+      </div>
+      <div class="menu-right">
+        
+          
+          
+          
+          
+          
+          
+          <a href="/">Home</a>
+        
+          
+          
+          
+          
+          
+          
+          <a href="/archives">Archives</a>
+        
+          
+          
+          
+          
+          
+          
+          <a href="/about">About</a>
+        
+      </div>
+    </div>
+</div>
+    </div>
+    <div class="container">
+        <h1 class="post-title">关于ES6中的变量的解构赋值的介绍</h1>
+<article class="post markdown-style">
+  <p>（文章中介绍的都是个人观点，如有不准确的欢迎指出。但请勿喷，谢谢！）</p>
+<p>在了解具体内容之前，我们应该带着以下问题来阅读文章。</p>
+<p>什么叫做解构？（简单来讲就是从数组和对象中提取值）</p>
+<p>解构赋值可以用在哪些数据结构上？（数组、对象、字符串-类似数组、数值和布尔值-类似对象）</p>
+<p>为什么我们要使用它？</p>
+<p>它带给我们的好处是什么？</p>
+<p>它的应用场景是什么？</p>
+<h1 id="什么叫做解构？"><a href="#什么叫做解构？" class="headerlink" title="什么叫做解构？"></a>什么叫做解构？</h1><p>结构的分解，ES6 中允许按照一定模式，从数组和对象中提取值，对变量进行赋值，这被称为解构（Destructuring）</p>
+<p>简单来讲就是从数组和对象中提取值。</p>
+<p><strong>作用</strong></p>
+<p>这是一种将数据结构分解为更小的部分的过程，从而达到简化提取信息的目的。</p>
+<h1 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h1><h2 id="数组的解构赋值"><a href="#数组的解构赋值" class="headerlink" title="数组的解构赋值"></a>数组的解构赋值</h2><p>本质上：写法属于“模式匹配”，只要等号两边的模式相同，即可</p>
+<h3 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;以前为变量赋值</span><br><span class="line">let a&#x3D;1;</span><br><span class="line">let b&#x3D;2;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;ES6写法</span><br><span class="line">let [a,b,c]&#x3D;[1,2,3];</span><br><span class="line">&#x2F;&#x2F;嵌套解构</span><br><span class="line">let [foo,[[bar],baz]]&#x3D;[1,[[2],3]];</span><br></pre></td></tr></table></figure>
+
+<p>解构过程中，存在一下几种情况</p>
+<ol>
+<li><p>解构成功（要求：左右的模式一模一样）；</p>
+</li>
+<li><p>不完全解构（等号左边只匹配了等号右边数组的一部分）,通俗的讲就是右边的元素个数要大于左边的；</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">let [x,y]&#x3D;[1,2,3];  &#x2F;&#x2F;x&#x3D;1,y&#x3D;2</span><br><span class="line">let [a,[b],d]&#x3D;[1,[2,3],4];  &#x2F;&#x2F;a&#x3D;1,b&#x3D;2,d&#x3D;4</span><br></pre></td></tr></table></figure></li>
+<li><p>解构不成功（等号左边不能完全匹配），通俗的讲就是右边的元素个数要小于左边的；</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">let [foo]&#x3D;[]; &#x2F;&#x2F;foo的值为undefined</span><br><span class="line"></span><br><span class="line">let [bar,foo]&#x3D;[1];  &#x2F;&#x2F;bar的值为1，foo的值为undefined</span><br></pre></td></tr></table></figure></li>
+<li><p>报错（右边不是可遍历的解构,不具备Iterator接口）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;以下都会报错</span><br><span class="line">let [foo]&#x3D;1;</span><br><span class="line">let [foo]&#x3D;false;</span><br><span class="line">let [foo]&#x3D;NaN;</span><br><span class="line">let [foo]&#x3D;undefined;</span><br><span class="line">let [foo]&#x3D;null;</span><br><span class="line">let [foo]&#x3D;&#123;&#125;;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h3 id="设置默认值"><a href="#设置默认值" class="headerlink" title="设置默认值"></a>设置默认值</h3><p>解构赋值允许指定默认值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">let [foo &#x3D; true]&#x3D;[]; &#x2F;&#x2F;foo&#x3D;true</span><br><span class="line">let [x,y&#x3D;&#39;b&#39;]&#x3D;[a]; &#x2F;&#x2F;x&#x3D;a,y&#x3D;b</span><br></pre></td></tr></table></figure>
+
+<p>设置默认值时，应注意一下几种情况</p>
+<blockquote>
+<p>ES6内部使用严格相等运算符（===）判断一个位置是否有值。所以一个数组成员不严格等于undefined,默认值就不会生效。</p>
+</blockquote>
+<ol>
+<li>右边对应元素严格等于undefined,否则不会生效<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">let [x]&#x3D;[undefined]; &#x2F;&#x2F;x&#x3D;undefined</span><br><span class="line">let [x]&#x3D;[null];  &#x2F;&#x2F;x&#x3D;null</span><br></pre></td></tr></table></figure></li>
+<li>默认值可以引用解构赋值的其他变量，但该变量必须已经声明<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">let [x&#x3D;1,y&#x3D;x]&#x3D;[];  &#x2F;&#x2F;x&#x3D;1,y&#x3D;1</span><br><span class="line">let [x&#x3D;1,y&#x3D;x]&#x3D;[2]; &#x2F;&#x2F;x&#x3D;2,y&#x3D;2</span><br><span class="line">let [x&#x3D;1,y&#x3D;x]&#x3D;[1,2] &#x2F;&#x2F;x&#x3D;1,y&#x3D;2</span><br><span class="line">let [x&#x3D;y,y&#x3D;1]&#x3D;[];  &#x2F;&#x2F;ReferenceError  因为x用到y时，y还没有声明</span><br></pre></td></tr></table></figure></li>
+<li>默认值是一个表达式（还没有搞清楚）</li>
+</ol>
+
+</article>
+
+    <div class="pagenator post-pagenator">
+    
+    
+
+    
+    <p>last update time 2020-03-18</p>
+    
+    
+        <a class="extend next post-next" href="/2020/03/15/%E5%85%B3%E4%BA%8Elet%E3%80%81var%E3%80%81const/">next</a>
+    
+    </div>
+
+    </div>
+    <div class="footer">
+        <div class="container">
+    <div class="social">
+	<ul class="social-list">
+		
+			
+				
+				
+				<li>
+					<a href="mailto:1178752402@qq.com" title="email" target="_blank">
+					<i class="fa fa-email"></i>
+					</a>
+				</li>
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+				
+				<li>
+					<a href="https://github.com/CaiChenghan" title="github" target="_self">
+					<i class="fa fa-github"></i>
+					</a>
+				</li>
+			
+		
+			
+		
+			
+		
+			
+		
+			
+				
+				<li>
+					<a href="https://www.jianshu.com/u/565c8e790605" title="jianshu" target="_self">
+					<i class="fa fa-jianshu"></i>
+					</a>
+				</li>
+			
+		
+			
+		
+			
+		
+			
+		
+	</ul>
+</div>
+    <div class="copyright">
+        <span>
+            
+            
+            
+                © Rabbit 2017 - 2020
+            
+        </span>
+    </div>
+    <div class="power">
+        <span>
+            Powered by <a href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> & <a href="https://github.com/CaiChenghan/iLiKE" target="_blank" rel="noopener">iLiKE Theme</a>
+        </span>
+    </div>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+    <!--page counter part-->
+<script>
+function addCount (Counter) {
+    url=$('.article-date').attr('href').trim();
+    title = $('.article-title').text().trim();
+    var query = new AV.Query(Counter);
+    //use url as unique idnetfication
+    query.equalTo("url",url);
+    query.find({
+        success: function(results) {
+            if (results.length>0) {
+                var counter=results[0];
+                counter.fetchWhenSave(true); //get recent result
+                counter.increment("time");
+                counter.save();
+            } else {
+                var newcounter=new Counter();
+                newcounter.set("title",title);
+                newcounter.set("url",url);
+                newcounter.set("time",1);
+                newcounter.save(null,{
+                    success: function(newcounter) {
+                        //alert('New object created');
+                    }, error: function(newcounter,error) {
+                        alert('Failed to create');
+                    }
+                })
+            }
+        },
+        error: function(error) {
+            //find null is not a error
+            alert('Error:'+error.code+" "+error.message);
+        }
+    });
+}
+$(function() {
+    var Counter=AV.Object.extend("Counter");
+    //only increse visit counting when intering a page
+    if ($('.article-title').length == 1) {
+       addCount(Counter);
+    }
+    var query=new AV.Query(Counter);
+    query.descending("time");
+    // the sum of popular posts
+    query.limit(10); 
+    query.find({
+        success: function(results) {
+                for(var i=0;i<results.length;i++) {
+                    var counter=results[i];
+                    title=counter.get("title");
+                    url=counter.get("url");
+                    time=counter.get("time");
+                    // add to the popularlist widget
+                    showcontent=title+" ("+time+")";
+                    //notice the "" in href
+                    $('.popularlist').append('<li><a href="'+url+'">'+showcontent+'</a></li>');
+                }
+            },
+        error: function(error) {
+            alert("Error:"+error.code+" "+error.message);
+        }
+    });
+});
+</script>
+</div>
+    </div>
+</body>
+</html>
