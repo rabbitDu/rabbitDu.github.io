@@ -428,16 +428,8 @@
 <p>let 也是用来声明变量的；声明的变量只有在let命令所在的块内才有效</p>
 <p>const是用来声明一个常量的。即是一个只读变量，一旦声明，就必须立即初始化；</p>
 <h2 id="var、let-的不同点"><a href="#var、let-的不同点" class="headerlink" title="var、let 的不同点"></a>var、let 的不同点</h2><ol>
-<li>let所声明的变量只有在所在的代码块内才有效；var会变量提升；</li>
+<li>let所声明的变量只有在所在的代码块内才有效；var会变量提升;</li>
 </ol>
-<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">let</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span><span class="token number">10</span><span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-    <span class="token comment" spellcheck="true">//...</span>
-<span class="token punctuation">}</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//ReferenceError:i is not defined</span>
-<span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">var</span> j<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>j<span class="token operator">&lt;</span><span class="token number">10</span><span class="token punctuation">;</span>j<span class="token operator">++</span><span class="token operator">></span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-    <span class="token comment" spellcheck="true">//....</span>
-<span class="token punctuation">}</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">//10</span></code></pre>
 <ol start="2">
 <li>let所声明的变量一定要在声明后使用，否则会报错；var可以在声明之前使用，值为undefined;<pre class=" language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">//var 的情况</span>
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>foo<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">//输出undefined</span>
