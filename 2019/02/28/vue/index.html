@@ -29,7 +29,7 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
     
-<meta name="generator" content="Hexo 4.2.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+<meta name="generator" content="Hexo 4.2.0"></head>
 
 
 <body>
@@ -394,7 +394,8 @@
                 <h3 id="一、vue起步"><a href="#一、vue起步" class="headerlink" title="一、vue起步"></a>一、vue起步</h3><h4 id="1-1-引入"><a href="#1-1-引入" class="headerlink" title="1.1 引入"></a>1.1 引入</h4><ol>
 <li><code>script</code> 引入</li>
 </ol>
-<pre><code>&lt;script src=&quot;../js/vue.js&quot;&gt;</code></pre><ol start="2">
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src&#x3D;&quot;..&#x2F;js&#x2F;vue.js&quot;&gt;</span><br></pre></td></tr></table></figure>
+<ol start="2">
 <li><p>CDN</p>
 </li>
 <li><p>NPM</p>
@@ -402,21 +403,8 @@
 </ol>
 <p>i.项目根目录下运行<code>npm install vue</code></p>
 <p>ii.</p>
-<pre><code>&lt;script src=&quot;./node_modules/vue/dist/vue.js&quot;&gt;</code></pre><h4 id="1-2-创建实例化对象"><a href="#1-2-创建实例化对象" class="headerlink" title="1.2 创建实例化对象"></a>1.2 创建实例化对象</h4><pre class=" language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">//如果template中定义了内容，优先加载template；如果没有，加载#app的模板。</span>
-
-<span class="token comment" spellcheck="true">//数据发生改变时，视图发生改变，简言之，数据驱动视图</span>
-<span class="token keyword">var</span> data<span class="token operator">=</span><span class="token punctuation">{</span>
-    <span class="token comment" spellcheck="true">//数据属性</span>
-    <span class="token comment" spellcheck="true">//既可以是一个对象也可以是一个函数</span>
-    msg<span class="token punctuation">:</span><span class="token string">'黄瓜'</span>
-
-<span class="token punctuation">}</span>
-<span class="token keyword">var</span> vm<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">Vue</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-    el<span class="token punctuation">:</span><span class="token string">'#app'</span><span class="token punctuation">,</span>
-    data<span class="token punctuation">:</span>data
-    template：<span class="token template-string"><span class="token string">`&lt;div>{{msg}}&lt;/div>`</span></span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span>
-</code></pre>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src&#x3D;&quot;.&#x2F;node_modules&#x2F;vue&#x2F;dist&#x2F;vue.js&quot;&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="1-2-创建实例化对象"><a href="#1-2-创建实例化对象" class="headerlink" title="1.2 创建实例化对象"></a>1.2 创建实例化对象</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//如果template中定义了内容，优先加载template；如果没有，加载#app的模板。</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//数据发生改变时，视图发生改变，简言之，数据驱动视图</span></span><br><span class="line"><span class="keyword">var</span> data=&#123;</span><br><span class="line">	<span class="comment">//数据属性</span></span><br><span class="line">	<span class="comment">//既可以是一个对象也可以是一个函数</span></span><br><span class="line">	msg:<span class="string">'黄瓜'</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> vm=<span class="keyword">new</span> Vue(&#123;</span><br><span class="line">	el:<span class="string">'#app'</span>,</span><br><span class="line">	data:data</span><br><span class="line">	template：<span class="string">`&lt;div&gt;&#123;&#123;msg&#125;&#125;&lt;/div&gt;`</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>除了数据属性，vue实例还暴露了一些有用的实例属性和方法。他们都有前缀<code>$</code></p>
 </blockquote>

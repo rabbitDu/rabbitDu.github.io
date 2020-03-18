@@ -29,7 +29,7 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
     
-<meta name="generator" content="Hexo 4.2.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+<meta name="generator" content="Hexo 4.2.0"></head>
 
 
 <body>
@@ -391,59 +391,7 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <pre><code> toolbox: {
-   feature: {
-          dataView: {
-            show: true,
-            title: &#39;数据视图&#39;,
-            //readOnly: true, //设置只读，会隐藏刷新按钮。
-            lang: [&#39;数据视图&#39;, &#39;关闭&#39;, &#39;导出Excel&#39;],
-            contentToOption: function (opts) {
-              debugger
-              $(&quot;#tableExcel_Day&quot;).table2excel({
-                exclude: &quot;.noExl&quot;, //过滤位置的 css 类名
-                filename: &#39;每日价格走势图&#39; + &quot;.xls&quot;, //文件名称
-                name: &quot;Excel Document Name.xls&quot;,
-                exclude_img: true,
-                exclude_links: true,
-                exclude_inputs: true
-              });
-
-            },
-            optionToContent: function (opt) {
-              debugger
-              // console.log(opt);
-              var axisData = opt.xAxis[0].data; //坐标数据
-              var series = opt.series; //折线图数据
-              var tdHeads = &#39;&lt;td  style=&quot;padding: 0 10px&quot;&gt;时间&lt;/td&gt;&#39;; //表头第一列
-              var tdBodys = &#39;&#39;; //表数据
-              //组装表头
-              var nameData = new Array(&#39;田头价格&#39;, &#39;批发价格&#39;, &#39;零售价格&#39;, &#39;交易量&#39;);
-              for (var i = 0; i &lt; nameData.length; i++) {
-                tdHeads += &#39;&lt;td style=&quot;padding: 0 10px&quot;&gt;&#39; + nameData[i] + &#39;&lt;/td&gt;&#39;;
-              }
-              var table = &#39;&lt;table id=&quot;tableExcel_Day&quot; border=&quot;1&quot; class=&quot;table-bordered table-striped&quot; style=&quot;width:100%;text-align:center&quot; &gt;&lt;tbody&gt;&lt;tr&gt;&#39; + tdHeads + &#39; &lt;/tr&gt;&#39;;
-              //组装表数据
-              for (var i = 0, l = axisData.length; i &lt; l; i++) {
-                for (var j = 0; j &lt; series.length ; j++) {
-                  var temp = series[j].data[i];
-                  if (temp != null &amp;&amp; temp != undefined) {
-                    tdBodys += &#39;&lt;td&gt;&#39; + temp + &#39;&lt;/td&gt;&#39;;
-                  } else {
-                    tdBodys += &#39;&lt;td&gt;&lt;/td&gt;&#39;;
-                  }
-                }
-                table += &#39;&lt;tr&gt;&lt;td style=&quot;padding: 0 10px&quot;&gt;&#39; + axisData[i] + &#39;&lt;/td&gt;&#39; + tdBodys + &#39;&lt;/tr&gt;&#39;;
-                tdBodys = &#39;&#39;;
-              }
-              table += &#39;&lt;/tbody&gt;&lt;/table&gt;&#39;;
-              // console.log(table);
-              return table;
-            }
-          }
-
-}
-}</code></pre>
+                <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"> toolbox: &#123;</span><br><span class="line">   feature: &#123;</span><br><span class="line">          dataView: &#123;</span><br><span class="line">            show: true,</span><br><span class="line">            title: &#39;数据视图&#39;,</span><br><span class="line">            &#x2F;&#x2F;readOnly: true, &#x2F;&#x2F;设置只读，会隐藏刷新按钮。</span><br><span class="line">            lang: [&#39;数据视图&#39;, &#39;关闭&#39;, &#39;导出Excel&#39;],</span><br><span class="line">            contentToOption: function (opts) &#123;</span><br><span class="line">              debugger</span><br><span class="line">              $(&quot;#tableExcel_Day&quot;).table2excel(&#123;</span><br><span class="line">                exclude: &quot;.noExl&quot;, &#x2F;&#x2F;过滤位置的 css 类名</span><br><span class="line">                filename: &#39;每日价格走势图&#39; + &quot;.xls&quot;, &#x2F;&#x2F;文件名称</span><br><span class="line">                name: &quot;Excel Document Name.xls&quot;,</span><br><span class="line">                exclude_img: true,</span><br><span class="line">                exclude_links: true,</span><br><span class="line">                exclude_inputs: true</span><br><span class="line">              &#125;);</span><br><span class="line"></span><br><span class="line">            &#125;,</span><br><span class="line">            optionToContent: function (opt) &#123;</span><br><span class="line">              debugger</span><br><span class="line">              &#x2F;&#x2F; console.log(opt);</span><br><span class="line">              var axisData &#x3D; opt.xAxis[0].data; &#x2F;&#x2F;坐标数据</span><br><span class="line">              var series &#x3D; opt.series; &#x2F;&#x2F;折线图数据</span><br><span class="line">              var tdHeads &#x3D; &#39;&lt;td  style&#x3D;&quot;padding: 0 10px&quot;&gt;时间&lt;&#x2F;td&gt;&#39;; &#x2F;&#x2F;表头第一列</span><br><span class="line">              var tdBodys &#x3D; &#39;&#39;; &#x2F;&#x2F;表数据</span><br><span class="line">              &#x2F;&#x2F;组装表头</span><br><span class="line">              var nameData &#x3D; new Array(&#39;田头价格&#39;, &#39;批发价格&#39;, &#39;零售价格&#39;, &#39;交易量&#39;);</span><br><span class="line">              for (var i &#x3D; 0; i &lt; nameData.length; i++) &#123;</span><br><span class="line">                tdHeads +&#x3D; &#39;&lt;td style&#x3D;&quot;padding: 0 10px&quot;&gt;&#39; + nameData[i] + &#39;&lt;&#x2F;td&gt;&#39;;</span><br><span class="line">              &#125;</span><br><span class="line">              var table &#x3D; &#39;&lt;table id&#x3D;&quot;tableExcel_Day&quot; border&#x3D;&quot;1&quot; class&#x3D;&quot;table-bordered table-striped&quot; style&#x3D;&quot;width:100%;text-align:center&quot; &gt;&lt;tbody&gt;&lt;tr&gt;&#39; + tdHeads + &#39; &lt;&#x2F;tr&gt;&#39;;</span><br><span class="line">              &#x2F;&#x2F;组装表数据</span><br><span class="line">              for (var i &#x3D; 0, l &#x3D; axisData.length; i &lt; l; i++) &#123;</span><br><span class="line">                for (var j &#x3D; 0; j &lt; series.length ; j++) &#123;</span><br><span class="line">                  var temp &#x3D; series[j].data[i];</span><br><span class="line">                  if (temp !&#x3D; null &amp;&amp; temp !&#x3D; undefined) &#123;</span><br><span class="line">                    tdBodys +&#x3D; &#39;&lt;td&gt;&#39; + temp + &#39;&lt;&#x2F;td&gt;&#39;;</span><br><span class="line">                  &#125; else &#123;</span><br><span class="line">                    tdBodys +&#x3D; &#39;&lt;td&gt;&lt;&#x2F;td&gt;&#39;;</span><br><span class="line">                  &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                table +&#x3D; &#39;&lt;tr&gt;&lt;td style&#x3D;&quot;padding: 0 10px&quot;&gt;&#39; + axisData[i] + &#39;&lt;&#x2F;td&gt;&#39; + tdBodys + &#39;&lt;&#x2F;tr&gt;&#39;;</span><br><span class="line">                tdBodys &#x3D; &#39;&#39;;</span><br><span class="line">              &#125;</span><br><span class="line">              table +&#x3D; &#39;&lt;&#x2F;tbody&gt;&lt;&#x2F;table&gt;&#39;;</span><br><span class="line">              &#x2F;&#x2F; console.log(table);</span><br><span class="line">              return table;</span><br><span class="line">            &#125;</span><br><span class="line">          &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
             </div>
             <hr/>
 
@@ -560,10 +508,7 @@
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                             exportXlsx: function () {
-    var data = [{
-      &quot;时间&quot;: &quot;00：00&quot;,
-      &quot;计划曲线&quot;: &quot;100&
+                            1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859exportXlsx:
                         
                     </div>
                     <div class="publish-info">

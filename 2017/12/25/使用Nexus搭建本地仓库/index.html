@@ -29,7 +29,7 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
     
-<meta name="generator" content="Hexo 4.2.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+<meta name="generator" content="Hexo 4.2.0"></head>
 
 
 <body>
@@ -395,13 +395,17 @@
 <h2 id="2-安装和启动Nexus"><a href="#2-安装和启动Nexus" class="headerlink" title="2.安装和启动Nexus"></a>2.安装和启动Nexus</h2><h3 id="1-配置JDK-JRE"><a href="#1-配置JDK-JRE" class="headerlink" title="1) 配置JDK/JRE"></a>1) 配置JDK/JRE</h3><p> <strong>（注意：需要JDK 8的运行环境）</strong></p>
 <p>Nexus自带了一个JRE，但可能无法直接使用，需要使用运行以下命令：</p>
 <p>使用<code>jre/bin</code> 下的 <code>unpack200</code> 工具解包rt.jar.pack</p>
-<pre><code>unpack200 rt.jar.pack rt.jar</code></pre><p>如有需要，可解包其它 <code>.jar.pack</code> 文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">unpack200 rt.jar.pack rt.jar</span><br></pre></td></tr></table></figure>
+<p>如有需要，可解包其它 <code>.jar.pack</code> 文件</p>
 <h3 id="2）启动Nexus"><a href="#2）启动Nexus" class="headerlink" title="2）启动Nexus"></a>2）启动Nexus</h3><h4 id="命令行启动"><a href="#命令行启动" class="headerlink" title="命令行启动"></a>命令行启动</h4><ul>
-<li>在打开命令窗口，进入<code>bin</code>目录，使用命令<pre><code>nexus.exe /run</code></pre></li>
+<li>在打开命令窗口，进入<code>bin</code>目录，使用命令<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nexus.exe &#x2F;run</span><br></pre></td></tr></table></figure>
+
+</li>
 </ul>
 <h4 id="安装为Windows服务"><a href="#安装为Windows服务" class="headerlink" title="安装为Windows服务"></a>安装为Windows服务</h4><ul>
 <li><p>在打开命令窗口，进入<code>bin</code>目录，使用命令</p>
-<pre><code>nexus.exe /install</code></pre><p>安装名为<code>nexus</code>的服务</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nexus.exe &#x2F;install</span><br></pre></td></tr></table></figure>
+<p>安装名为<code>nexus</code>的服务</p>
 <p>打开浏览器输入：<a href="http://localhost:8081" target="_blank" rel="noopener">http://localhost:8081</a> ，这时会打开Nexus的初始欢迎界面，如下图所示</p>
 <p>点击右上角Sign in ，进入管理员模式。（用户名：admin    密码：admin123）</p>
 </li>
@@ -410,43 +414,9 @@
 <li><p>找到Maven 的setting.xml文件（例如：E:\maven\apache-maven-3.5.0\conf）</p>
 </li>
 <li><p>打开setting.xml文件，把如下代码放到相应位置。</p>
-<pre><code>&lt;settings&gt;
-&lt;mirrors&gt;
- &lt;mirror&gt;
-   &lt;!--This sends everything else to /public --&gt;
-   &lt;id&gt;nexus&lt;/id&gt;
-   &lt;mirrorOf&gt;*&lt;/mirrorOf&gt;
-   &lt;url&gt;http://localhost:8081/repository/maven-public/&lt;/url&gt;
- &lt;/mirror&gt;
-&lt;/mirrors&gt;
-&lt;profiles&gt;
- &lt;profile&gt;
-   &lt;id&gt;nexus&lt;/id&gt;
-   &lt;!--Enable snapshots for the built in central repo to direct --&gt;
-   &lt;!--all requests to nexus via the mirror --&gt;
-   &lt;repositories&gt;
-     &lt;repository&gt;
-       &lt;id&gt;central&lt;/id&gt;
-       &lt;url&gt;http://central&lt;/url&gt;
-       &lt;releases&gt;&lt;enabled&gt;true&lt;/enabled&gt;&lt;/releases&gt;
-       &lt;snapshots&gt;&lt;enabled&gt;true&lt;/enabled&gt;&lt;/snapshots&gt;
-     &lt;/repository&gt;
-   &lt;/repositories&gt;
-  &lt;pluginRepositories&gt;
-     &lt;pluginRepository&gt;
-       &lt;id&gt;central&lt;/id&gt;
-       &lt;url&gt;http://central&lt;/url&gt;
-       &lt;releases&gt;&lt;enabled&gt;true&lt;/enabled&gt;&lt;/releases&gt;
-       &lt;snapshots&gt;&lt;enabled&gt;true&lt;/enabled&gt;&lt;/snapshots&gt;
-     &lt;/pluginRepository&gt;
-   &lt;/pluginRepositories&gt;
- &lt;/profile&gt;
-&lt;/profiles&gt;
-&lt;activeProfiles&gt;
- &lt;!--make the profile active all the time --&gt;
- &lt;activeProfile&gt;nexus&lt;/activeProfile&gt;
-&lt;/activeProfiles&gt;
-&lt;/settings&gt;</code></pre><blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">&lt;settings&gt;</span><br><span class="line">  &lt;mirrors&gt;</span><br><span class="line">    &lt;mirror&gt;</span><br><span class="line">      &lt;!--This sends everything else to &#x2F;public --&gt;</span><br><span class="line">      &lt;id&gt;nexus&lt;&#x2F;id&gt;</span><br><span class="line">      &lt;mirrorOf&gt;*&lt;&#x2F;mirrorOf&gt;</span><br><span class="line">      &lt;url&gt;http:&#x2F;&#x2F;localhost:8081&#x2F;repository&#x2F;maven-public&#x2F;&lt;&#x2F;url&gt;</span><br><span class="line">    &lt;&#x2F;mirror&gt;</span><br><span class="line">  &lt;&#x2F;mirrors&gt;</span><br><span class="line">  &lt;profiles&gt;</span><br><span class="line">    &lt;profile&gt;</span><br><span class="line">      &lt;id&gt;nexus&lt;&#x2F;id&gt;</span><br><span class="line">      &lt;!--Enable snapshots for the built in central repo to direct --&gt;</span><br><span class="line">      &lt;!--all requests to nexus via the mirror --&gt;</span><br><span class="line">      &lt;repositories&gt;</span><br><span class="line">        &lt;repository&gt;</span><br><span class="line">          &lt;id&gt;central&lt;&#x2F;id&gt;</span><br><span class="line">          &lt;url&gt;http:&#x2F;&#x2F;central&lt;&#x2F;url&gt;</span><br><span class="line">          &lt;releases&gt;&lt;enabled&gt;true&lt;&#x2F;enabled&gt;&lt;&#x2F;releases&gt;</span><br><span class="line">          &lt;snapshots&gt;&lt;enabled&gt;true&lt;&#x2F;enabled&gt;&lt;&#x2F;snapshots&gt;</span><br><span class="line">        &lt;&#x2F;repository&gt;</span><br><span class="line">      &lt;&#x2F;repositories&gt;</span><br><span class="line">     &lt;pluginRepositories&gt;</span><br><span class="line">        &lt;pluginRepository&gt;</span><br><span class="line">          &lt;id&gt;central&lt;&#x2F;id&gt;</span><br><span class="line">          &lt;url&gt;http:&#x2F;&#x2F;central&lt;&#x2F;url&gt;</span><br><span class="line">          &lt;releases&gt;&lt;enabled&gt;true&lt;&#x2F;enabled&gt;&lt;&#x2F;releases&gt;</span><br><span class="line">          &lt;snapshots&gt;&lt;enabled&gt;true&lt;&#x2F;enabled&gt;&lt;&#x2F;snapshots&gt;</span><br><span class="line">        &lt;&#x2F;pluginRepository&gt;</span><br><span class="line">      &lt;&#x2F;pluginRepositories&gt;</span><br><span class="line">    &lt;&#x2F;profile&gt;</span><br><span class="line">  &lt;&#x2F;profiles&gt;</span><br><span class="line">  &lt;activeProfiles&gt;</span><br><span class="line">    &lt;!--make the profile active all the time --&gt;</span><br><span class="line">    &lt;activeProfile&gt;nexus&lt;&#x2F;activeProfile&gt;</span><br><span class="line">  &lt;&#x2F;activeProfiles&gt;</span><br><span class="line">&lt;&#x2F;settings&gt;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
 <p>参考<a href="https://help.sonatype.com/display/NXRM3/Maven+Repositories#MavenRepositories-ProxyingMavenRepositories" target="_blank" rel="noopener">https://help.sonatype.com/display/NXRM3/Maven+Repositories#MavenRepositories-ProxyingMavenRepositories</a></p>
 </blockquote>
 </li>

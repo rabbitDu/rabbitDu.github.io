@@ -29,7 +29,7 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
     
-<meta name="generator" content="Hexo 4.2.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+<meta name="generator" content="Hexo 4.2.0"></head>
 
 
 <body>
@@ -392,17 +392,10 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h1 id="oracle-impdp-expdp-导入-导出"><a href="#oracle-impdp-expdp-导入-导出" class="headerlink" title="oracle impdp/expdp 导入/导出"></a>oracle impdp/expdp 导入/导出</h1><h2 id="导入dmp文件"><a href="#导入dmp文件" class="headerlink" title="导入dmp文件"></a>导入dmp文件</h2><p>dmp文件由expdp命令导出，想要导入这种文件，需要在库中建立相同中的表空间和用户。</p>
-<h3 id="建立表空间"><a href="#建立表空间" class="headerlink" title="建立表空间"></a>建立表空间</h3><pre><code>create tablespace tbs_gaugemeter --表空间名称，需要与导出文件中的一致
-datafile &#39;e:\oracle\oradata\orcl\tbs_gaugemeter.dbf&#39; --数据文件地址，一般放在对应实例下面
- size 100M  --初始大小   
-autoextend on  --大小自动增长  
---还有一些定义大小的命令，看需要  
- default storage(  
+<h3 id="建立表空间"><a href="#建立表空间" class="headerlink" title="建立表空间"></a>建立表空间</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">create tablespace tbs_gaugemeter --表空间名称，需要与导出文件中的一致</span><br><span class="line">datafile &#39;e:\oracle\oradata\orcl\tbs_gaugemeter.dbf&#39; --数据文件地址，一般放在对应实例下面</span><br><span class="line"> size 100M  --初始大小   </span><br><span class="line">autoextend on  --大小自动增长  </span><br><span class="line">--还有一些定义大小的命令，看需要  </span><br><span class="line"> default storage(  </span><br><span class="line"> </span><br><span class="line"> next 10M  --数据文件增长大小  </span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<p>命令在sqlplus或者pl/sql developer中执行</p>
+<h3 id="创建用户"><a href="#创建用户" class="headerlink" title="创建用户"></a>创建用户</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">user</span> gaugemeter <span class="keyword">identified</span> <span class="keyword">by</span> essence <span class="keyword">default</span> <span class="keyword">tablespace</span> tbs_gaugemeter ;</span><br><span class="line"><span class="keyword">grant</span> <span class="keyword">connect</span>,<span class="keyword">resource</span>,dba <span class="keyword">to</span> gaugemeter;</span><br></pre></td></tr></table></figure>
 
- next 10M  --数据文件增长大小  
-);  </code></pre><p>命令在sqlplus或者pl/sql developer中执行</p>
-<h3 id="创建用户"><a href="#创建用户" class="headerlink" title="创建用户"></a>创建用户</h3><pre class=" language-sql"><code class="language-sql"><span class="token keyword">create</span> <span class="token keyword">user</span> gaugemeter identified <span class="token keyword">by</span> essence <span class="token keyword">default</span> <span class="token keyword">tablespace</span> tbs_gaugemeter <span class="token punctuation">;</span>
-<span class="token keyword">grant</span> <span class="token keyword">connect</span><span class="token punctuation">,</span>resource<span class="token punctuation">,</span><span class="token number">dba</span> <span class="token keyword">to</span> gaugemeter<span class="token punctuation">;</span></code></pre>
 <h3 id="使用impdp命令导入"><a href="#使用impdp命令导入" class="headerlink" title="使用impdp命令导入"></a>使用impdp命令导入</h3><ol>
 <li>首先，将dmp文件放到 <code>E:\oracle\admin\orcl\dpdump</code> 文件夹中。</li>
 <li>打开命令行提示符，执行命令：<pre><code>impdp gaugemeter/essence@orcl dumpfile=gaugemeter.dmp</code></pre>完成导入。</li>
