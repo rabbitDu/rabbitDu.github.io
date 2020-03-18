@@ -29,7 +29,7 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
     
-<meta name="generator" content="Hexo 4.2.0"><link rel="stylesheet" href="/css/prism.css" type="text/css"></head>
+<meta name="generator" content="Hexo 4.2.0"><link rel="stylesheet" href="/css/prism-dark.css" type="text/css"></head>
 
 
 <body>
@@ -439,7 +439,7 @@
 <pre class=" language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">//foo的值为undefined</span>
 <span class="token keyword">let</span> <span class="token punctuation">[</span>foo<span class="token punctuation">]</span><span class="token operator">=</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span></code></pre>
 </li>
-<li><p>报错（右边不是可遍历的解构,不具备Iterator接口）</p>
+<li><p>报错（右边不是可遍历的解构,不具备Iterator接口)</p>
 </li>
 </ol>
 <pre class=" language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">//以下都会报错</span>
@@ -454,7 +454,7 @@
 <span class="token keyword">let</span> <span class="token punctuation">[</span>foo <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 
 <span class="token comment" spellcheck="true">//x=a,y=b</span>
-<span class="token keyword">let</span> <span class="token punctuation">[</span>x<span class="token punctuation">,</span>y<span class="token operator">=</span><span class="token string">'b'</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token punctuation">[</span>a<span class="token punctuation">]</span><span class="token punctuation">;</span> </code></pre>
+<span class="token keyword">let</span> <span class="token punctuation">[</span>x<span class="token punctuation">,</span>y<span class="token operator">=</span><span class="token string">'b'</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token punctuation">[</span>a<span class="token punctuation">]</span><span class="token punctuation">;</span></code></pre>
 <p>设置默认值时，应注意一下几种情况</p>
 <blockquote>
 <p>ES6内部使用严格相等运算符（===）判断一个位置是否有值。所以一个数组成员不严格等于undefined,默认值就不会生效。</p>
@@ -465,7 +465,7 @@
 </code></pre>
 </li>
 </ol>
-<p>//x=null<br>let [x]=[null];  </p>
+<p>//x=null<br>let [x]=[null];</p>
 <pre><code>2. 默认值可以引用解构赋值的其他变量，但该变量必须已经声明
 ```javascript
 //x=1,y=1
