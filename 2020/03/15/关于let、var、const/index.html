@@ -29,7 +29,7 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
     
-<meta name="generator" content="Hexo 4.2.0"></head>
+<meta name="generator" content="Hexo 4.2.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 <body>
@@ -89,39 +89,6 @@
       <i class="fas fa-archive" style="zoom: 0.6;"></i>
       
       <span>归档</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/about" class="waves-effect waves-light">
-      
-      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
-      
-      <span>关于</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/contact" class="waves-effect waves-light">
-      
-      <i class="fas fa-comments" style="zoom: 0.6;"></i>
-      
-      <span>留言板</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/friends" class="waves-effect waves-light">
-      
-      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
-      
-      <span>友情链接</span>
     </a>
     
   </li>
@@ -191,39 +158,6 @@
 			    <i class="fa-fw fas fa-archive"></i>
 			
 			归档
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/about" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-user-circle"></i>
-			
-			关于
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/contact" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-comments"></i>
-			
-			留言板
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/friends" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-address-book"></i>
-			
-			友情链接
 		</a>
           
         </li>
@@ -459,31 +393,67 @@
             <div id="articleContent">
                 <h1 id="块级作用域"><a href="#块级作用域" class="headerlink" title="块级作用域"></a>块级作用域</h1><p>ES5 中作用域有：全局作用域、函数作用域。但是没有块作用域的概念。</p>
 <p>ES6 中新增了块级作用域。块作用域由 { } 包括，if语句和 for语句里面的{ }也属于块作用域。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type&#x3D;&quot;text&#x2F;javascript&quot;&gt;</span><br><span class="line">    &#123;</span><br><span class="line">        var a &#x3D; 1;</span><br><span class="line">        let b &#x3D; 2;</span><br><span class="line">        console.log(a); &#x2F;&#x2F; 1</span><br><span class="line">        console.log(b; &#x2F;&#x2F; 2</span><br><span class="line">    &#125;</span><br><span class="line">    console.log(a); &#x2F;&#x2F; 1</span><br><span class="line">    console.log(b); &#x2F;&#x2F; 报错</span><br><span class="line">    &#x2F;&#x2F; 可见，通过var定义的变量可以跨块作用域访问到。let定义的变量，外部访问就会报错</span><br><span class="line"></span><br><span class="line">    (function A() &#123;</span><br><span class="line">        var b &#x3D; 2;</span><br><span class="line">        console.log(b); &#x2F;&#x2F; 2</span><br><span class="line">    &#125;)();</span><br><span class="line">    &#x2F;&#x2F; console.log(b); &#x2F;&#x2F; 报错，</span><br><span class="line">    &#x2F;&#x2F; 可见，通过var定义的变量不能跨函数作用域访问到</span><br><span class="line"></span><br><span class="line">    if(true) &#123;</span><br><span class="line">        var c &#x3D; 3;</span><br><span class="line">    &#125;</span><br><span class="line">    console.log(c); &#x2F;&#x2F; 3</span><br><span class="line">    for(var i &#x3D; 0; i &lt; 4; i++) &#123;</span><br><span class="line">        var d &#x3D; 5;</span><br><span class="line">    &#125;;</span><br><span class="line">    console.log(i); &#x2F;&#x2F; 4   (循环结束i已经是4，所以此处i为4)</span><br><span class="line">    console.log(d); &#x2F;&#x2F; 5</span><br><span class="line">    &#x2F;&#x2F; if语句和for语句中用var定义的变量可以在外面访问到，</span><br><span class="line">    &#x2F;&#x2F; 可见，if语句和for语句属于块作用域，不属于函数作用域。</span><br><span class="line">&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
-<h1 id="let、var、const-的区别"><a href="#let、var、const-的区别" class="headerlink" title="let、var、const 的区别"></a>let、var、const 的区别</h1><p>var 用来声明变量的，没有块的概念，可以跨块访问，但是不能跨函数访问；</p>
+<pre><code>&lt;script type=&quot;text/javascript&quot;&gt;
+    {
+        var a = 1;
+        let b = 2;
+        console.log(a); // 1
+        console.log(b; // 2
+    }
+    console.log(a); // 1
+    console.log(b); // 报错
+    // 可见，通过var定义的变量可以跨块作用域访问到。let定义的变量，外部访问就会报错
+
+    (function A() {
+        var b = 2;
+        console.log(b); // 2
+    })();
+    // console.log(b); // 报错，
+    // 可见，通过var定义的变量不能跨函数作用域访问到
+
+    if(true) {
+        var c = 3;
+    }
+    console.log(c); // 3
+    for(var i = 0; i &lt; 4; i++) {
+        var d = 5;
+    };
+    console.log(i); // 4   (循环结束i已经是4，所以此处i为4)
+    console.log(d); // 5
+    // if语句和for语句中用var定义的变量可以在外面访问到，
+    // 可见，if语句和for语句属于块作用域，不属于函数作用域。
+&lt;/script&gt;
+</code></pre><h1 id="let、var、const-的区别"><a href="#let、var、const-的区别" class="headerlink" title="let、var、const 的区别"></a>let、var、const 的区别</h1><p>var 用来声明变量的，没有块的概念，可以跨块访问，但是不能跨函数访问；</p>
 <p>let 也是用来声明变量的；声明的变量只有在let命令所在的块内才有效</p>
 <p>const是用来声明一个常量的。即是一个只读变量，一旦声明，就必须立即初始化；</p>
 <h2 id="var、let-的不同点"><a href="#var、let-的不同点" class="headerlink" title="var、let 的不同点"></a>var、let 的不同点</h2><ol>
-<li><p>let所声明的变量只有在所在的代码块内才有效；var会变量提升；</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">for(let i&#x3D;0;i&lt;10;i++)&#123;</span><br><span class="line">    &#x2F;&#x2F;...</span><br><span class="line">&#125;</span><br><span class="line">console.log(i) &#x2F;&#x2F;ReferenceError:i is not defined</span><br><span class="line"></span><br><span class="line">for(var j&#x3D;0;j&lt;10;j++&gt;)&#123;</span><br><span class="line">    &#x2F;&#x2F;....</span><br><span class="line">&#125;</span><br><span class="line">console.log(i)  &#x2F;&#x2F;10</span><br></pre></td></tr></table></figure></li>
-<li><p>let所声明的变量一定要在声明后使用，否则会报错；var可以在声明之前使用，值为undefined;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;var 的情况</span><br><span class="line">console.log(foo);  &#x2F;&#x2F;输出undefined</span><br><span class="line">var foo&#x3D;2;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;let的情况</span><br><span class="line">console.log(bar);  &#x2F;&#x2F;报错 ReferenceError</span><br><span class="line">let bar&#x3D;2;</span><br></pre></td></tr></table></figure></li>
-<li><p>ES6有明确规定，如果区域块中存在let或const命令，则这个区域块对这些命令的声明的变量从一开始就形成了<strong>封闭作用域</strong>，即只要在声明之前使用，就会报错。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var temp&#x3D;123;</span><br><span class="line">if(true)&#123;</span><br><span class="line">    temp&#x3D;&#39;abc&#39;;  &#x2F;&#x2F;ReferenceError</span><br><span class="line">    let temp;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>个人理解的封闭作用域就是暂时跟外部的作用域没有关联（在区域块中存在let或const），类似于一个独立的作用域；所以我们在if的块级作用域中使用没有声明的temp，就会报错；</p>
-</li>
-<li><p>let不允许在相同的作用域内重复声明同一变量（因此，不能在函数内部重新声明参数），var没有限制。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;报错</span><br><span class="line">function()&#123;</span><br><span class="line">    let a&#x3D;10;</span><br><span class="line">    var a&#x3D;1;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;报错</span><br><span class="line">function()&#123;</span><br><span class="line">    let a&#x3D;10;</span><br><span class="line">    let a&#x3D;1;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function func(arg)&#123;</span><br><span class="line">    let arg; &#x2F;&#x2F;报错</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function func(arg)&#123;</span><br><span class="line">    &#123;</span><br><span class="line">        let arg; &#x2F;&#x2F;不报错，此时声明的变量已经跟上面的arg不在一个作用域下了</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="const"><a href="#const" class="headerlink" title="const"></a>const</h1><p>const 声明的是一个只读变量，一旦声明，常量的值就不可以改变。</p>
-</li>
+<li>let所声明的变量只有在所在的代码块内才有效；var会变量提升；<pre><code>for(let i=0;i&lt;10;i++){
+ //...
+}
+console.log(i) //ReferenceError:i is not defined
+</code></pre></li>
 </ol>
-<p>const 实际上保证的并不是变量的值不得改动，而是变量指向的那个<strong>内存地址不得改动</strong>。</p>
-<ol>
-<li>对于简单数据类型（数值、字符串、布尔值），值就是保存在变量指向的内存地址中，因此等同于常量；</li>
-<li>对于复合类型的数据（主要针对对象和数组），变量指向的内存地址保存的只是一个指针。const只能保证这个指针是固定的。</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">const foo&#x3D;&#123;&#125;;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;为foo 添加一个属性，可以成功（内存地址没有改变）</span><br><span class="line">foo.prop&#x3D;123;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;将foo指向另一个对象，报错(此时内存地址改变了)</span><br><span class="line">foo&#x3D;&#123;&#125;;</span><br></pre></td></tr></table></figure>
+<p>for(var j=0;j&lt;10;j++&gt;){<br>    //….<br>}<br>console.log(i)  //10</p>
+<pre><code>2. let所声明的变量一定要在声明后使用，否则会报错；var可以在声明之前使用，值为undefined;</code></pre><p>//var 的情况<br>console.log(foo);  //输出undefined<br>var foo=2;</p>
+<p>//let的情况<br>console.log(bar);  //报错 ReferenceError<br>let bar=2;</p>
+<pre><code>3. ES6有明确规定，如果区域块中存在let或const命令，则这个区域块对这些命令的声明的变量从一开始就形成了**封闭作用域**，即只要在声明之前使用，就会报错。</code></pre><p>var temp=123;<br>if(true){<br>    temp=’abc’;  //ReferenceError<br>    let temp;<br>}</p>
+<pre><code>个人理解的封闭作用域就是暂时跟外部的作用域没有关联（在区域块中存在let或const），类似于一个独立的作用域；所以我们在if的块级作用域中使用没有声明的temp，就会报错；
 
+4. let不允许在相同的作用域内重复声明同一变量（因此，不能在函数内部重新声明参数），var没有限制。</code></pre><p>//报错<br>function(){<br>    let a=10;<br>    var a=1;<br>}</p>
+<p>//报错<br>function(){<br>    let a=10;<br>    let a=1;<br>}</p>
+<p>function func(arg){<br>    let arg; //报错<br>}</p>
+<p>function func(arg){<br>    {<br>        let arg; //不报错，此时声明的变量已经跟上面的arg不在一个作用域下了<br>    }<br>} </p>
+<pre><code># const
+const 声明的是一个只读变量，一旦声明，常量的值就不可以改变。
+
+const 实际上保证的并不是变量的值不得改动，而是变量指向的那个**内存地址不得改动**。
+
+1. 对于简单数据类型（数值、字符串、布尔值），值就是保存在变量指向的内存地址中，因此等同于常量；
+2. 对于复合类型的数据（主要针对对象和数组），变量指向的内存地址保存的只是一个指针。const只能保证这个指针是固定的。
+</code></pre><p>const foo={};</p>
+<p>//为foo 添加一个属性，可以成功（内存地址没有改变）<br>foo.prop=123;</p>
+<p>//将foo指向另一个对象，报错(此时内存地址改变了)<br>foo={}; </p>
+<pre><code></code></pre>
             </div>
             <hr/>
 
@@ -565,131 +535,6 @@
 
                 </div>
             </div>
-            
-                <style>
-    #reward {
-        margin: 40px 0;
-        text-align: center;
-    }
-
-    #reward .reward-link {
-        font-size: 1.4rem;
-        line-height: 38px;
-    }
-
-    #reward .btn-floating:hover {
-        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
-    }
-
-    #rewardModal {
-        width: 320px;
-        height: 350px;
-    }
-
-    #rewardModal .reward-title {
-        margin: 15px auto;
-        padding-bottom: 5px;
-    }
-
-    #rewardModal .modal-content {
-        padding: 10px;
-    }
-
-    #rewardModal .close {
-        position: absolute;
-        right: 15px;
-        top: 15px;
-        color: rgba(0, 0, 0, 0.5);
-        font-size: 1.3rem;
-        line-height: 20px;
-        cursor: pointer;
-    }
-
-    #rewardModal .close:hover {
-        color: #ef5350;
-        transform: scale(1.3);
-        -moz-transform:scale(1.3);
-        -webkit-transform:scale(1.3);
-        -o-transform:scale(1.3);
-    }
-
-    #rewardModal .reward-tabs {
-        margin: 0 auto;
-        width: 210px;
-    }
-
-    .reward-tabs .tabs {
-        height: 38px;
-        margin: 10px auto;
-        padding-left: 0;
-    }
-
-    .reward-content ul {
-        padding-left: 0 !important;
-    }
-
-    .reward-tabs .tabs .tab {
-        height: 38px;
-        line-height: 38px;
-    }
-
-    .reward-tabs .tab a {
-        color: #fff;
-        background-color: #ccc;
-    }
-
-    .reward-tabs .tab a:hover {
-        background-color: #ccc;
-        color: #fff;
-    }
-
-    .reward-tabs .wechat-tab .active {
-        color: #fff !important;
-        background-color: #22AB38 !important;
-    }
-
-    .reward-tabs .alipay-tab .active {
-        color: #fff !important;
-        background-color: #019FE8 !important;
-    }
-
-    .reward-tabs .reward-img {
-        width: 210px;
-        height: 210px;
-    }
-</style>
-
-<div id="reward">
-    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
-
-    <!-- Modal Structure -->
-    <div id="rewardModal" class="modal">
-        <div class="modal-content">
-            <a class="close modal-close"><i class="fas fa-times"></i></a>
-            <h4 class="reward-title">你的赏识是我前进的动力</h4>
-            <div class="reward-content">
-                <div class="reward-tabs">
-                    <ul class="tabs row">
-                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
-                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
-                    </ul>
-                    <div id="alipay">
-                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
-                    </div>
-                    <div id="wechat">
-                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<script>
-    $(function () {
-        $('.tabs').tabs();
-    });
-</script>
             
         </div>
     </div>
@@ -777,7 +622,7 @@
 当需要把Vue Router添加进来的时候，我们需要做的就是组件映射到路由，然后告诉Vue router哪里渲染就行。
 路由出口 &lt;router-view&gt;&lt;/router-view&gt;。
 
-动态路由匹配12
+动态路由匹配co
                         
                     </div>
                     <div class="publish-info">
@@ -930,53 +775,6 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 
     <footer class="page-footer bg-color">
     
-        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
-<style>
-    .aplayer .aplayer-lrc p {
-        font-size: 12px;
-        font-weight: 700;
-        line-height: 16px !important;
-    }
-
-    .aplayer .aplayer-lrc p.aplayer-lrc-current {
-        font-size: 15px;
-        color: #42b983;
-    }
-
-    
-    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
-        left: -66px !important;
-    }
-
-    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
-        left: 0px !important;
-    }
-
-    
-</style>
-<div class="">
-    
-    <div class="row">
-        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
-                   server="netease"
-                   type="playlist"
-                   id="503838841"
-                   fixed='true'
-                   autoplay='false'
-                   theme='#42b983'
-                   loop='all'
-                   order='random'
-                   preload='auto'
-                   volume='0.7'
-                   list-folded='true'
-        >
-        </meting-js>
-    </div>
-</div>
-
-<script src="/libs/aplayer/APlayer.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
-    
     <div class="container row center-align" style="margin-bottom: 0px !important;">
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
@@ -1096,8 +894,6 @@ $(function () {
     })();
 </script>
 
-    
-    <script src="/libs/others/clicklove.js" async="async"></script>
     
     
     <script async src="/libs/others/busuanzi.pure.mini.js"></script>

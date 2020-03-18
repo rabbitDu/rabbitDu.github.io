@@ -29,7 +29,7 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
     
-<meta name="generator" content="Hexo 4.2.0"></head>
+<meta name="generator" content="Hexo 4.2.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 <body>
@@ -89,39 +89,6 @@
       <i class="fas fa-archive" style="zoom: 0.6;"></i>
       
       <span>归档</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/about" class="waves-effect waves-light">
-      
-      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
-      
-      <span>关于</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/contact" class="waves-effect waves-light">
-      
-      <i class="fas fa-comments" style="zoom: 0.6;"></i>
-      
-      <span>留言板</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/friends" class="waves-effect waves-light">
-      
-      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
-      
-      <span>友情链接</span>
     </a>
     
   </li>
@@ -191,39 +158,6 @@
 			    <i class="fa-fw fas fa-archive"></i>
 			
 			归档
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/about" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-user-circle"></i>
-			
-			关于
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/contact" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-comments"></i>
-			
-			留言板
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/friends" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-address-book"></i>
-			
-			友情链接
 		</a>
           
         </li>
@@ -474,14 +408,15 @@
                                     一、vue起步1.1 引入
 script 引入
 
-1&lt;script src&#x3D;&quot;..&#x2F;js&#x2F;vue.js&quot;&gt;
-
+&lt;script src=&quot;../js/vue.js&quot;&gt;
 CDN
 
 NPM
 
 
-i.项目根目录下运行npm install v
+i.项目根目录下运行npm install vue
+ii.
+&lt;script
                                 
                             </div>
                             <div class="publish-info">
@@ -700,7 +635,12 @@ HTML中的脚本必须位于&lt;script&gt;&lt;/script&gt;标签之间；
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    超炫的按钮代码css:12345678910111213141516171819202122232425262728293031323334353637&lt;style&gt;    .button-css&#123;        ma
+                                    超炫的按钮代码css:&lt;style&gt;
+    .button-css{
+        margin:200px 500px;
+        width: 400px;
+        position: relative;
+
                                 
                             </div>
                             <div class="publish-info">
@@ -805,7 +745,7 @@ $(&quot;p&quot;).hide()-隐藏所有的&lt;p&gt;元素
                             <div class="summary block-with-text">
                                 
                                     oracle impdp/expdp 导入/导出导入dmp文件dmp文件由expdp命令导出，想要导入这种文件，需要在库中建立相同中的表空间和用户。
-建立表空间123456789create tablespace tbs_gaugemete
+建立表空间create tablespace tbs_gaugemeter --表空间名称
                                 
                             </div>
                             <div class="publish-info">
@@ -1022,53 +962,6 @@ $(&quot;p&quot;).hide()-隐藏所有的&lt;p&gt;元素
 
     <footer class="page-footer bg-color">
     
-        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
-<style>
-    .aplayer .aplayer-lrc p {
-        font-size: 12px;
-        font-weight: 700;
-        line-height: 16px !important;
-    }
-
-    .aplayer .aplayer-lrc p.aplayer-lrc-current {
-        font-size: 15px;
-        color: #42b983;
-    }
-
-    
-    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
-        left: -66px !important;
-    }
-
-    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
-        left: 0px !important;
-    }
-
-    
-</style>
-<div class="">
-    
-    <div class="row">
-        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
-                   server="netease"
-                   type="playlist"
-                   id="503838841"
-                   fixed='true'
-                   autoplay='false'
-                   theme='#42b983'
-                   loop='all'
-                   order='random'
-                   preload='auto'
-                   volume='0.7'
-                   list-folded='true'
-        >
-        </meting-js>
-    </div>
-</div>
-
-<script src="/libs/aplayer/APlayer.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
-    
     <div class="container row center-align" style="margin-bottom: 0px !important;">
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
@@ -1188,8 +1081,6 @@ $(function () {
     })();
 </script>
 
-    
-    <script src="/libs/others/clicklove.js" async="async"></script>
     
     
     <script async src="/libs/others/busuanzi.pure.mini.js"></script>

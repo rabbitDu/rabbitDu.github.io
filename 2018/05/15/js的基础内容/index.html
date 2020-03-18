@@ -29,7 +29,7 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
     
-<meta name="generator" content="Hexo 4.2.0"></head>
+<meta name="generator" content="Hexo 4.2.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 <body>
@@ -89,39 +89,6 @@
       <i class="fas fa-archive" style="zoom: 0.6;"></i>
       
       <span>归档</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/about" class="waves-effect waves-light">
-      
-      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
-      
-      <span>关于</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/contact" class="waves-effect waves-light">
-      
-      <i class="fas fa-comments" style="zoom: 0.6;"></i>
-      
-      <span>留言板</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/friends" class="waves-effect waves-light">
-      
-      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
-      
-      <span>友情链接</span>
     </a>
     
   </li>
@@ -191,39 +158,6 @@
 			    <i class="fa-fw fas fa-archive"></i>
 			
 			归档
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/about" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-user-circle"></i>
-			
-			关于
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/contact" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-comments"></i>
-			
-			留言板
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/friends" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-address-book"></i>
-			
-			友情链接
 		</a>
           
         </li>
@@ -482,9 +416,10 @@
 <p>注意：如果在文档已经加载完后执行<code>docunment.write()</code>会覆盖整个文档内容</p>
 </li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">document.write(Date());</span><br><span class="line">window.alert(5 + 6);</span><br><span class="line">document.getElementById(&quot;demo&quot;).innerHTML&#x3D;&quot;xxxxx&quot;;</span><br><span class="line">console.log(c);</span><br></pre></td></tr></table></figure>
-
-<h3 id="三-语法"><a href="#三-语法" class="headerlink" title="三.语法"></a>三.语法</h3><h4 id="3-1-字面量"><a href="#3-1-字面量" class="headerlink" title="3.1 字面量"></a>3.1 字面量</h4><ul>
+<pre><code>document.write(Date());
+window.alert(5 + 6);
+document.getElementById(&quot;demo&quot;).innerHTML=&quot;xxxxx&quot;;
+console.log(c);</code></pre><h3 id="三-语法"><a href="#三-语法" class="headerlink" title="三.语法"></a>三.语法</h3><h4 id="3-1-字面量"><a href="#3-1-字面量" class="headerlink" title="3.1 字面量"></a>3.1 字面量</h4><ul>
 <li>一般固定值称为字面量；(数字字面量、字符串字面量、表达式字面量、数组字面量、对象字面量、函数字面量)</li>
 </ul>
 <h4 id="3-2-变量"><a href="#3-2-变量" class="headerlink" title="3.2 变量"></a>3.2 变量</h4><ul>
@@ -549,38 +484,99 @@
 <li>js函数对隐式参数的个数没有进行检测；(若没有提供，则是undefined;)</li>
 </ul>
 <h4 id="4-2-Arguments对象"><a href="#4-2-Arguments对象" class="headerlink" title="4.2 Arguments对象"></a>4.2 Arguments对象</h4><p>argument对象包含了函数调用的参数数组</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">x &#x3D; sumAll(1, 123, 500, 115, 44, 88);</span><br><span class="line"> </span><br><span class="line">function sumAll() &#123;</span><br><span class="line">    var i, sum &#x3D; 0;</span><br><span class="line">    for (i &#x3D; 0; i &lt; arguments.length; i++) &#123;</span><br><span class="line">        sum +&#x3D; arguments[i];</span><br><span class="line">    &#125;</span><br><span class="line">    return sum;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="4-3-作为函数方法调用函数"><a href="#4-3-作为函数方法调用函数" class="headerlink" title="4.3 作为函数方法调用函数"></a>4.3 作为函数方法调用函数</h4><p> 两个预定义的函数方法：call()和apply();两个方法可用于调用函数，两个方法的第一个参数必须是对象本身<br>区别：call()是作为参数传入；apply()是作为一个数组传入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">function myFunction(a, b) &#123;</span><br><span class="line">    return a * b;</span><br><span class="line">&#125;</span><br><span class="line">myObject &#x3D; myFunction.call(myObject, 10, 2);  </span><br><span class="line"></span><br><span class="line">function myFunction(a, b) &#123;</span><br><span class="line">    return a * b;</span><br><span class="line">&#125;</span><br><span class="line">myArray &#x3D; [10, 2];</span><br><span class="line">myObject &#x3D; myFunction.apply(myObject, myArray);</span><br></pre></td></tr></table></figure>
-<h3 id="五-DOM"><a href="#五-DOM" class="headerlink" title="五.DOM"></a>五.DOM</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;改变HTML的内容</span><br><span class="line">document.getElementById(&quot;p1&quot;).innerHTML&#x3D;&quot;新文本!&quot;;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;改变HTML的属性</span><br><span class="line">document.getElementById(&quot;image&quot;).src&#x3D;&quot;landscape.jpg&quot;;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;改变HTML的样式</span><br><span class="line">document.getElementById(&quot;p2&quot;).style.color&#x3D;&quot;blue&quot;;</span><br><span class="line">document.getElementById(&quot;p2&quot;).style.fontFamily&#x3D;&quot;Arial&quot;;</span><br></pre></td></tr></table></figure>
+<pre><code>x = sumAll(1, 123, 500, 115, 44, 88);
 
-<h4 id="添加事件的三种方式"><a href="#添加事件的三种方式" class="headerlink" title="添加事件的三种方式"></a>添加事件的三种方式</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;第一种</span><br><span class="line">&lt;script&gt;</span><br><span class="line">document.getElementById(&quot;myBtn&quot;).onclick&#x3D;function()&#123;displayDate()&#125;;</span><br><span class="line">&lt;&#x2F;script&gt;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;第二种</span><br><span class="line">&#x2F;*</span><br><span class="line">可以向元素中添加多个事件句柄，不会覆盖</span><br><span class="line">*&#x2F;</span><br><span class="line">document.getElementById(&quot;myBtn&quot;).addEventListener(&quot;click&quot;, displayDate);</span><br><span class="line">element.removeEventListener(&quot;mousemove&quot;, myFunction);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;第三种</span><br><span class="line">&lt;input type&#x3D;&quot;text&quot; id&#x3D;&quot;fname&quot; onchange&#x3D;&quot;upperCase()&quot;&gt;</span><br></pre></td></tr></table></figure>
+function sumAll() {
+    var i, sum = 0;
+    for (i = 0; i &lt; arguments.length; i++) {
+        sum += arguments[i];
+    }
+    return sum;
+}</code></pre><h4 id="4-3-作为函数方法调用函数"><a href="#4-3-作为函数方法调用函数" class="headerlink" title="4.3 作为函数方法调用函数"></a>4.3 作为函数方法调用函数</h4><p> 两个预定义的函数方法：call()和apply();两个方法可用于调用函数，两个方法的第一个参数必须是对象本身<br>区别：call()是作为参数传入；apply()是作为一个数组传入</p>
+<pre><code>function myFunction(a, b) {
+    return a * b;
+}
+myObject = myFunction.call(myObject, 10, 2);  
 
-<h2 id="六-BOM-Browser-Object-Model-浏览器对象模型"><a href="#六-BOM-Browser-Object-Model-浏览器对象模型" class="headerlink" title="六.BOM(Browser Object Model )-浏览器对象模型"></a>六.BOM(Browser Object Model )-浏览器对象模型</h2><h4 id="Window"><a href="#Window" class="headerlink" title="-Window"></a>-Window</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;*</span><br><span class="line">  确定浏览器窗口的尺寸</span><br><span class="line">*&#x2F;</span><br><span class="line">window.innerHeight  &#x2F;&#x2F;浏览器窗口的内部高度(包括滚动条)</span><br><span class="line">window.innerWidth   &#x2F;&#x2F;浏览器窗口的内部宽度(包括滚动条)</span><br><span class="line"></span><br><span class="line">window.open()     &#x2F;&#x2F;打开新窗口</span><br><span class="line">window.close()    &#x2F;&#x2F;关闭当前窗口</span><br><span class="line">window.moveTo()   &#x2F;&#x2F;移动当前窗口</span><br><span class="line">window.resizeTo() &#x2F;&#x2F;调整当前窗口的尺寸</span><br></pre></td></tr></table></figure>
-<h4 id="Window-Screen"><a href="#Window-Screen" class="headerlink" title="-Window Screen"></a>-Window Screen</h4><p> <code>window.screen</code> 对象包含有关用户屏幕的信息</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">screen.availWidth  &#x2F;&#x2F;可用的屏幕宽度</span><br><span class="line">screen.availHeight &#x2F;&#x2F;可用的屏幕高度</span><br></pre></td></tr></table></figure>
-<h4 id="Window-Location"><a href="#Window-Location" class="headerlink" title="-Window Location"></a>-Window Location</h4><p> <code>window.location</code>对象用于获取当前页面的地址（URL），并把浏览器重定向到新的页面</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">window.locatin;  </span><br><span class="line">location.href; --返回整个URL</span><br><span class="line">location.hostname; --返回web主机的域名 </span><br><span class="line">location.pathname;--返回当前页面的路径和文件名</span><br><span class="line">location.port;  --返回web主机的端口</span><br><span class="line">location.protocol; --返回所使用的web协议</span><br></pre></td></tr></table></figure>
-<h4 id="Window-History"><a href="#Window-History" class="headerlink" title="-Window History"></a>-Window History</h4><p><code>window.history</code>对象包含浏览器的历史</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">history.back();</span><br><span class="line">history.forword();</span><br></pre></td></tr></table></figure>
+function myFunction(a, b) {
+    return a * b;
+}
+myArray = [10, 2];
+myObject = myFunction.apply(myObject, myArray); 
+</code></pre><h3 id="五-DOM"><a href="#五-DOM" class="headerlink" title="五.DOM"></a>五.DOM</h3><pre><code>//改变HTML的内容
+document.getElementById(&quot;p1&quot;).innerHTML=&quot;新文本!&quot;;
 
-<h4 id="弹窗"><a href="#弹窗" class="headerlink" title="-弹窗"></a>-弹窗</h4><h5 id="1-警告框"><a href="#1-警告框" class="headerlink" title="1.警告框"></a>1.警告框</h5><p><code>window.alert(&quot;你好，我是一个警告框！&quot;);</code>   –window可省略</p>
+//改变HTML的属性
+document.getElementById(&quot;image&quot;).src=&quot;landscape.jpg&quot;;
+
+//改变HTML的样式
+document.getElementById(&quot;p2&quot;).style.color=&quot;blue&quot;;
+document.getElementById(&quot;p2&quot;).style.fontFamily=&quot;Arial&quot;;
+</code></pre><h4 id="添加事件的三种方式"><a href="#添加事件的三种方式" class="headerlink" title="添加事件的三种方式"></a>添加事件的三种方式</h4><pre><code>//第一种
+&lt;script&gt;
+document.getElementById(&quot;myBtn&quot;).onclick=function(){displayDate()};
+&lt;/script&gt;
+
+//第二种
+/*
+可以向元素中添加多个事件句柄，不会覆盖
+*/
+document.getElementById(&quot;myBtn&quot;).addEventListener(&quot;click&quot;, displayDate);
+element.removeEventListener(&quot;mousemove&quot;, myFunction);
+
+//第三种
+&lt;input type=&quot;text&quot; id=&quot;fname&quot; onchange=&quot;upperCase()&quot;&gt;</code></pre><h2 id="六-BOM-Browser-Object-Model-浏览器对象模型"><a href="#六-BOM-Browser-Object-Model-浏览器对象模型" class="headerlink" title="六.BOM(Browser Object Model )-浏览器对象模型"></a>六.BOM(Browser Object Model )-浏览器对象模型</h2><h4 id="Window"><a href="#Window" class="headerlink" title="-Window"></a>-Window</h4><pre><code>/*
+  确定浏览器窗口的尺寸
+*/
+window.innerHeight  //浏览器窗口的内部高度(包括滚动条)
+window.innerWidth   //浏览器窗口的内部宽度(包括滚动条)
+
+window.open()     //打开新窗口
+window.close()    //关闭当前窗口
+window.moveTo()   //移动当前窗口
+window.resizeTo() //调整当前窗口的尺寸</code></pre><h4 id="Window-Screen"><a href="#Window-Screen" class="headerlink" title="-Window Screen"></a>-Window Screen</h4><p> <code>window.screen</code> 对象包含有关用户屏幕的信息</p>
+<pre><code>screen.availWidth  //可用的屏幕宽度
+screen.availHeight //可用的屏幕高度</code></pre><h4 id="Window-Location"><a href="#Window-Location" class="headerlink" title="-Window Location"></a>-Window Location</h4><p> <code>window.location</code>对象用于获取当前页面的地址（URL），并把浏览器重定向到新的页面</p>
+<pre><code>
+ window.locatin;  
+ location.href; --返回整个URL
+ location.hostname; --返回web主机的域名 
+ location.pathname;--返回当前页面的路径和文件名
+ location.port;  --返回web主机的端口
+ location.protocol; --返回所使用的web协议</code></pre><h4 id="Window-History"><a href="#Window-History" class="headerlink" title="-Window History"></a>-Window History</h4><p><code>window.history</code>对象包含浏览器的历史</p>
+<pre><code>history.back();
+history.forword();</code></pre><h4 id="弹窗"><a href="#弹窗" class="headerlink" title="-弹窗"></a>-弹窗</h4><h5 id="1-警告框"><a href="#1-警告框" class="headerlink" title="1.警告框"></a>1.警告框</h5><p><code>window.alert(&quot;你好，我是一个警告框！&quot;);</code>   –window可省略</p>
 <h5 id="2-确认框"><a href="#2-确认框" class="headerlink" title="2.确认框"></a>2.确认框</h5><p><code>window.confirm(&quot;按下按钮&quot;)</code>  –window可省略</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">   var x;</span><br><span class="line">var r&#x3D;confirm(&quot;按下按钮!&quot;);</span><br><span class="line">if (r&#x3D;&#x3D;true)&#123;</span><br><span class="line">	x&#x3D;&quot;你按下了\&quot;确定\&quot;按钮!&quot;;</span><br><span class="line">&#125;</span><br><span class="line">else&#123;</span><br><span class="line">	x&#x3D;&quot;你按下了\&quot;取消\&quot;按钮!&quot;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h5 id="3-提示框"><a href="#3-提示框" class="headerlink" title="3.提示框"></a>3.提示框</h5><p><code>window.prompt(&quot;请输入你的名字&quot;，&quot;Harry Patter&quot;)</code>  –window可省略</p>
+<pre><code>    var x;
+    var r=confirm(&quot;按下按钮!&quot;);
+    if (r==true){
+        x=&quot;你按下了\&quot;确定\&quot;按钮!&quot;;
+    }
+    else{
+        x=&quot;你按下了\&quot;取消\&quot;按钮!&quot;;
+    }</code></pre><h5 id="3-提示框"><a href="#3-提示框" class="headerlink" title="3.提示框"></a>3.提示框</h5><p><code>window.prompt(&quot;请输入你的名字&quot;，&quot;Harry Patter&quot;)</code>  –window可省略</p>
 <h4 id="计时事件"><a href="#计时事件" class="headerlink" title="-计时事件"></a>-计时事件</h4><p> js一个设定的时间间隔之后来执行代码，我们称之为计时事件</p>
 <h5 id="1-setInterval-与clearInterval"><a href="#1-setInterval-与clearInterval" class="headerlink" title="1.setInterval()与clearInterval()"></a>1.setInterval()与clearInterval()</h5><p> <code>setInterval()</code>-间隔指定的毫秒数<span style="color:red">不停</span>地执行指定的代码；<br><code>clearInterval()</code>-用于停止setInterval()方法执行的函数代码；<br> 实例：显示当前时间</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">var myVar&#x3D;setInterval(function()&#123;myTimer()&#125;,1000);</span><br><span class="line"> </span><br><span class="line">function myTimer()</span><br><span class="line">&#123;</span><br><span class="line">    var d&#x3D;new Date();</span><br><span class="line">    var t&#x3D;d.toLocaleTimeString();</span><br><span class="line">    document.getElementById(&quot;demo&quot;).innerHTML&#x3D;t;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function myStopFunction()&#123;</span><br><span class="line">    clearInterval(myVar);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code>var myVar=setInterval(function(){myTimer()},1000);
 
-<p>2.setTimeout()与clearTimeout()enen enene</p>
+function myTimer()
+{
+    var d=new Date();
+    var t=d.toLocaleTimeString();
+    document.getElementById(&quot;demo&quot;).innerHTML=t;
+}
+
+function myStopFunction(){
+    clearInterval(myVar);
+}</code></pre><p>2.setTimeout()与clearTimeout()enen enene</p>
 <p><code>setTimeout()</code> - 在指定的毫秒数后执行指定代码。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var myVar;</span><br><span class="line">function myFunction()&#123;</span><br><span class="line">	myVar&#x3D;setTimeout(function()&#123;alert(&quot;Hello&quot;)&#125;,3000);</span><br><span class="line">&#125;</span><br><span class="line">function myStopFunction()&#123;</span><br><span class="line">	clearTimeout(myVar);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
+<pre><code>var myVar;
+function myFunction(){
+    myVar=setTimeout(function(){alert(&quot;Hello&quot;)},3000);
+}
+function myStopFunction(){
+    clearTimeout(myVar);
+}</code></pre>
             </div>
             <hr/>
 
@@ -663,131 +659,6 @@
                 </div>
             </div>
             
-                <style>
-    #reward {
-        margin: 40px 0;
-        text-align: center;
-    }
-
-    #reward .reward-link {
-        font-size: 1.4rem;
-        line-height: 38px;
-    }
-
-    #reward .btn-floating:hover {
-        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
-    }
-
-    #rewardModal {
-        width: 320px;
-        height: 350px;
-    }
-
-    #rewardModal .reward-title {
-        margin: 15px auto;
-        padding-bottom: 5px;
-    }
-
-    #rewardModal .modal-content {
-        padding: 10px;
-    }
-
-    #rewardModal .close {
-        position: absolute;
-        right: 15px;
-        top: 15px;
-        color: rgba(0, 0, 0, 0.5);
-        font-size: 1.3rem;
-        line-height: 20px;
-        cursor: pointer;
-    }
-
-    #rewardModal .close:hover {
-        color: #ef5350;
-        transform: scale(1.3);
-        -moz-transform:scale(1.3);
-        -webkit-transform:scale(1.3);
-        -o-transform:scale(1.3);
-    }
-
-    #rewardModal .reward-tabs {
-        margin: 0 auto;
-        width: 210px;
-    }
-
-    .reward-tabs .tabs {
-        height: 38px;
-        margin: 10px auto;
-        padding-left: 0;
-    }
-
-    .reward-content ul {
-        padding-left: 0 !important;
-    }
-
-    .reward-tabs .tabs .tab {
-        height: 38px;
-        line-height: 38px;
-    }
-
-    .reward-tabs .tab a {
-        color: #fff;
-        background-color: #ccc;
-    }
-
-    .reward-tabs .tab a:hover {
-        background-color: #ccc;
-        color: #fff;
-    }
-
-    .reward-tabs .wechat-tab .active {
-        color: #fff !important;
-        background-color: #22AB38 !important;
-    }
-
-    .reward-tabs .alipay-tab .active {
-        color: #fff !important;
-        background-color: #019FE8 !important;
-    }
-
-    .reward-tabs .reward-img {
-        width: 210px;
-        height: 210px;
-    }
-</style>
-
-<div id="reward">
-    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
-
-    <!-- Modal Structure -->
-    <div id="rewardModal" class="modal">
-        <div class="modal-content">
-            <a class="close modal-close"><i class="fas fa-times"></i></a>
-            <h4 class="reward-title">你的赏识是我前进的动力</h4>
-            <div class="reward-content">
-                <div class="reward-tabs">
-                    <ul class="tabs row">
-                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
-                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
-                    </ul>
-                    <div id="alipay">
-                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
-                    </div>
-                    <div id="wechat">
-                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<script>
-    $(function () {
-        $('.tabs').tabs();
-    });
-</script>
-            
         </div>
     </div>
 
@@ -860,7 +731,12 @@
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            超炫的按钮代码css:12345678910111213141516171819202122232425262728293031323334353637&lt;style&gt;    .button-css&#123;        ma
+                            超炫的按钮代码css:&lt;style&gt;
+    .button-css{
+        margin:200px 500px;
+        width: 400px;
+        position: relative;
+
                         
                     </div>
                     <div class="publish-info">
@@ -1013,53 +889,6 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 
     <footer class="page-footer bg-color">
     
-        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
-<style>
-    .aplayer .aplayer-lrc p {
-        font-size: 12px;
-        font-weight: 700;
-        line-height: 16px !important;
-    }
-
-    .aplayer .aplayer-lrc p.aplayer-lrc-current {
-        font-size: 15px;
-        color: #42b983;
-    }
-
-    
-    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
-        left: -66px !important;
-    }
-
-    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
-        left: 0px !important;
-    }
-
-    
-</style>
-<div class="">
-    
-    <div class="row">
-        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
-                   server="netease"
-                   type="playlist"
-                   id="503838841"
-                   fixed='true'
-                   autoplay='false'
-                   theme='#42b983'
-                   loop='all'
-                   order='random'
-                   preload='auto'
-                   volume='0.7'
-                   list-folded='true'
-        >
-        </meting-js>
-    </div>
-</div>
-
-<script src="/libs/aplayer/APlayer.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
-    
     <div class="container row center-align" style="margin-bottom: 0px !important;">
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
@@ -1179,8 +1008,6 @@ $(function () {
     })();
 </script>
 
-    
-    <script src="/libs/others/clicklove.js" async="async"></script>
     
     
     <script async src="/libs/others/busuanzi.pure.mini.js"></script>
