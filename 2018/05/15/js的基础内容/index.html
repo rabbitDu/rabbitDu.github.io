@@ -416,10 +416,11 @@
 <p>注意：如果在文档已经加载完后执行<code>docunment.write()</code>会覆盖整个文档内容</p>
 </li>
 </ul>
-<pre><code>document.write(Date());
-window.alert(5 + 6);
-document.getElementById(&quot;demo&quot;).innerHTML=&quot;xxxxx&quot;;
-console.log(c);</code></pre><h3 id="三-语法"><a href="#三-语法" class="headerlink" title="三.语法"></a>三.语法</h3><h4 id="3-1-字面量"><a href="#3-1-字面量" class="headerlink" title="3.1 字面量"></a>3.1 字面量</h4><ul>
+<pre class=" language-javascript"><code class="language-javascript">document<span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span><span class="token function">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+window<span class="token punctuation">.</span><span class="token function">alert</span><span class="token punctuation">(</span><span class="token number">5</span> <span class="token operator">+</span> <span class="token number">6</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">"demo"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>innerHTML<span class="token operator">=</span><span class="token string">"xxxxx"</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>c<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<h3 id="三-语法"><a href="#三-语法" class="headerlink" title="三.语法"></a>三.语法</h3><h4 id="3-1-字面量"><a href="#3-1-字面量" class="headerlink" title="3.1 字面量"></a>3.1 字面量</h4><ul>
 <li>一般固定值称为字面量；(数字字面量、字符串字面量、表达式字面量、数组字面量、对象字面量、函数字面量)</li>
 </ul>
 <h4 id="3-2-变量"><a href="#3-2-变量" class="headerlink" title="3.2 变量"></a>3.2 变量</h4><ul>
@@ -484,99 +485,110 @@ console.log(c);</code></pre><h3 id="三-语法"><a href="#三-语法" class="hea
 <li>js函数对隐式参数的个数没有进行检测；(若没有提供，则是undefined;)</li>
 </ul>
 <h4 id="4-2-Arguments对象"><a href="#4-2-Arguments对象" class="headerlink" title="4.2 Arguments对象"></a>4.2 Arguments对象</h4><p>argument对象包含了函数调用的参数数组</p>
-<pre><code>x = sumAll(1, 123, 500, 115, 44, 88);
+<pre class=" language-javascript"><code class="language-javascript">x <span class="token operator">=</span> <span class="token function">sumAll</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">123</span><span class="token punctuation">,</span> <span class="token number">500</span><span class="token punctuation">,</span> <span class="token number">115</span><span class="token punctuation">,</span> <span class="token number">44</span><span class="token punctuation">,</span> <span class="token number">88</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-function sumAll() {
-    var i, sum = 0;
-    for (i = 0; i &lt; arguments.length; i++) {
-        sum += arguments[i];
-    }
-    return sum;
-}</code></pre><h4 id="4-3-作为函数方法调用函数"><a href="#4-3-作为函数方法调用函数" class="headerlink" title="4.3 作为函数方法调用函数"></a>4.3 作为函数方法调用函数</h4><p> 两个预定义的函数方法：call()和apply();两个方法可用于调用函数，两个方法的第一个参数必须是对象本身<br>区别：call()是作为参数传入；apply()是作为一个数组传入</p>
-<pre><code>function myFunction(a, b) {
-    return a * b;
-}
-myObject = myFunction.call(myObject, 10, 2);  
+<span class="token keyword">function</span> <span class="token function">sumAll</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">var</span> i<span class="token punctuation">,</span> sum <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span>i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> arguments<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        sum <span class="token operator">+</span><span class="token operator">=</span> arguments<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> sum<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<h4 id="4-3-作为函数方法调用函数"><a href="#4-3-作为函数方法调用函数" class="headerlink" title="4.3 作为函数方法调用函数"></a>4.3 作为函数方法调用函数</h4><p> 两个预定义的函数方法：call()和apply();两个方法可用于调用函数，两个方法的第一个参数必须是对象本身<br>区别：call()是作为参数传入；apply()是作为一个数组传入</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">myFunction</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> a <span class="token operator">*</span> b<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+myObject <span class="token operator">=</span> myFunction<span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span>myObject<span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  
 
-function myFunction(a, b) {
-    return a * b;
-}
-myArray = [10, 2];
-myObject = myFunction.apply(myObject, myArray); 
-</code></pre><h3 id="五-DOM"><a href="#五-DOM" class="headerlink" title="五.DOM"></a>五.DOM</h3><pre><code>//改变HTML的内容
-document.getElementById(&quot;p1&quot;).innerHTML=&quot;新文本!&quot;;
+<span class="token keyword">function</span> <span class="token function">myFunction</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> a <span class="token operator">*</span> b<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+myArray <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+myObject <span class="token operator">=</span> myFunction<span class="token punctuation">.</span><span class="token function">apply</span><span class="token punctuation">(</span>myObject<span class="token punctuation">,</span> myArray<span class="token punctuation">)</span><span class="token punctuation">;</span> 
+</code></pre>
+<h3 id="五-DOM"><a href="#五-DOM" class="headerlink" title="五.DOM"></a>五.DOM</h3><pre class=" language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">//改变HTML的内容</span>
+document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">"p1"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>innerHTML<span class="token operator">=</span><span class="token string">"新文本!"</span><span class="token punctuation">;</span>
 
-//改变HTML的属性
-document.getElementById(&quot;image&quot;).src=&quot;landscape.jpg&quot;;
+<span class="token comment" spellcheck="true">//改变HTML的属性</span>
+document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">"image"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>src<span class="token operator">=</span><span class="token string">"landscape.jpg"</span><span class="token punctuation">;</span>
 
-//改变HTML的样式
-document.getElementById(&quot;p2&quot;).style.color=&quot;blue&quot;;
-document.getElementById(&quot;p2&quot;).style.fontFamily=&quot;Arial&quot;;
-</code></pre><h4 id="添加事件的三种方式"><a href="#添加事件的三种方式" class="headerlink" title="添加事件的三种方式"></a>添加事件的三种方式</h4><pre><code>//第一种
-&lt;script&gt;
-document.getElementById(&quot;myBtn&quot;).onclick=function(){displayDate()};
-&lt;/script&gt;
+<span class="token comment" spellcheck="true">//改变HTML的样式</span>
+document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">"p2"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>style<span class="token punctuation">.</span>color<span class="token operator">=</span><span class="token string">"blue"</span><span class="token punctuation">;</span>
+document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">"p2"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>style<span class="token punctuation">.</span>fontFamily<span class="token operator">=</span><span class="token string">"Arial"</span><span class="token punctuation">;</span>
+</code></pre>
+<h4 id="添加事件的三种方式"><a href="#添加事件的三种方式" class="headerlink" title="添加事件的三种方式"></a>添加事件的三种方式</h4><pre class=" language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">//第一种</span>
+<span class="token operator">&lt;</span>script<span class="token operator">></span>
+document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">"myBtn"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>onclick<span class="token operator">=</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token function">displayDate</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
 
-//第二种
-/*
+<span class="token comment" spellcheck="true">//第二种</span>
+<span class="token comment" spellcheck="true">/*
 可以向元素中添加多个事件句柄，不会覆盖
-*/
-document.getElementById(&quot;myBtn&quot;).addEventListener(&quot;click&quot;, displayDate);
-element.removeEventListener(&quot;mousemove&quot;, myFunction);
+*/</span>
+document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">"myBtn"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">"click"</span><span class="token punctuation">,</span> displayDate<span class="token punctuation">)</span><span class="token punctuation">;</span>
+element<span class="token punctuation">.</span><span class="token function">removeEventListener</span><span class="token punctuation">(</span><span class="token string">"mousemove"</span><span class="token punctuation">,</span> myFunction<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-//第三种
-&lt;input type=&quot;text&quot; id=&quot;fname&quot; onchange=&quot;upperCase()&quot;&gt;</code></pre><h2 id="六-BOM-Browser-Object-Model-浏览器对象模型"><a href="#六-BOM-Browser-Object-Model-浏览器对象模型" class="headerlink" title="六.BOM(Browser Object Model )-浏览器对象模型"></a>六.BOM(Browser Object Model )-浏览器对象模型</h2><h4 id="Window"><a href="#Window" class="headerlink" title="-Window"></a>-Window</h4><pre><code>/*
+<span class="token comment" spellcheck="true">//第三种</span>
+<span class="token operator">&lt;</span>input type<span class="token operator">=</span><span class="token string">"text"</span> id<span class="token operator">=</span><span class="token string">"fname"</span> onchange<span class="token operator">=</span><span class="token string">"upperCase()"</span><span class="token operator">></span></code></pre>
+<h2 id="六-BOM-Browser-Object-Model-浏览器对象模型"><a href="#六-BOM-Browser-Object-Model-浏览器对象模型" class="headerlink" title="六.BOM(Browser Object Model )-浏览器对象模型"></a>六.BOM(Browser Object Model )-浏览器对象模型</h2><h4 id="Window"><a href="#Window" class="headerlink" title="-Window"></a>-Window</h4><pre class=" language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">/*
   确定浏览器窗口的尺寸
-*/
-window.innerHeight  //浏览器窗口的内部高度(包括滚动条)
-window.innerWidth   //浏览器窗口的内部宽度(包括滚动条)
+*/</span>
+window<span class="token punctuation">.</span>innerHeight  <span class="token comment" spellcheck="true">//浏览器窗口的内部高度(包括滚动条)</span>
+window<span class="token punctuation">.</span>innerWidth   <span class="token comment" spellcheck="true">//浏览器窗口的内部宽度(包括滚动条)</span>
 
-window.open()     //打开新窗口
-window.close()    //关闭当前窗口
-window.moveTo()   //移动当前窗口
-window.resizeTo() //调整当前窗口的尺寸</code></pre><h4 id="Window-Screen"><a href="#Window-Screen" class="headerlink" title="-Window Screen"></a>-Window Screen</h4><p> <code>window.screen</code> 对象包含有关用户屏幕的信息</p>
-<pre><code>screen.availWidth  //可用的屏幕宽度
-screen.availHeight //可用的屏幕高度</code></pre><h4 id="Window-Location"><a href="#Window-Location" class="headerlink" title="-Window Location"></a>-Window Location</h4><p> <code>window.location</code>对象用于获取当前页面的地址（URL），并把浏览器重定向到新的页面</p>
-<pre><code>
- window.locatin;  
- location.href; --返回整个URL
- location.hostname; --返回web主机的域名 
- location.pathname;--返回当前页面的路径和文件名
- location.port;  --返回web主机的端口
- location.protocol; --返回所使用的web协议</code></pre><h4 id="Window-History"><a href="#Window-History" class="headerlink" title="-Window History"></a>-Window History</h4><p><code>window.history</code>对象包含浏览器的历史</p>
-<pre><code>history.back();
-history.forword();</code></pre><h4 id="弹窗"><a href="#弹窗" class="headerlink" title="-弹窗"></a>-弹窗</h4><h5 id="1-警告框"><a href="#1-警告框" class="headerlink" title="1.警告框"></a>1.警告框</h5><p><code>window.alert(&quot;你好，我是一个警告框！&quot;);</code>   –window可省略</p>
+window<span class="token punctuation">.</span><span class="token function">open</span><span class="token punctuation">(</span><span class="token punctuation">)</span>     <span class="token comment" spellcheck="true">//打开新窗口</span>
+window<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span>    <span class="token comment" spellcheck="true">//关闭当前窗口</span>
+window<span class="token punctuation">.</span><span class="token function">moveTo</span><span class="token punctuation">(</span><span class="token punctuation">)</span>   <span class="token comment" spellcheck="true">//移动当前窗口</span>
+window<span class="token punctuation">.</span><span class="token function">resizeTo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">//调整当前窗口的尺寸</span></code></pre>
+<h4 id="Window-Screen"><a href="#Window-Screen" class="headerlink" title="-Window Screen"></a>-Window Screen</h4><p> <code>window.screen</code> 对象包含有关用户屏幕的信息</p>
+<pre class=" language-javascript"><code class="language-javascript">screen<span class="token punctuation">.</span>availWidth  <span class="token comment" spellcheck="true">//可用的屏幕宽度</span>
+screen<span class="token punctuation">.</span>availHeight <span class="token comment" spellcheck="true">//可用的屏幕高度</span></code></pre>
+<h4 id="Window-Location"><a href="#Window-Location" class="headerlink" title="-Window Location"></a>-Window Location</h4><p> <code>window.location</code>对象用于获取当前页面的地址（URL），并把浏览器重定向到新的页面</p>
+<pre class=" language-javascript"><code class="language-javascript">
+ window<span class="token punctuation">.</span>locatin<span class="token punctuation">;</span>  
+ location<span class="token punctuation">.</span>href<span class="token punctuation">;</span> <span class="token operator">--</span>返回整个URL
+ location<span class="token punctuation">.</span>hostname<span class="token punctuation">;</span> <span class="token operator">--</span>返回web主机的域名 
+ location<span class="token punctuation">.</span>pathname<span class="token punctuation">;</span><span class="token operator">--</span>返回当前页面的路径和文件名
+ location<span class="token punctuation">.</span>port<span class="token punctuation">;</span>  <span class="token operator">--</span>返回web主机的端口
+ location<span class="token punctuation">.</span>protocol<span class="token punctuation">;</span> <span class="token operator">--</span>返回所使用的web协议</code></pre>
+<h4 id="Window-History"><a href="#Window-History" class="headerlink" title="-Window History"></a>-Window History</h4><p><code>window.history</code>对象包含浏览器的历史</p>
+<pre class=" language-javascript"><code class="language-javascript">history<span class="token punctuation">.</span><span class="token function">back</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+history<span class="token punctuation">.</span><span class="token function">forword</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<h4 id="弹窗"><a href="#弹窗" class="headerlink" title="-弹窗"></a>-弹窗</h4><h5 id="1-警告框"><a href="#1-警告框" class="headerlink" title="1.警告框"></a>1.警告框</h5><p><code>window.alert(&quot;你好，我是一个警告框！&quot;);</code>   –window可省略</p>
 <h5 id="2-确认框"><a href="#2-确认框" class="headerlink" title="2.确认框"></a>2.确认框</h5><p><code>window.confirm(&quot;按下按钮&quot;)</code>  –window可省略</p>
-<pre><code>    var x;
-    var r=confirm(&quot;按下按钮!&quot;);
-    if (r==true){
-        x=&quot;你按下了\&quot;确定\&quot;按钮!&quot;;
-    }
-    else{
-        x=&quot;你按下了\&quot;取消\&quot;按钮!&quot;;
-    }</code></pre><h5 id="3-提示框"><a href="#3-提示框" class="headerlink" title="3.提示框"></a>3.提示框</h5><p><code>window.prompt(&quot;请输入你的名字&quot;，&quot;Harry Patter&quot;)</code>  –window可省略</p>
+<pre class=" language-javascript"><code class="language-javascript">    <span class="token keyword">var</span> x<span class="token punctuation">;</span>
+    <span class="token keyword">var</span> r<span class="token operator">=</span><span class="token function">confirm</span><span class="token punctuation">(</span><span class="token string">"按下按钮!"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>r<span class="token operator">==</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        x<span class="token operator">=</span><span class="token string">"你按下了\"确定\"按钮!"</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">else</span><span class="token punctuation">{</span>
+        x<span class="token operator">=</span><span class="token string">"你按下了\"取消\"按钮!"</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span></code></pre>
+<h5 id="3-提示框"><a href="#3-提示框" class="headerlink" title="3.提示框"></a>3.提示框</h5><p><code>window.prompt(&quot;请输入你的名字&quot;，&quot;Harry Patter&quot;)</code>  –window可省略</p>
 <h4 id="计时事件"><a href="#计时事件" class="headerlink" title="-计时事件"></a>-计时事件</h4><p> js一个设定的时间间隔之后来执行代码，我们称之为计时事件</p>
 <h5 id="1-setInterval-与clearInterval"><a href="#1-setInterval-与clearInterval" class="headerlink" title="1.setInterval()与clearInterval()"></a>1.setInterval()与clearInterval()</h5><p> <code>setInterval()</code>-间隔指定的毫秒数<span style="color:red">不停</span>地执行指定的代码；<br><code>clearInterval()</code>-用于停止setInterval()方法执行的函数代码；<br> 实例：显示当前时间</p>
-<pre><code>var myVar=setInterval(function(){myTimer()},1000);
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">var</span> myVar<span class="token operator">=</span><span class="token function">setInterval</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token function">myTimer</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-function myTimer()
-{
-    var d=new Date();
-    var t=d.toLocaleTimeString();
-    document.getElementById(&quot;demo&quot;).innerHTML=t;
-}
+<span class="token keyword">function</span> <span class="token function">myTimer</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">var</span> d<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">var</span> t<span class="token operator">=</span>d<span class="token punctuation">.</span><span class="token function">toLocaleTimeString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">"demo"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>innerHTML<span class="token operator">=</span>t<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-function myStopFunction(){
-    clearInterval(myVar);
-}</code></pre><p>2.setTimeout()与clearTimeout()enen enene</p>
+<span class="token keyword">function</span> <span class="token function">myStopFunction</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token function">clearInterval</span><span class="token punctuation">(</span>myVar<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<p>2.setTimeout()与clearTimeout()enen enene</p>
 <p><code>setTimeout()</code> - 在指定的毫秒数后执行指定代码。</p>
-<pre><code>var myVar;
-function myFunction(){
-    myVar=setTimeout(function(){alert(&quot;Hello&quot;)},3000);
-}
-function myStopFunction(){
-    clearTimeout(myVar);
-}</code></pre>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">var</span> myVar<span class="token punctuation">;</span>
+<span class="token keyword">function</span> <span class="token function">myFunction</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    myVar<span class="token operator">=</span><span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token function">alert</span><span class="token punctuation">(</span><span class="token string">"Hello"</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token number">3000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">function</span> <span class="token function">myStopFunction</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token function">clearTimeout</span><span class="token punctuation">(</span>myVar<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+
             </div>
             <hr/>
 
@@ -731,12 +743,12 @@ function myStopFunction(){
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            超炫的按钮代码css:&lt;style&gt;
+                            超炫的按钮代码css:&lt;style>
     .button-css{
         margin:200px 500px;
         width: 400px;
         position: relative;
-
+   
                         
                     </div>
                     <div class="publish-info">

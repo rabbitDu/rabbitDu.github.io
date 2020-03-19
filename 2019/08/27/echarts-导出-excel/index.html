@@ -391,66 +391,67 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <pre><code> exportXlsx: function () {
-    var data = [{
-      &quot;时间&quot;: &quot;00：00&quot;,
-      &quot;计划曲线&quot;: &quot;100&quot;,
-      &quot;实际出力&quot;: &quot;101.812&quot;
-    }, {
-      &quot;时间&quot;: &quot;00：01&quot;,
-      &quot;计划曲线&quot;: &quot;100&quot;,
-      &quot;实际出力&quot;: &quot;101.812&quot;
-    }, {
-      &quot;时间&quot;: &quot;00：02&quot;,
-      &quot;计划曲线&quot;: &quot;100&quot;,
-      &quot;实际出力&quot;: &quot;101.812&quot;
-    }, {
-      &quot;时间&quot;: &quot;00：03&quot;,
-      &quot;计划曲线&quot;: &quot;100&quot;,
-      &quot;实际出力&quot;: &quot;101.812&quot;
-    }, {
-      &quot;时间&quot;: &quot;00：04&quot;,
-      &quot;计划曲线&quot;: &quot;100&quot;,
-      &quot;实际出力&quot;: &quot;101.812&quot;
-    }, {
-      &quot;时间&quot;: &quot;00：05&quot;,
-      &quot;计划曲线&quot;: &quot;100&quot;,
-      &quot;实际出力&quot;: &quot;101.812&quot;
-    }];
-    var wopts = {bookType: &#39;xlsx&#39;, bookSST: false, type: &#39;binary&#39;};
-    this.downloadExl(data, wopts);
-  },
-  downloadExl: function (data, wopts) {
-    var wb = {SheetNames: [&#39;Sheet1&#39;], Sheets: {}, Props: {}};
-    wb.Sheets[&#39;Sheet1&#39;] = XLSX.utils.json_to_sheet(data);//通过json_to_sheet转成单页(Sheet)数据
-    this.saveAs(newBlob([this.s2ab(XLSX.write(wb, wopts))], {type: &quot;application/octet-stream&quot;}), &quot;这里是下载的文件名&quot; + &#39;.&#39; + (wopts.bookType == &quot;biff2&quot; ? &quot;xls&quot; : wopts.bookType));
-  },
-  s2ab: function (s) {
-    if (typeofArrayBuffer !== &#39;undefined&#39;) {
-      var buf = newArrayBuffer(s.length);
-      var view = newUint8Array(buf);
-      for (var i = 0; i != s.length; ++i) {
-        view[i] = s.charCodeAt(i) &amp; 0xFF
-      }
-      returnbuf;
-    } else {
-      var buf = newArray(s.length);
-      for (var i = 0; i != s.length; ++i) {
-        buf[i] = s.charCodeAt(i) &amp; 0xFF
-      }
-      returnbuf;
-    }
-  },
-  saveAs: function (obj, fileName) {//当然可以自定义简单的下载文件实现方式
-    var tmpa = document.createElement(&quot;a&quot;);
-    tmpa.download = fileName || &quot;下载&quot;;
-    tmpa.href = URL.createObjectURL(obj);//绑定a标签
-    tmpa.click();//模拟点击实现下载
-    setTimeout(function () {//延时释放
-      URL.revokeObjectURL(obj);//用URL.revokeObjectURL()来释放这个objectURL
-    }, 100);
-  }
+                <pre class=" language-javascript"><code class="language-javascript"> exportXlsx<span class="token punctuation">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">var</span> data <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">{</span>
+      <span class="token string">"时间"</span><span class="token punctuation">:</span> <span class="token string">"00：00"</span><span class="token punctuation">,</span>
+      <span class="token string">"计划曲线"</span><span class="token punctuation">:</span> <span class="token string">"100"</span><span class="token punctuation">,</span>
+      <span class="token string">"实际出力"</span><span class="token punctuation">:</span> <span class="token string">"101.812"</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+      <span class="token string">"时间"</span><span class="token punctuation">:</span> <span class="token string">"00：01"</span><span class="token punctuation">,</span>
+      <span class="token string">"计划曲线"</span><span class="token punctuation">:</span> <span class="token string">"100"</span><span class="token punctuation">,</span>
+      <span class="token string">"实际出力"</span><span class="token punctuation">:</span> <span class="token string">"101.812"</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+      <span class="token string">"时间"</span><span class="token punctuation">:</span> <span class="token string">"00：02"</span><span class="token punctuation">,</span>
+      <span class="token string">"计划曲线"</span><span class="token punctuation">:</span> <span class="token string">"100"</span><span class="token punctuation">,</span>
+      <span class="token string">"实际出力"</span><span class="token punctuation">:</span> <span class="token string">"101.812"</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+      <span class="token string">"时间"</span><span class="token punctuation">:</span> <span class="token string">"00：03"</span><span class="token punctuation">,</span>
+      <span class="token string">"计划曲线"</span><span class="token punctuation">:</span> <span class="token string">"100"</span><span class="token punctuation">,</span>
+      <span class="token string">"实际出力"</span><span class="token punctuation">:</span> <span class="token string">"101.812"</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+      <span class="token string">"时间"</span><span class="token punctuation">:</span> <span class="token string">"00：04"</span><span class="token punctuation">,</span>
+      <span class="token string">"计划曲线"</span><span class="token punctuation">:</span> <span class="token string">"100"</span><span class="token punctuation">,</span>
+      <span class="token string">"实际出力"</span><span class="token punctuation">:</span> <span class="token string">"101.812"</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+      <span class="token string">"时间"</span><span class="token punctuation">:</span> <span class="token string">"00：05"</span><span class="token punctuation">,</span>
+      <span class="token string">"计划曲线"</span><span class="token punctuation">:</span> <span class="token string">"100"</span><span class="token punctuation">,</span>
+      <span class="token string">"实际出力"</span><span class="token punctuation">:</span> <span class="token string">"101.812"</span>
+    <span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">var</span> wopts <span class="token operator">=</span> <span class="token punctuation">{</span>bookType<span class="token punctuation">:</span> <span class="token string">'xlsx'</span><span class="token punctuation">,</span> bookSST<span class="token punctuation">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span> type<span class="token punctuation">:</span> <span class="token string">'binary'</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">downloadExl</span><span class="token punctuation">(</span>data<span class="token punctuation">,</span> wopts<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  downloadExl<span class="token punctuation">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>data<span class="token punctuation">,</span> wopts<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">var</span> wb <span class="token operator">=</span> <span class="token punctuation">{</span>SheetNames<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'Sheet1'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> Sheets<span class="token punctuation">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span> Props<span class="token punctuation">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+    wb<span class="token punctuation">.</span>Sheets<span class="token punctuation">[</span><span class="token string">'Sheet1'</span><span class="token punctuation">]</span> <span class="token operator">=</span> XLSX<span class="token punctuation">.</span>utils<span class="token punctuation">.</span><span class="token function">json_to_sheet</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//通过json_to_sheet转成单页(Sheet)数据</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">saveAs</span><span class="token punctuation">(</span><span class="token function">newBlob</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">s2ab</span><span class="token punctuation">(</span>XLSX<span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span>wb<span class="token punctuation">,</span> wopts<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>type<span class="token punctuation">:</span> <span class="token string">"application/octet-stream"</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">"这里是下载的文件名"</span> <span class="token operator">+</span> <span class="token string">'.'</span> <span class="token operator">+</span> <span class="token punctuation">(</span>wopts<span class="token punctuation">.</span>bookType <span class="token operator">==</span> <span class="token string">"biff2"</span> <span class="token operator">?</span> <span class="token string">"xls"</span> <span class="token punctuation">:</span> wopts<span class="token punctuation">.</span>bookType<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  s2ab<span class="token punctuation">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>s<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>typeofArrayBuffer <span class="token operator">!==</span> <span class="token string">'undefined'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">var</span> buf <span class="token operator">=</span> <span class="token function">newArrayBuffer</span><span class="token punctuation">(</span>s<span class="token punctuation">.</span>length<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">var</span> view <span class="token operator">=</span> <span class="token function">newUint8Array</span><span class="token punctuation">(</span>buf<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">!=</span> s<span class="token punctuation">.</span>length<span class="token punctuation">;</span> <span class="token operator">++</span>i<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        view<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> s<span class="token punctuation">.</span><span class="token function">charCodeAt</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span> <span class="token operator">&amp;</span> <span class="token number">0xFF</span>
+      <span class="token punctuation">}</span>
+      returnbuf<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+      <span class="token keyword">var</span> buf <span class="token operator">=</span> <span class="token function">newArray</span><span class="token punctuation">(</span>s<span class="token punctuation">.</span>length<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">!=</span> s<span class="token punctuation">.</span>length<span class="token punctuation">;</span> <span class="token operator">++</span>i<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        buf<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> s<span class="token punctuation">.</span><span class="token function">charCodeAt</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span> <span class="token operator">&amp;</span> <span class="token number">0xFF</span>
+      <span class="token punctuation">}</span>
+      returnbuf<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  saveAs<span class="token punctuation">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>obj<span class="token punctuation">,</span> fileName<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token comment" spellcheck="true">//当然可以自定义简单的下载文件实现方式</span>
+    <span class="token keyword">var</span> tmpa <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span><span class="token string">"a"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    tmpa<span class="token punctuation">.</span>download <span class="token operator">=</span> fileName <span class="token operator">||</span> <span class="token string">"下载"</span><span class="token punctuation">;</span>
+    tmpa<span class="token punctuation">.</span>href <span class="token operator">=</span> URL<span class="token punctuation">.</span><span class="token function">createObjectURL</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//绑定a标签</span>
+    tmpa<span class="token punctuation">.</span><span class="token function">click</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//模拟点击实现下载</span>
+    <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token comment" spellcheck="true">//延时释放</span>
+      URL<span class="token punctuation">.</span><span class="token function">revokeObjectURL</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//用URL.revokeObjectURL()来释放这个objectURL</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
 </code></pre>
+
             </div>
             <hr/>
 
@@ -555,19 +556,19 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/02/24/hello-world/">
+                <a href="/2020/02/24/%E9%80%9A%E8%AE%AF%E5%BD%95%E7%BB%84%E4%BB%B6/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="通讯录组件">
                         
-                        <span class="card-title">Hello World</span>
+                        <span class="card-title">通讯录组件</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hex
+                            通讯录
                         
                     </div>
                     <div class="publish-info">
@@ -608,8 +609,8 @@
    feature: {
           dataView: {
             show: true,
-            title: &#39;数据视图&#39;,
-            /
+            title: '数据视图',
+            //readOnl
                         
                     </div>
                     <div class="publish-info">

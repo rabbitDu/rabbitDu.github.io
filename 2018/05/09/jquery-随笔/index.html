@@ -414,9 +414,10 @@
 <h4 id="鼠标事件"><a href="#鼠标事件" class="headerlink" title="鼠标事件"></a>鼠标事件</h4><ul>
 <li><code>click()</code>–<code>$(&quot;p&quot;).click(function(){......})</code>–</li>
 <li><code>dbclick()</code></li>
-<li><code>mouseenter()</code>–当鼠标指针进入 <p> 元素时，设置背景色为黄色<pre><code>$(&quot;p&quot;).mouseenter(function(){
-  $(&quot;p&quot;).css(&quot;background-color&quot;,&quot;yellow&quot;);
-})</code></pre></li>
+<li><code>mouseenter()</code>–当鼠标指针进入 <p> 元素时，设置背景色为黄色<pre class=" language-javascript"><code class="language-javascript"><span class="token function">$</span><span class="token punctuation">(</span><span class="token string">"p"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">mouseenter</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+  <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">"p"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">css</span><span class="token punctuation">(</span><span class="token string">"background-color"</span><span class="token punctuation">,</span><span class="token string">"yellow"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre>
+</li>
 <li><code>mouseleave()</code></li>
 <li><code>mousedown()</code></li>
 <li><code>mouseup()</code></li>
@@ -434,18 +435,19 @@
 <li><p><code>focus()</code>– 获得焦点时</p>
 </li>
 <li><p><code>blur()</code>–失去焦点时</p>
-<pre><code>$(&quot;input&quot;).change(function(){
-  alert(&quot;文本已被修改&quot;);
-});
-$(&quot;input&quot;).change(function(){
-  alert(&quot;文本已被修改&quot;);
-});
-$(&quot;input&quot;).focus(function(){
-  $(&quot;span&quot;).css(&quot;display&quot;,&quot;inline&quot;).fadeOut(2000);
-});
-$(&quot;input&quot;).blur(function(){
-  alert(&quot;输入框失去了焦点&quot;);
-});</code></pre><h4 id="文档-窗口事件"><a href="#文档-窗口事件" class="headerlink" title="文档/窗口事件"></a>文档/窗口事件</h4></li>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token function">$</span><span class="token punctuation">(</span><span class="token string">"input"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">change</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+  <span class="token function">alert</span><span class="token punctuation">(</span><span class="token string">"文本已被修改"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">$</span><span class="token punctuation">(</span><span class="token string">"input"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">change</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+  <span class="token function">alert</span><span class="token punctuation">(</span><span class="token string">"文本已被修改"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">$</span><span class="token punctuation">(</span><span class="token string">"input"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">focus</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+  <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">"span"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">css</span><span class="token punctuation">(</span><span class="token string">"display"</span><span class="token punctuation">,</span><span class="token string">"inline"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">fadeOut</span><span class="token punctuation">(</span><span class="token number">2000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">$</span><span class="token punctuation">(</span><span class="token string">"input"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">blur</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+  <span class="token function">alert</span><span class="token punctuation">(</span><span class="token string">"输入框失去了焦点"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<h4 id="文档-窗口事件"><a href="#文档-窗口事件" class="headerlink" title="文档/窗口事件"></a>文档/窗口事件</h4></li>
 <li><p><code>load()</code></p>
 </li>
 <li><p><code>scroll</code></p>
@@ -568,12 +570,12 @@ $(&quot;input&quot;).blur(function(){
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            超炫的按钮代码css:&lt;style&gt;
+                            超炫的按钮代码css:&lt;style>
     .button-css{
         margin:200px 500px;
         width: 400px;
         position: relative;
-
+   
                         
                     </div>
                     <div class="publish-info">

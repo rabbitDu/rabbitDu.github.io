@@ -393,13 +393,15 @@
             <div id="articleContent">
                 <h3 id="一、表空间"><a href="#一、表空间" class="headerlink" title="一、表空间"></a>一、表空间</h3><h4 id="1-1-概念"><a href="#1-1-概念" class="headerlink" title="1.1 概念"></a>1.1 概念</h4><p>ORACLE数据库被划分成称作为表空间 的逻辑区域——形成ORACLE数据库的逻辑结构。一个ORACLE数据库能够有一个或多个表空间,而一个表空间则对应着一个或多个物理的数据库文件。</p>
 <p>表空间是ORACLE数据库恢复的最小单位,容纳着许多数据库实体,如表、视图、索引、聚簇、回退段和临时段等。</p>
-<h4 id="2-创建"><a href="#2-创建" class="headerlink" title="2.创建"></a>2.创建</h4><pre><code>create tablespace xxx(表空间名称)  
-datafile &#39;D:\oracle\oradata\orcl2\zjjg.dbf&#39;（表空间数据文件）
-size 100M（表空间大小）  </code></pre><p>注意：<code>D:\oracle\oradata\orcl2\</code> 必须已经存在</p>
+<h4 id="2-创建"><a href="#2-创建" class="headerlink" title="2.创建"></a>2.创建</h4><pre class=" language-bash"><code class="language-bash">create tablespace xxx<span class="token punctuation">(</span>表空间名称<span class="token punctuation">)</span>  
+datafile <span class="token string">'D:\oracle\oradata\orcl2\zjjg.dbf'</span>（表空间数据文件）
+size 100M（表空间大小）  </code></pre>
+<p>注意：<code>D:\oracle\oradata\orcl2\</code> 必须已经存在</p>
 <h3 id="二、用户"><a href="#二、用户" class="headerlink" title="二、用户"></a>二、用户</h3><h4 id="2-1-概念"><a href="#2-1-概念" class="headerlink" title="2.1 概念"></a>2.1 概念</h4><h4 id="2-2-创建"><a href="#2-2-创建" class="headerlink" title="2.2 创建"></a>2.2 创建</h4><p>法一：</p>
-<pre><code>create user test(用户名) identified by test(用户密码)
+<pre class=" language-bash"><code class="language-bash">create user test<span class="token punctuation">(</span>用户名<span class="token punctuation">)</span> identified by test<span class="token punctuation">(</span>用户密码<span class="token punctuation">)</span>
 default tablespace xxx
-quota 500m on xxx(用户在表空间上占用的空间大小); </code></pre><p>法二：使用plsql工具</p>
+<span class="token function">quota</span> 500m on xxx<span class="token punctuation">(</span>用户在表空间上占用的空间大小<span class="token punctuation">)</span><span class="token punctuation">;</span> </code></pre>
+<p>法二：使用plsql工具</p>
 <h4 id="3-设置用户权限"><a href="#3-设置用户权限" class="headerlink" title="3.设置用户权限"></a>3.设置用户权限</h4><ul>
 <li><p>常被用到的系统预定义角色：CONNECT、RESOURCE、DBA、EXP_FULL_DATABASE、IMP_FULL_DATABASE。</p>
 <ul>
