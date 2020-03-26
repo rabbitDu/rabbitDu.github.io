@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="ES6-Promise对象, Rabbit">
+    <meta name="keywords" content="ES6-Module模板, Rabbit">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>ES6-Promise对象 | Rabbit</title>
+    <title>ES6-Module模板 | Rabbit</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -240,12 +240,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/14.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">ES6-Promise对象</h1>
+                    <h1 class="description center-align post-title">ES6-Module模板</h1>
                 </div>
             </div>
         </div>
@@ -371,6 +371,15 @@
                 </div>
                 <div class="col s5 right-align">
                     
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/javaScript/" class="post-category">
+                                javaScript
+                            </a>
+                        
+                    </div>
+                    
                 </div>
             </div>
 
@@ -378,7 +387,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-03-25
+                    2020-03-26
                 </div>
                 
 
@@ -395,114 +404,150 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="Promise是什么？"><a href="#Promise是什么？" class="headerlink" title="Promise是什么？"></a>Promise是什么？</h2><p> Promise 是异步编程的一种解决方案，比传统的解决方案——回调函数和事件——更合理和更强大。它由社区最早提出和实现，ES6 将其写进了语言标准，统一了用法，原生提供了Promise对象。</p>
-<p>从语法上说，Promise 是一个对象（也就是一个容器），里面保存着某个未来才会结束的事件（通常是一个异步操作）的结果，从它可以获取异步操作的消息。Promise 提供统一的 API，各种异步操作都可以用同样的方法进行处理。</p>
-<p>Promise也有一些缺点。首先，无法取消Promise，一旦新建它就会立即执行，无法中途取消。其次，如果不设置回调函数，Promise内部抛出的错误，不会反应到外部。第三，当处于pending状态时，无法得知目前进展到哪一个阶段（刚刚开始还是即将完成）。</p>
-<h2 id="为什么需要Promise？"><a href="#为什么需要Promise？" class="headerlink" title="为什么需要Promise？"></a>为什么需要Promise？</h2><p> 比如我在工作中使用ajax发一个请求A后，成功后拿到数据，我们需要把数据传给请求B,会导致多个请求的嵌套，代码不够直观。</p>
-<p>这个时候我们可以选用Promise对象。</p>
-<h2 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h2><p>ES6规定，Promise对象是一个构造函数，用来生成Promise实例。</p>
-<h3 id="三种状态"><a href="#三种状态" class="headerlink" title="三种状态"></a>三种状态</h3><ul>
-<li><code>pending</code>（进行中）</li>
-<li><code>fulfilled</code>（已成功）</li>
-<li><code>rejected</code>（已失败）</li>
-</ul>
-<h3 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h3><ul>
-<li>只有异步操作可以决定当前处于的状态，并且任何其他操作无法改变这个状态；</li>
-<li>一旦状态改变，就不会在变。</li>
-<li>状态改变的过程只可能是：从<code>pending</code>变为<code>fulfilled</code>和从<code>pending</code>变为<code>rejected</code>。如果状态发生上述变化后，此时状态就不会在改变了，这时就称为<code>resolved</code>（已定型）</li>
-</ul>
-<h3 id="如何创建实例"><a href="#如何创建实例" class="headerlink" title="如何创建实例"></a>如何创建实例</h3><pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">const</span> promise <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token punctuation">(</span>resolve<span class="token punctuation">,</span> reject<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-    <span class="token comment" spellcheck="true">// do something here ...</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span>success<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token function">resolve</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// fulfilled</span>
-    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
-        <span class="token function">reject</span><span class="token punctuation">(</span>error<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// rejected</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
- promise<span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-      <span class="token comment" spellcheck="true">// success</span>
-  <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>error<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-      <span class="token comment" spellcheck="true">// failure</span>
-  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-</code></pre>
-<h4 id="resolve"><a href="#resolve" class="headerlink" title="resolve()"></a>resolve()</h4><p>将Promise对象的状态从<code>pending</code>变为<code>fulfilled</code>，在异步操作成功的时候调用，并将异步操作的结果作为参数传递出去。</p>
-<h4 id="reject"><a href="#reject" class="headerlink" title="reject()"></a>reject()</h4><p>将Promise对象的状态从<code>pending</code>变为<code>rejected</code>，在异步操作的时候调用，并将异步操作报出的错误作为参数传递出去。</p>
-<h4 id="then"><a href="#then" class="headerlink" title="then()"></a>then()</h4><p>可以接收两个回调函数作为参数，分别作为fullFiled状态的回调函数和rejected状态的回调函数。</p>
-<h2 id="Promise-中的方法"><a href="#Promise-中的方法" class="headerlink" title="Promise 中的方法"></a>Promise 中的方法</h2><h3 id="then-1"><a href="#then-1" class="headerlink" title="then()"></a>then()</h3><p>他的作用上面也有提到，是为Promise实例添加状态改变时的回调函数。</p>
-<ul>
-<li>第一个参数是fullfiled状态的回调函数。</li>
-<li>第二个参数（可选）是rejected状态的回调函数。</li>
-</ul>
-<blockquote>
-<p>then 方法返回的是一个新的Promise实例。因此可以采用链式写法，即then方法后面再调用一个then方法；采用链式的then可以指定一组按照次序调用的回调函数，</p>
-</blockquote>
-<h3 id="catch"><a href="#catch" class="headerlink" title="catch()"></a>catch()</h3><p>发生错误的回调函数。</p>
-<p>一般不要再then的方法中定义Rejected状态的回调函数，而应总使用catch方法。</p>
-<p>catch方法还是返回一个Promise对象</p>
-<h3 id="all"><a href="#all" class="headerlink" title="all()"></a>all()</h3><ul>
-<li><p>参数</p>
-<p>  <em>iterable</em> 必须是一个可迭代对象，如 Array 或 String。</p>
+                <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>历史上，<code>JavaScript</code> 一直没有模块（module）体系，无法将一个大程序拆分成互相依赖的小文件，再用简单的方法拼装起来。其他语言都有这项功能，比如 <code>Ruby</code> 的<code>require</code>、<code>Python</code> 的<code>import</code>，甚至就连 <code>CSS</code> 都有<code>@import</code>，但是 <code>JavaScript</code> 任何这方面的支持都没有，这对开发大型的、复杂的项目形成了巨大障碍。</p>
+<p>在 ES6 之前，社区制定了一些模块加载方案，最主要的有 CommonJS 和 AMD 两种。前者用于服务器，后者用于浏览器。ES6 在语言标准的层面上，实现了模块功能，而且实现得相当简单，完全可以取代现有的 CommonJS 和 AMD 规范，成为浏览器和服务器通用的模块解决方案。</p>
+<p>ES6 模块的设计思想，是尽量的静态化，使得<strong>编译时就能确定模块的依赖关系</strong>，以及输入和输出的变量。CommonJS 和 AMD 模块，都只能在运行时确定这些东西。比如，CommonJS 模块就是对象，输入时必须查找对象属性。‘</p>
+<h2 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h2><ol>
+<li><p>每一个模块只加载一次， 每一个JS只执行一次， 如果下次再去加载同目录下同文件，直接从内存中读取。 一个模块就是一个单例，或者说就是一个对象；</p>
 </li>
-<li><p>返回值</p>
-<p>  一个新的<code>Promise</code>实例。</p>
+<li><p>每一个模块内声明的变量都是局部变量， 不会污染全局作用域；</p>
 </li>
-<li><p>作用</p>
-<p>  用于将多个<code>Promise</code>实例包装成一个新的Promise实例。</p>
+<li><p>模块内部的变量或者函数可以通过export导出；</p>
 </li>
-</ul>
-<blockquote>
-<p>如果传入的参数中存在不是Promise实例，则会先调用Promise.resolve，将其转为Promise实例，再进一步处理。</p>
-</blockquote>
-<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">var</span> promises<span class="token operator">=</span><span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span>id <span class="token operator">=</span><span class="token operator">></span><span class="token punctuation">{</span>
-    <span class="token keyword">return</span> <span class="token function">getJSON</span><span class="token punctuation">(</span><span class="token string">'/post/'</span><span class="token operator">+</span>id<span class="token operator">+</span><span class="token string">".json"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-Promise<span class="token punctuation">.</span><span class="token function">all</span><span class="token punctuation">(</span>promises<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>posts <span class="token operator">=</span><span class="token operator">></span><span class="token punctuation">{</span>
-    <span class="token comment" spellcheck="true">//...</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token keyword">catch</span><span class="token punctuation">(</span>reason <span class="token operator">=</span><span class="token operator">></span><span class="token punctuation">{</span>
-    <span class="token comment" spellcheck="true">//...</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre>
-<ul>
-<li><p>注意点</p>
-<p>  只有p1,p2,p3的状态都变为<code>fullfiled</code>，p状态才能变成<code>fullfiled</code>;此时p1,p2,p3的返回值组成一个数组，传递给p的回调函数</p>
-<p>  只要p1,p2,p3有一个被<code>rejected</code>，p的状态就变为<code>rejected</code>;</p>
+<li><p>一个模块可以导入别的模块；</p>
 </li>
-</ul>
-<h3 id="race"><a href="#race" class="headerlink" title="race()"></a>race()</h3><ul>
-<li><p>参数</p>
-<p>  <em>iterable</em> 必须是一个可迭代对象，如 Array 或 String。</p>
+<li><p>ES6的模块自动采用严格模式。</p>
 </li>
-<li><p>返回值</p>
-<p>  一个新的<code>Promise</code>实例。</p>
-</li>
-<li><p>作用</p>
-<p>  用于将多个<code>Promise</code>实例包装成一个新的Promise实例。</p>
-</li>
-<li><p>与all()的不同点</p>
-<p>  只要p1,p2,p3中有一个实例率先改变状态，p的状态就跟着改变。此时率先改变的Promise实例的返回值就会传递给p的回调函数。</p>
-</li>
-</ul>
-<h3 id="resolve-1"><a href="#resolve-1" class="headerlink" title="resolve()"></a>resolve()</h3><ul>
-<li><p>返回值</p>
-<p>  一个新的<code>Promise</code>实例。</p>
-</li>
-<li><p>作用</p>
-<p>  将现有对象转化为Promise。</p>
-</li>
-<li><p>参数（有以下四种情况）</p>
-<ol>
-<li>参数是Promise实例，不做任何修改。</li>
-<li>参数是一个thenable对象（指的是具有then方法的对象），会立即执行thenable对象的then方法。</li>
-<li>参数不是第二种或者根本不是对象，返回一个新的Promise对象，状态为Resolved（fullfiled）;</li>
-<li>不带任何参数，返回一个新的Promise对象，状态为Resolved。</li>
 </ol>
-</li>
+<h2 id="功能简介"><a href="#功能简介" class="headerlink" title="功能简介"></a>功能简介</h2><p>模块功能主要由两个命令构成 <code>export</code>和<code>import</code>。</p>
+<ul>
+<li><code>export</code> 命令用于规定模块的<strong>对外接口</strong>。</li>
+<li><code>import</code> 命令用于输入其他模块提供的功能。</li>
 </ul>
-<h3 id="reject-1"><a href="#reject-1" class="headerlink" title="reject()"></a>reject()</h3><ul>
-<li><p>作用</p>
-<p>  会返回一个新的Promise对象，状态为Rejected。</p>
-</li>
+<h2 id="export命令"><a href="#export命令" class="headerlink" title="export命令"></a><code>export</code>命令</h2><p>一个模块就是一个独立的文件。该文件内部的所有的变量，外部无法获取。如果希望外部能够读取模块内部的某个变量，就必须使用export关键字输出它。</p>
+<h3 id="1-最基本的用法"><a href="#1-最基本的用法" class="headerlink" title="1. 最基本的用法"></a>1. 最基本的用法</h3><pre class=" language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">//profile.js</span>
+<span class="token comment" spellcheck="true">//输出变量：</span>
+<span class="token keyword">export</span> <span class="token keyword">var</span> year <span class="token operator">=</span> <span class="token number">1958</span><span class="token punctuation">;</span> 
+<span class="token comment" spellcheck="true">//或者写成：</span>
+<span class="token keyword">var</span> year <span class="token operator">=</span> <span class="token number">1958</span><span class="token punctuation">;</span> 
+<span class="token keyword">export</span> <span class="token punctuation">{</span>year<span class="token punctuation">}</span><span class="token punctuation">;</span> （推荐）
+
+<span class="token comment" spellcheck="true">//输出函数：</span>
+<span class="token keyword">export</span> <span class="token keyword">function</span> <span class="token function">f</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//或者写成：</span>
+<span class="token keyword">function</span> <span class="token function">f</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token keyword">export</span> <span class="token punctuation">{</span>f<span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
+<h3 id="2-as关键字"><a href="#2-as关键字" class="headerlink" title="2. as关键字"></a>2. as关键字</h3><p>重命名对外的接口</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">v1</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token operator">...</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">}</span>
+<span class="token keyword">function</span> <span class="token function">v2</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token operator">...</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">}</span>
+
+<span class="token keyword">export</span><span class="token punctuation">{</span>
+    v1 <span class="token keyword">as</span> streamV1<span class="token punctuation">,</span>
+    v2 <span class="token keyword">as</span> streamV2
+<span class="token punctuation">}</span></code></pre>
+<h3 id="3-export语句输出的值与对应的值是动态绑定关系，即通过该接口可以取到模块内部实时的值"><a href="#3-export语句输出的值与对应的值是动态绑定关系，即通过该接口可以取到模块内部实时的值" class="headerlink" title="3. export语句输出的值与对应的值是动态绑定关系，即通过该接口可以取到模块内部实时的值"></a>3. export语句输出的值与对应的值是动态绑定关系，即通过该接口可以取到模块内部<strong>实时</strong>的值</h3><pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">export</span> <span class="token keyword">var</span> foo<span class="token operator">=</span><span class="token string">"foo"</span><span class="token punctuation">;</span>
+<span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">></span>foo<span class="token operator">=</span><span class="token string">'baz'</span><span class="token punctuation">,</span><span class="token number">500</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">//输出变量foo,值为bar，500ms后变成baz</span>
+</code></pre>
+<h3 id="4-错误写法"><a href="#4-错误写法" class="headerlink" title="4. 错误写法"></a>4. 错误写法</h3><p>export命令规定的是对外的接口，实质是在接口名与模块内部变量之间建立了一一对应的关系。</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">export</span> <span class="token punctuation">{</span>foo<span class="token punctuation">,</span>baz<span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">//等价于</span>
+<span class="token keyword">export</span> <span class="token punctuation">{</span>foo<span class="token punctuation">:</span>foo<span class="token punctuation">,</span>baz<span class="token punctuation">:</span>baz<span class="token punctuation">}</span></code></pre>
+<p>针对与上面一点，下面的写法就会导致错误</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">export</span> <span class="token number">1</span><span class="token punctuation">;</span>
+
+<span class="token keyword">var</span> m<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token keyword">export</span> m<span class="token punctuation">;</span></code></pre>
+<h2 id="import命令"><a href="#import命令" class="headerlink" title="import命令"></a><code>import</code>命令</h2><p>使用export命令定义了模块的对外接口以后，其他的js文件就可以通过import命令加载这个模块了。</p>
+<h3 id="1-基本用法"><a href="#1-基本用法" class="headerlink" title="1. 基本用法"></a>1. 基本用法</h3><pre class=" language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">//main.js</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span>year<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'./profile'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">function</span> <span class="token function">setName</span><span class="token punctuation">(</span>element<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    element<span class="token punctuation">.</span>textContent<span class="token operator">=</span>year<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<blockquote>
+<p>大括号{}中的变量名必须与被导入模块对外接口的名称相同。</p>
+</blockquote>
+<h3 id="2-as用法"><a href="#2-as用法" class="headerlink" title="2. as用法"></a>2. as用法</h3><p>为输入的变量名重新取一个名字</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">import</span> <span class="token punctuation">{</span>year <span class="token keyword">as</span> num<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'./profile'</span><span class="token punctuation">;</span></code></pre>
+<h3 id="3-from后面的文件位置"><a href="#3-from后面的文件位置" class="headerlink" title="3. from后面的文件位置"></a>3. from后面的文件位置</h3><ul>
+<li>可以是相对路径，也可以是绝对路径;</li>
+<li><code>.js</code>后缀可以省略;</li>
+<li>如果只是模块名，不带有路径，那么必须有配置文件告诉Javascript引擎该模块的位置。</li>
 </ul>
+<h3 id="4-import是静态执行"><a href="#4-import是静态执行" class="headerlink" title="4. import是静态执行"></a>4. import是静态执行</h3><p>import命令是编译阶段执行的，在代码运行之前。</p>
+<p>由于import是静态执行，所以不能使用表岛是和变量，只有在运行时才能得到结果的语法解构。</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">//报错</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span><span class="token string">'fo'</span><span class="token operator">+</span><span class="token string">'oo'</span><span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'my_moudule'</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">//报错</span>
+<span class="token keyword">let</span> module<span class="token operator">=</span><span class="token string">'my_module'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span>foo<span class="token punctuation">}</span> <span class="token keyword">from</span> module<span class="token punctuation">;</span></code></pre>
+<h2 id="模块的整体加载（-）"><a href="#模块的整体加载（-）" class="headerlink" title="模块的整体加载（*）"></a>模块的整体加载（*）</h2><p>上面我们代码中涉及到的是指定加载某个输入值，还可以使用整体加载（即型号<em>）来指定一个对象，*</em>所有输出值**都加载在这个对象上。</p>
+<p><code>circle.js</code>文件</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">export</span> <span class="token keyword">function</span> <span class="token function">area</span><span class="token punctuation">(</span>radius<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> Math<span class="token punctuation">.</span>PI <span class="token operator">*</span> radius <span class="token operator">*</span> radius<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">export</span> <span class="token keyword">function</span> <span class="token function">circumference</span><span class="token punctuation">(</span>radius<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token number">2</span> <span class="token operator">*</span> Math<span class="token punctuation">.</span>PI <span class="token operator">*</span> radius<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>main.js文件</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">// main.js</span>
+
+<span class="token keyword">import</span> <span class="token punctuation">{</span> area<span class="token punctuation">,</span> circumference <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'./circle'</span><span class="token punctuation">;</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'圆面积：'</span> <span class="token operator">+</span> <span class="token function">area</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'圆周长：'</span> <span class="token operator">+</span> <span class="token function">circumference</span><span class="token punctuation">(</span><span class="token number">14</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p>上面写法是逐一指定要加载的方法，整体加载的写法如下。</p>
+<pre class=" language-javascript"><code class="language-javascript">
+<span class="token keyword">import</span> <span class="token operator">*</span> <span class="token keyword">as</span> circle <span class="token keyword">from</span> <span class="token string">'./circle'</span><span class="token punctuation">;</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'圆面积：'</span> <span class="token operator">+</span> circle<span class="token punctuation">.</span><span class="token function">area</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'圆周长：'</span> <span class="token operator">+</span> circle<span class="token punctuation">.</span><span class="token function">circumference</span><span class="token punctuation">(</span><span class="token number">14</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<h2 id="export-default-命令"><a href="#export-default-命令" class="headerlink" title="export default 命令"></a><code>export default</code> 命令</h2><p>从前面的例子可以看出，使用import命令时用户需要知道所加载的变量名或者函数名，否则无法加载。</p>
+<p>为了方便用户，使其不用阅读文档就能加载模块，可以使用<code>export default</code>命令为模块指定默认输出。</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">// export-default.js</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'foo'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">// import-default.js</span>
+<span class="token keyword">import</span> customName <span class="token keyword">from</span> <span class="token string">'./export-default'</span><span class="token punctuation">;</span>
+<span class="token function">customName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 'foo'</span></code></pre>
+<p>上面的import命令可以用任意名称指向文件的输出的方法，这时就不需要知道原模块输出的函数名了。</p>
+<p>需要注意的是 这时import命令后面不使用大括号。</p>
+<blockquote>
+<p><code>export default</code>命令用于指定模块的默认输出。显然，一个模块只能有一个默认输出，因此<code>export default</code>命令只能使用一次。所以<code>import</code>命令后面不用加大括号，因为只可能对应一个方法。</p>
+</blockquote>
+<h2 id="export与import的复合写法"><a href="#export与import的复合写法" class="headerlink" title="export与import的复合写法"></a><code>export</code>与<code>import</code>的复合写法</h2><p>用于在一个模块之中先输入后输出同一模块。</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">export</span> <span class="token punctuation">{</span> foo<span class="token punctuation">,</span> bar <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'my_module'</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// 等同于</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> foo<span class="token punctuation">,</span> bar <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'my_module'</span><span class="token punctuation">;</span>
+<span class="token keyword">export</span> <span class="token punctuation">{</span> foo<span class="token punctuation">,</span> boo<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+
+<span class="token comment" spellcheck="true">// 接口改名</span>
+<span class="token keyword">export</span> <span class="token punctuation">{</span> foo <span class="token keyword">as</span> myFoo <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'my_module'</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// 整体输出</span>
+<span class="token keyword">export</span> <span class="token operator">*</span> <span class="token keyword">from</span> <span class="token string">'my_module'</span><span class="token punctuation">;</span></code></pre>
+<h2 id="模块的继承"><a href="#模块的继承" class="headerlink" title="模块的继承"></a>模块的继承</h2><p>模块之间也可以继承</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">// circleplus.js</span>
+
+<span class="token keyword">export</span> <span class="token operator">*</span> <span class="token keyword">from</span> <span class="token string">'circle'</span><span class="token punctuation">;</span>
+<span class="token keyword">export</span> <span class="token keyword">var</span> e <span class="token operator">=</span> <span class="token number">2.71828182846</span><span class="token punctuation">;</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">function</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> Math<span class="token punctuation">.</span><span class="token function">exp</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<blockquote>
+<p>注意，<code>export *</code>命令会忽略<code>circle</code>模块的<code>default</code>方法。</p>
+</blockquote>
 
             </div>
             <hr/>
@@ -528,7 +573,7 @@ Promise<span class="token punctuation">.</span><span class="token function">all<
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://blog.rabbitdu.vip/2020/03/25/ES6-Promise%E5%AF%B9%E8%B1%A1/">http://blog.rabbitdu.vip/2020/03/25/ES6-Promise%E5%AF%B9%E8%B1%A1/</a>
+                    <a href="http://blog.rabbitdu.vip/2020/03/26/ES6-module%E6%A8%A1%E6%9D%BF/">http://blog.rabbitdu.vip/2020/03/26/ES6-module%E6%A8%A1%E6%9D%BF/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -608,9 +653,10 @@ Promise<span class="token punctuation">.</span><span class="token function">all<
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2020/03/26/ES6-module%E6%A8%A1%E6%9D%BF/">
                     <div class="card-image">
@@ -628,9 +674,9 @@ Promise<span class="token punctuation">.</span><span class="token function">all<
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-03-26
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-03-26
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -643,6 +689,7 @@ Promise<span class="token punctuation">.</span><span class="token function">all<
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -661,36 +708,30 @@ Promise<span class="token punctuation">.</span><span class="token function">all<
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/03/15/%E5%85%B3%E4%BA%8EES6%E4%B8%AD%E7%9A%84%E5%8F%98%E9%87%8F%E7%9A%84%E8%A7%A3%E6%9E%84%E8%B5%8B%E5%80%BC%E7%9A%84%E8%AF%A6%E7%BB%86%E4%BB%8B%E7%BB%8D/">
+                <a href="/2020/03/25/ES6-Promise%E5%AF%B9%E8%B1%A1/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="关于ES6中的变量的解构赋值的介绍">
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="ES6-Promise对象">
                         
-                        <span class="card-title">关于ES6中的变量的解构赋值的介绍</span>
+                        <span class="card-title">ES6-Promise对象</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            （文章中介绍的都是个人观点，如有不准确的欢迎指出。但请勿喷，谢谢！）
-在了解具体内容之前，我们应该带着以下问题来阅读文章。
-什么叫做解构？（简单来讲就是从数组和对象中提取值）
-解构赋值可以用在哪些数据结构上？（数组、对象、字符串-类似数组、
+                            Promise是什么？ Promise 是异步编程的一种解决方案，比传统的解决方案——回调函数和事件——更合理和更强大。它由社区最早提出和实现，ES6 将其写进了语言标准，统一了用法，原生提供了Promise对象。
+从语法上说，Promis
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-03-15
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-03-25
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/ES6/" class="post-category">
-                                    ES6
-                                </a>
-                            
+                            <i class="fas fa-user fa-fw"></i>
+                            Rabbit
                             
                         </span>
                     </div>
