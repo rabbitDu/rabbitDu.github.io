@@ -411,7 +411,7 @@
 <li>一旦状态改变，就不会在变。</li>
 <li>状态改变的过程只可能是：从<code>pending</code>变为<code>fulfilled</code>和从<code>pending</code>变为<code>rejected</code>。如果状态发生上述变化后，此时状态就不会在改变了，这时就称为<code>resolved</code>（已定型）</li>
 </ul>
-<h3 id="如何创建实例"><a href="#如何创建实例" class="headerlink" title="如何创建实例"></a>如何创建实例</h3><pre><code>const promise = new Promise((resolve, reject) =&gt; {
+<h3 id="如何创建实例"><a href="#如何创建实例" class="headerlink" title="如何创建实例"></a>如何创建实例</h3><pre class=" language-javasrcipt"><code class="language-javasrcipt">const promise = new Promise((resolve, reject) => {
     // do something here ...
     if (success) {
         resolve(value); // fulfilled
@@ -425,7 +425,8 @@
   }, function(error) {
       // failure
   });
-</code></pre><h4 id="resolve"><a href="#resolve" class="headerlink" title="resolve()"></a>resolve()</h4><p>将Promise对象的状态从<code>pending</code>变为<code>fulfilled</code>，在异步操作成功的时候调用，并将异步操作的结果作为参数传递出去。</p>
+</code></pre>
+<h4 id="resolve"><a href="#resolve" class="headerlink" title="resolve()"></a>resolve()</h4><p>将Promise对象的状态从<code>pending</code>变为<code>fulfilled</code>，在异步操作成功的时候调用，并将异步操作的结果作为参数传递出去。</p>
 <h4 id="reject"><a href="#reject" class="headerlink" title="reject()"></a>reject()</h4><p>将Promise对象的状态从<code>pending</code>变为<code>rejected</code>，在异步操作的时候调用，并将异步操作报出的错误作为参数传递出去。</p>
 <h4 id="then"><a href="#then" class="headerlink" title="then()"></a>then()</h4><p>可以接收两个回调函数作为参数，分别作为fullFiled状态的回调函数和rejected状态的回调函数。</p>
 <h2 id="Promise-中的方法"><a href="#Promise-中的方法" class="headerlink" title="Promise 中的方法"></a>Promise 中的方法</h2><h3 id="then-1"><a href="#then-1" class="headerlink" title="then()"></a>then()</h3><p>他的作用上面也有提到，是为Promise实例添加状态改变时的回调函数。</p>
@@ -453,14 +454,15 @@
 <blockquote>
 <p>如果传入的参数中存在不是Promise实例，则会先调用Promise.resolve，将其转为Promise实例，再进一步处理。</p>
 </blockquote>
-<pre><code>var promises=[2,3,4].map(id =&gt;{
-    return getJSON(&#39;/post/&#39;+id+&quot;.json&quot;);
+<pre class=" language-javasrcipt"><code class="language-javasrcipt">var promises=[2,3,4].map(id =>{
+    return getJSON('/post/'+id+".json");
 });
-Promise.all(promises).then(posts =&gt;{
+Promise.all(promises).then(posts =>{
     //...
-}).catch(reason =&gt;{
+}).catch(reason =>{
     //...
-})</code></pre><ul>
+})</code></pre>
+<ul>
 <li><p>注意点</p>
 <p>  只有p1,p2,p3的状态都变为<code>fullfiled</code>，p状态才能变成<code>fullfiled</code>;此时p1,p2,p3的返回值组成一个数组，传递给p的回调函数</p>
 <p>  只要p1,p2,p3有一个被<code>rejected</code>，p的状态就变为<code>rejected</code>;</p>
